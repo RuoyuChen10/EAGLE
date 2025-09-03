@@ -190,7 +190,6 @@ def main(args):
         if os.path.exists(
             os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json"))
         ):
-            # id += 1
             continue
         
         image_path = os.path.join(args.Datasets, content["image_path"])
@@ -251,9 +250,6 @@ def main(args):
         with open(
             os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json")), "w") as f:
             f.write(json.dumps(saved_json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
-            
-        
-    
     
 if __name__ == "__main__":
     args = parse_args()
