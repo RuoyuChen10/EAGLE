@@ -297,7 +297,17 @@ def annotate_with_grounding_dino(image, boxes, phrases, color=(34,139,34)):
 
 def visualization_mllm_with_object(image_path, S_set, saved_json_file, save_path=None):
     attribution_map, _ = add_value(S_set, saved_json_file)
-    vis_saliency_map, heatmap = gen_cam(image_path, norm_image(attribution_map[:,:,0]))
+    
+    sensitive = max(saved_json_file["insertion_score"]) - saved_json_file["deletion_score"][-1]
+    print(sensitive)
+    scale = sensitive * 1.5
+    
+    attribution_map = norm_image(attribution_map[:,:,0])
+    
+    if scale < 1:
+        attribution_map = attribution_map * scale
+    
+    vis_saliency_map, heatmap = gen_cam(image_path, attribution_map)
     
     vis_saliency_map_w_box = annotate_with_grounding_dino(vis_saliency_map, np.array([saved_json_file["location"]]), [saved_json_file["select_category"]], color=(255,255,255))
     

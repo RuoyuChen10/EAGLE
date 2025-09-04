@@ -39,8 +39,8 @@ def main(args):
                                       json_file_name.replace(".json", ".jpg"))
         
         save_full_visualization_map_path = os.path.join(full_visualization_path, json_file_name.replace(".json", ".png"))
-        # if os.path.exists(save_full_visualization_map_path):
-        #     continue
+        if os.path.exists(save_full_visualization_map_path):
+            continue
         
         with open(json_file_path, 'r', encoding='utf-8') as f:
             saved_json_file = json.load(f)
