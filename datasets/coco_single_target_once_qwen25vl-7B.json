@@ -1,6 +1,6 @@
 [
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000385029.jpg",
+    "image_path": "000000385029.jpg",
     "gt_caption": "A person cutting a pizza next to a salad and bottles of wine on wooden table.",
     "generate_sentence": "A person cuts a pizza on a wooden board with a salad and wine nearby.",
     "generated_ids": [
@@ -540,7 +540,7 @@
     "target_generated_token": "Ġperson"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000032861.jpg",
+    "image_path": "000000032861.jpg",
     "gt_caption": "A man holding an umbrella in a  hallway.",
     "generate_sentence": "A person walks through a hallway holding an umbrella with \"pas mouv\" written on it, as rain falls around them.",
     "generated_ids": [
@@ -1160,7 +1160,7 @@
     "target_generated_token": "Ġperson"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000213086.jpg",
+    "image_path": "000000213086.jpg",
     "gt_caption": "A man holding an oven door open while he looks in it. ",
     "generate_sentence": "A person is bending over to look inside an open oven in a kitchen.",
     "generated_ids": [
@@ -1683,7 +1683,7 @@
     "target_generated_token": "Ġperson"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000229553.jpg",
+    "image_path": "000000229553.jpg",
     "gt_caption": "A man sitting on top of a skateboard on a street.",
     "generate_sentence": "A person wearing a helmet and gloves is crouched on a skateboard with green wheels.",
     "generated_ids": [
@@ -2339,7 +2339,7 @@
     "target_generated_token": "Ġperson"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000370208.jpg",
+    "image_path": "000000370208.jpg",
     "gt_caption": "A bike parked in front of a parking meter.",
     "generate_sentence": "An orange bicycle is parked next to a parking meter on a sidewalk.",
     "generated_ids": [
@@ -2762,7 +2762,7 @@
     "target_generated_token": "Ġbicycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000203317.jpg",
+    "image_path": "000000203317.jpg",
     "gt_caption": "A red and white bicycle next to a building and door.",
     "generate_sentence": "A red bicycle leans against an orange wall with a graffiti-covered door and barred window.",
     "generated_ids": [
@@ -3271,7 +3271,7 @@
     "target_generated_token": "Ġbicycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000289343.jpg",
+    "image_path": "000000289343.jpg",
     "gt_caption": "A man is riding a large bike through the park.",
     "generate_sentence": "A person in striped pants rides a bicycle near a small dog and a tree in an urban setting.",
     "generated_ids": [
@@ -3991,7 +3991,7 @@
     "target_generated_token": "Ġbicycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000403565.jpg",
+    "image_path": "000000403565.jpg",
     "gt_caption": "A man wearing a bike helmet standing next to a bicycle.",
     "generate_sentence": "A cyclist takes a photo while standing next to their bicycle on a gravel path.",
     "generated_ids": [
@@ -4588,7 +4588,7 @@
     "target_generated_token": "Ġbicycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000507975.jpg",
+    "image_path": "000000507975.jpg",
     "gt_caption": "Some very pretty horses with riders in the grass.",
     "generate_sentence": "Three horses race closely, with jockeys in helmets and a car behind them on a grassy track.",
     "generated_ids": [
@@ -5154,7 +5154,7 @@
     "target_generated_token": "Ġcar"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000010363.jpg",
+    "image_path": "000000010363.jpg",
     "gt_caption": "A gray cat standing on top of a black car.",
     "generate_sentence": "A tabby cat with white paws stands on the hood of a car in a garage.",
     "generated_ids": [
@@ -5672,7 +5672,7 @@
     "target_generated_token": "Ġcar"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000147740.jpg",
+    "image_path": "000000147740.jpg",
     "gt_caption": "A woman walking while carrying bananas on her hat.",
     "generate_sentence": "A woman carries bananas on her head while walking through a busy street market.",
     "generated_ids": [
@@ -6212,7 +6212,7 @@
     "target_generated_token": "Ġbananas"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000151962.jpg",
+    "image_path": "000000151962.jpg",
     "gt_caption": "The reflection of a dogs head out of a car window in one of the cars wing mirrors",
     "generate_sentence": "A dog peers out from a car window, visible through a side mirror.",
     "generated_ids": [
@@ -6720,7 +6720,7 @@
     "target_generated_token": "Ġcar"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000102411.jpg",
+    "image_path": "000000102411.jpg",
     "gt_caption": "Two people riding a motorcycle to the beach.",
     "generate_sentence": "Two people on motorcycles wait at a crosswalk near a beach with people and trees.",
     "generated_ids": [
@@ -7296,7 +7296,7 @@
     "target_generated_token": "Ġwait"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000498709.jpg",
+    "image_path": "000000498709.jpg",
     "gt_caption": "A motorcycle parked on the side of a road near a city.",
     "generate_sentence": "A close-up view shows the front of a green motorcycle with a round headlight and handlebars.",
     "generated_ids": [
@@ -7896,7 +7896,7 @@
     "target_generated_token": "Ġmotorcycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000321557.jpg",
+    "image_path": "000000321557.jpg",
     "gt_caption": "a close up of a motorcycle parked near a building",
     "generate_sentence": "A black BMW motorcycle with a sporty design is parked on a brick surface.",
     "generated_ids": [
@@ -8575,7 +8575,7 @@
     "target_generated_token": "Ġmotorcycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000284698.jpg",
+    "image_path": "000000284698.jpg",
     "gt_caption": "The image of a man holding a camera is in this motorcycle side mirror. ",
     "generate_sentence": "A person takes a selfie in a motorcycle side mirror, reflecting a scenic lakeside road and forested hills.",
     "generated_ids": [
@@ -8966,7 +8966,7 @@
     "target_generated_token": "Ġmotorcycle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000208901.jpg",
+    "image_path": "000000208901.jpg",
     "gt_caption": "A large passenger jet flying through a gray sky.",
     "generate_sentence": "A commercial airplane is captured mid-flight against a cloudy sky.",
     "generated_ids": [
@@ -9468,7 +9468,7 @@
     "target_generated_token": "Ġairplane"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000379453.jpg",
+    "image_path": "000000379453.jpg",
     "gt_caption": "An Air Force jet flying in a deep blue sky.",
     "generate_sentence": "A white airplane with \"CS-DRZ\" on its tail is flying against a clear blue sky.",
     "generated_ids": [
@@ -9875,7 +9875,7 @@
     "target_generated_token": "Ġairplane"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000502347.jpg",
+    "image_path": "000000502347.jpg",
     "gt_caption": "A plane passing over a harbor, on a clear day.",
     "generate_sentence": "A small airplane flies over a coastal town with a marina and forested hills in the background.",
     "generated_ids": [
@@ -10266,7 +10266,7 @@
     "target_generated_token": "Ġairplane"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000196185.jpg",
+    "image_path": "000000196185.jpg",
     "gt_caption": "A jetliner taking off from an airport runway.",
     "generate_sentence": "A commercial airplane is taking off from an airport runway during dusk.",
     "generated_ids": [
@@ -10820,7 +10820,7 @@
     "target_generated_token": "Ġairplane"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000436738.jpg",
+    "image_path": "000000436738.jpg",
     "gt_caption": "An intersection with antique cars and a bus at it.",
     "generate_sentence": "A vintage bus and cars are stopped at an intersection with overhead trolley wires.",
     "generated_ids": [
@@ -11321,7 +11321,7 @@
     "target_generated_token": "Ġbus"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000184324.jpg",
+    "image_path": "000000184324.jpg",
     "gt_caption": "A group of people walking across a busy city street.",
     "generate_sentence": "A bustling street scene with pedestrians, shops, and vehicles in an urban European setting.",
     "generated_ids": [
@@ -11795,7 +11795,7 @@
     "target_generated_token": "Ġstreet"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000392722.jpg",
+    "image_path": "000000392722.jpg",
     "gt_caption": "A group of people standing next to a double decker bus.",
     "generate_sentence": "A green double-decker bus is parked on a street near a brick building with white-framed windows.",
     "generated_ids": [
@@ -12419,7 +12419,7 @@
     "target_generated_token": "Ġbus"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000148508.jpg",
+    "image_path": "000000148508.jpg",
     "gt_caption": "A black and white picture of a busy street, only red is in color, a red double decker bus drives down the road. ",
     "generate_sentence": "A red double-decker bus numbered 176 is driving down a street with people and trees on both sides.",
     "generated_ids": [
@@ -12941,7 +12941,7 @@
     "target_generated_token": "Ġbus"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000184321.jpg",
+    "image_path": "000000184321.jpg",
     "gt_caption": "A train traveling down tracks next to lights.",
     "generate_sentence": "A modern train approaches a station platform under evening light, surrounded by trees and streetlights.",
     "generated_ids": [
@@ -13467,7 +13467,7 @@
     "target_generated_token": "Ġtrain"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000130566.jpg",
+    "image_path": "000000130566.jpg",
     "gt_caption": "A yellow train on the tracks with several cars",
     "generate_sentence": "A freight train with a yellow locomotive travels through a green, rural landscape on multiple tracks.",
     "generated_ids": [
@@ -13983,7 +13983,7 @@
     "target_generated_token": "Ġtrain"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000539143.jpg",
+    "image_path": "000000539143.jpg",
     "gt_caption": "A train traveling under a rusted bridge on top of tracks.",
     "generate_sentence": "A purple and yellow train with red doors is stopped at a station under a rusted bridge.",
     "generated_ids": [
@@ -14608,7 +14608,7 @@
     "target_generated_token": "Ġtrain"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000148999.jpg",
+    "image_path": "000000148999.jpg",
     "gt_caption": "A biilboard with a railcar in front of it. ",
     "generate_sentence": "A mural depicts historical figures and a steam train, with smoke billowing from the locomotive.",
     "generated_ids": [
@@ -15104,7 +15104,7 @@
     "target_generated_token": "Ġtrain"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000301061.jpg",
+    "image_path": "000000301061.jpg",
     "gt_caption": "A person is moving green hay towards an elephant that is inside the back of a white truck.",
     "generate_sentence": "An elephant with a long tusk is partially inside a wooden truck, surrounded by hay.",
     "generated_ids": [
@@ -15644,7 +15644,7 @@
     "target_generated_token": "Ġtruck"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000184338.jpg",
+    "image_path": "000000184338.jpg",
     "gt_caption": "A large colorful truck with a with a wooden building on it's back.",
     "generate_sentence": "An old, painted truck with religious messages and artwork is parked in a desert setting.",
     "generated_ids": [
@@ -16186,7 +16186,7 @@
     "target_generated_token": "Ġtruck"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000188439.jpg",
+    "image_path": "000000188439.jpg",
     "gt_caption": "A colorful truck is driving with a full load of sticks and twigs.",
     "generate_sentence": "A white Isuzu truck carries sugarcane on a road near trees and a hammock.",
     "generated_ids": [
@@ -16780,7 +16780,7 @@
     "target_generated_token": "Ġtruck"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000009769.jpg",
+    "image_path": "000000009769.jpg",
     "gt_caption": "The pick up truck is plowing the snow. ",
     "generate_sentence": "A red pickup truck with a snowplow clears a snowy street in a residential neighborhood.",
     "generated_ids": [
@@ -17452,7 +17452,7 @@
     "target_generated_token": "Ġtruck"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000160772.jpg",
+    "image_path": "000000160772.jpg",
     "gt_caption": "A boat on the water with a lighthouse in the background. ",
     "generate_sentence": "A white boat named \"Keen Lady IV\" sails near a lighthouse on choppy waters.",
     "generated_ids": [
@@ -18017,7 +18017,7 @@
     "target_generated_token": "Ġboat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000248334.jpg",
+    "image_path": "000000248334.jpg",
     "gt_caption": "a boat filled with people going down a river",
     "generate_sentence": "A wooden boat with passengers travels on calm water near dense greenery.",
     "generated_ids": [
@@ -18384,7 +18384,7 @@
     "target_generated_token": "Ġboat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000451090.jpg",
+    "image_path": "000000451090.jpg",
     "gt_caption": "a white boat some green hills and water",
     "generate_sentence": "A small white boat with a mast floats on calm waters near a forested shoreline under a cloudy sky.",
     "generated_ids": [
@@ -18905,7 +18905,7 @@
     "target_generated_token": "Ġboat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000144932.jpg",
+    "image_path": "000000144932.jpg",
     "gt_caption": "Tug boats do a good job handling water emergencies.",
     "generate_sentence": "A small tugboat and barge navigate calm waters under an overcast sky.",
     "generated_ids": [
@@ -19487,7 +19487,7 @@
     "target_generated_token": "boat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000069138.jpg",
+    "image_path": "000000069138.jpg",
     "gt_caption": "A red traffic light with a sad face drawn over it.",
     "generate_sentence": "A traffic light displays a red signal with a sad face, indicating stop for vehicles.",
     "generated_ids": [
@@ -19909,7 +19909,7 @@
     "target_generated_token": "Ġtraffic"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000571943.jpg",
+    "image_path": "000000571943.jpg",
     "gt_caption": "a pole with a street light and signs next to a bare tree",
     "generate_sentence": "A traffic light and street signs for Macleod Trail and S Ave SE are mounted on a pole against a clear blue sky.",
     "generated_ids": [
@@ -20473,7 +20473,7 @@
     "target_generated_token": "Ġtraffic"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000088218.jpg",
+    "image_path": "000000088218.jpg",
     "gt_caption": "Signs proclaim the famous Haight Ashbury intersection and district.",
     "generate_sentence": "A traffic light at the intersection of Haight and Ashbury streets is shown against a clear blue sky.",
     "generated_ids": [
@@ -21035,7 +21035,7 @@
     "target_generated_token": "Ġtraffic"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000110282.jpg",
+    "image_path": "000000110282.jpg",
     "gt_caption": "A metal pole with a traffic light attached, red right arrow illuminated, with green grass, green trees, and white sky in background.",
     "generate_sentence": "A traffic light with a red arrow illuminated stands on a pole near a grassy field under a bright sky.",
     "generated_ids": [
@@ -21507,7 +21507,7 @@
     "target_generated_token": "Ġtraffic"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000354829.jpg",
+    "image_path": "000000354829.jpg",
     "gt_caption": "A car is parked on the side of the street in the rain.",
     "generate_sentence": "A white car is parked on a wet sidewalk next to a fire hydrant.",
     "generated_ids": [
@@ -21908,7 +21908,7 @@
     "target_generated_token": "Ġfire"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000171050.jpg",
+    "image_path": "000000171050.jpg",
     "gt_caption": "A brown and gold fire hydrant in front of a brick building.",
     "generate_sentence": "A weathered fire hydrant stands in front of a brick building with a green door.",
     "generated_ids": [
@@ -22454,7 +22454,7 @@
     "target_generated_token": "Ġfire"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000499768.jpg",
+    "image_path": "000000499768.jpg",
     "gt_caption": "a fire hydrant on a city side walk with bushes",
     "generate_sentence": "A fire hydrant is surrounded by overgrown vegetation on a city street corner.",
     "generated_ids": [
@@ -22944,7 +22944,7 @@
     "target_generated_token": "Ġfire"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000204871.jpg",
+    "image_path": "000000204871.jpg",
     "gt_caption": "A red fire hydrant with a sticker of several animals on it",
     "generate_sentence": "A red fire hydrant with a white sticker featuring a dinosaur design stands on a sidewalk near a street intersection.",
     "generated_ids": [
@@ -23707,7 +23707,7 @@
     "target_generated_token": "Ġfire"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000126592.jpg",
+    "image_path": "000000126592.jpg",
     "gt_caption": "A red stop sign sitting under a couple of street signs.",
     "generate_sentence": "A stop sign stands at the intersection of Sutter Street and another street, with cars parked nearby.",
     "generated_ids": [
@@ -24183,7 +24183,7 @@
     "target_generated_token": "Ġstop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000571008.jpg",
+    "image_path": "000000571008.jpg",
     "gt_caption": "The stop sign has stenciled spray paint on it. ",
     "generate_sentence": "A stop sign has \"HAMMERTIME\" spray-painted on it below the word \"STOP.\"",
     "generated_ids": [
@@ -24659,7 +24659,7 @@
     "target_generated_token": "Ġstop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000104198.jpg",
+    "image_path": "000000104198.jpg",
     "gt_caption": "A sign is next to an ornate white gazebo.",
     "generate_sentence": "A red stop sign with Thai script stands near a temple-like structure with a golden spire.",
     "generated_ids": [
@@ -25020,7 +25020,7 @@
     "target_generated_token": "Ġstop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000222094.jpg",
+    "image_path": "000000222094.jpg",
     "gt_caption": "Road is littered with old cars and some wrecked trucks with a lone red and white stop sign at a grassy lot ",
     "generate_sentence": "A stop sign stands near a rural road with wooden buildings and a clear blue sky.",
     "generated_ids": [
@@ -25381,7 +25381,7 @@
     "target_generated_token": "Ġstop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000333956.jpg",
+    "image_path": "000000333956.jpg",
     "gt_caption": "A parking meter at the edge of the ocean with a boat behind it.",
     "generate_sentence": "A parking meter with a \"Drive Carefully Save A Life\" sticker overlooks a body of water under a cloudy sky.",
     "generated_ids": [
@@ -25877,7 +25877,7 @@
     "target_generated_token": "Ġparking"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000280325.jpg",
+    "image_path": "000000280325.jpg",
     "gt_caption": "Graffiti decorates the wall in front of a parking meter.",
     "generate_sentence": "A weathered parking meter stands next to a wall with graffiti.",
     "generated_ids": [
@@ -26272,7 +26272,7 @@
     "target_generated_token": "Ġparking"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000234757.jpg",
+    "image_path": "000000234757.jpg",
     "gt_caption": "A parking meter sitting in the middle of a flooded street.",
     "generate_sentence": "A parking meter and street sign are partially submerged in floodwaters.",
     "generated_ids": [
@@ -26782,7 +26782,7 @@
     "target_generated_token": "Ġparking"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000430871.jpg",
+    "image_path": "000000430871.jpg",
     "gt_caption": "A parking meter next to a handicap parking space.",
     "generate_sentence": "A parking meter with the number 715 is positioned next to a pole in an empty lot at dusk.",
     "generated_ids": [
@@ -27298,7 +27298,7 @@
     "target_generated_token": "Ġparking"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000349184.jpg",
+    "image_path": "000000349184.jpg",
     "gt_caption": "A woman sitting on top of a wooden bench near a park.",
     "generate_sentence": "A person with long hair sits on a wooden bench facing a blossoming tree-lined park.",
     "generated_ids": [
@@ -27776,7 +27776,7 @@
     "target_generated_token": "Ġbench"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000546829.jpg",
+    "image_path": "000000546829.jpg",
     "gt_caption": "A small white dog on a wooden bench.",
     "generate_sentence": "A white dog sits on a weathered wooden bench surrounded by greenery.",
     "generated_ids": [
@@ -28286,7 +28286,7 @@
     "target_generated_token": "Ġbench"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000133645.jpg",
+    "image_path": "000000133645.jpg",
     "gt_caption": "a small boat in a body of water ",
     "generate_sentence": "A boat floats on a calm lake near a dock with benches and lamp posts.",
     "generated_ids": [
@@ -28776,7 +28776,7 @@
     "target_generated_token": "Ġand"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000058393.jpg",
+    "image_path": "000000058393.jpg",
     "gt_caption": "Two people sitting on a bench silhouetted against the sea.",
     "generate_sentence": "A couple sits on a bench facing the ocean, silhouetted against the horizon.",
     "generated_ids": [
@@ -29308,7 +29308,7 @@
     "target_generated_token": "Ġbench"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000523782.jpg",
+    "image_path": "000000523782.jpg",
     "gt_caption": "A cardinal perches on the side window mirror of a parked sedan.",
     "generate_sentence": "A red bird perches on the side mirror of a beige SUV parked near a green truck.",
     "generated_ids": [
@@ -29860,7 +29860,7 @@
     "target_generated_token": "Ġbird"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000523811.jpg",
+    "image_path": "000000523811.jpg",
     "gt_caption": "A small bird perched on a piece of wood.",
     "generate_sentence": "A small bird perches on weathered wooden posts with green plants nearby.",
     "generated_ids": [
@@ -30482,7 +30482,7 @@
     "target_generated_token": "Ġbird"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000032811.jpg",
+    "image_path": "000000032811.jpg",
     "gt_caption": "A bird resting outside of a boat window. ",
     "generate_sentence": "A bird perches on a ship's window frame, overlooking calm waters and a distant shoreline.",
     "generated_ids": [
@@ -30873,7 +30873,7 @@
     "target_generated_token": "Ġbird"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000186938.jpg",
+    "image_path": "000000186938.jpg",
     "gt_caption": "A small bird standing on a rocky ground.",
     "generate_sentence": "A small bird with white and brown plumage stands on sandy ground near scattered rocks.",
     "generated_ids": [
@@ -31407,7 +31407,7 @@
     "target_generated_token": "Ġbird"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000416256.jpg",
+    "image_path": "000000416256.jpg",
     "gt_caption": "A cat laying on the floor next to a keyboard.",
     "generate_sentence": "An orange and white cat rests on a keyboard amidst tangled cables.",
     "generated_ids": [
@@ -31818,7 +31818,7 @@
     "target_generated_token": "Ġcat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000269314.jpg",
+    "image_path": "000000269314.jpg",
     "gt_caption": "A cat sitting on top of a banana tree.",
     "generate_sentence": "A cat perches on a banana tree amidst large green leaves and unripe bananas.",
     "generated_ids": [
@@ -32414,7 +32414,7 @@
     "target_generated_token": "Ġcat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000223747.jpg",
+    "image_path": "000000223747.jpg",
     "gt_caption": "a man sleeping with his cat next to him",
     "generate_sentence": "A person and a cat are lying down, partially covered by a blanket.",
     "generated_ids": [
@@ -32813,7 +32813,7 @@
     "target_generated_token": "Ġcat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000245764.jpg",
+    "image_path": "000000245764.jpg",
     "gt_caption": "A cat sits on the edge of a toilet.",
     "generate_sentence": "A black cat is sitting on a white toilet seat in a bathroom.",
     "generated_ids": [
@@ -33405,7 +33405,7 @@
     "target_generated_token": "Ġcat"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000404484.jpg",
+    "image_path": "000000404484.jpg",
     "gt_caption": "A woman bending over in a living room to pet her dog.",
     "generate_sentence": "A dog stands near a person in a living room with a TV, rug, and plants.",
     "generated_ids": [
@@ -33769,7 +33769,7 @@
     "target_generated_token": "Ġdog"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000205834.jpg",
+    "image_path": "000000205834.jpg",
     "gt_caption": "a close up of a dog near a bowl",
     "generate_sentence": "A brown and white dog with its tongue out sits near an empty metal bowl on a concrete surface.",
     "generated_ids": [
@@ -34557,7 +34557,7 @@
     "target_generated_token": "Ġdog"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000554002.jpg",
+    "image_path": "000000554002.jpg",
     "gt_caption": "A black dog standing between people in line",
     "generate_sentence": "A black dog stands on a cobblestone street near a group of people.",
     "generated_ids": [
@@ -35077,7 +35077,7 @@
     "target_generated_token": "Ġdog"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000366611.jpg",
+    "image_path": "000000366611.jpg",
     "gt_caption": "A dog is chewing on a soccer ball.",
     "generate_sentence": "A brindle dog lies on grass, holding a red and white soccer ball in its mouth.",
     "generated_ids": [
@@ -35621,7 +35621,7 @@
     "target_generated_token": "Ġdog"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000029187.jpg",
+    "image_path": "000000029187.jpg",
     "gt_caption": "A man riding a horse drawn carriage on a race track.",
     "generate_sentence": "A person drives a horse-drawn cart on a dirt track with advertising banners in the background.",
     "generated_ids": [
@@ -36340,7 +36340,7 @@
     "target_generated_token": "Ġhorse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000553990.jpg",
+    "image_path": "000000553990.jpg",
     "gt_caption": "A young person ridding a horse jumps a gate in a competition.",
     "generate_sentence": "A horse and rider jump over an obstacle on a grassy field with trees in the background.",
     "generated_ids": [
@@ -36961,7 +36961,7 @@
     "target_generated_token": "Ġhorse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000045070.jpg",
+    "image_path": "000000045070.jpg",
     "gt_caption": "A girl in white and pink shirt riding on a horse.",
     "generate_sentence": "A child wearing a helmet and plaid shirt sits on a horse with a purple saddle blanket.",
     "generated_ids": [
@@ -37599,7 +37599,7 @@
     "target_generated_token": "Ġhorse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000381971.jpg",
+    "image_path": "000000381971.jpg",
     "gt_caption": "A horse drawn carriage is near a fire hydrant by a curb.",
     "generate_sentence": "A horse-drawn carriage with passengers is parked on a city street near trees and buildings.",
     "generated_ids": [
@@ -38165,7 +38165,7 @@
     "target_generated_token": "Ġhorse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000263966.jpg",
+    "image_path": "000000263966.jpg",
     "gt_caption": "A large grey horse is behind a wooden fence.",
     "generate_sentence": "A horse and sheep are seen through a circular lens, with a hand reaching out towards the horse.",
     "generated_ids": [
@@ -38661,7 +38661,7 @@
     "target_generated_token": "Ġsheep"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000154947.jpg",
+    "image_path": "000000154947.jpg",
     "gt_caption": "A sheep standing in a dry grass field.",
     "generate_sentence": "A sheep stands amidst tall grass in an open field under a clear sky.",
     "generated_ids": [
@@ -39413,7 +39413,7 @@
     "target_generated_token": "Ġsheep"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000278353.jpg",
+    "image_path": "000000278353.jpg",
     "gt_caption": "A small sheep is standing under a wooden fence post.",
     "generate_sentence": "A sheep with a light-colored fleece stands on grass near a wooden fence.",
     "generated_ids": [
@@ -40097,7 +40097,7 @@
     "target_generated_token": "Ġsheep"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000158548.jpg",
+    "image_path": "000000158548.jpg",
     "gt_caption": "Outdoor show with sheep prominent on grass field.",
     "generate_sentence": "A sheep runs across a grassy field with a \"Welcome to the Show\" banner in the background.",
     "generated_ids": [
@@ -40729,7 +40729,7 @@
     "target_generated_token": "Ġsheep"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000014888.jpg",
+    "image_path": "000000014888.jpg",
     "gt_caption": "A cow getting relief as it is being milked.\n",
     "generate_sentence": "A cow's udder is being milked by mechanical milking equipment with red-tipped tubes.",
     "generated_ids": [
@@ -41305,7 +41305,7 @@
     "target_generated_token": "Ġcow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000555050.jpg",
+    "image_path": "000000555050.jpg",
     "gt_caption": "A car driving in an intersection, past a furniture shop. ",
     "generate_sentence": "A silver car passes by \"The Old Furniture\" store with a cow statue outside.",
     "generated_ids": [
@@ -41742,7 +41742,7 @@
     "target_generated_token": "Ġcow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000416837.jpg",
+    "image_path": "000000416837.jpg",
     "gt_caption": "A cow grazing on the side of a hill.",
     "generate_sentence": "A cow grazes on a grassy hillside with mountains and trees in the background under a clear sky.",
     "generated_ids": [
@@ -42388,7 +42388,7 @@
     "target_generated_token": "Ġcow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000311392.jpg",
+    "image_path": "000000311392.jpg",
     "gt_caption": "A black and white cow at market in her stall.",
     "generate_sentence": "A black and white cow stands inside a barn, with a man observing nearby.",
     "generated_ids": [
@@ -42918,7 +42918,7 @@
     "target_generated_token": "Ġcow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000415748.jpg",
+    "image_path": "000000415748.jpg",
     "gt_caption": "A man riding on the back of an elephant through a city street.",
     "generate_sentence": "A man rides an elephant adorned with colorful decorations near a historic building.",
     "generated_ids": [
@@ -43476,7 +43476,7 @@
     "target_generated_token": "Ġelephant"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000157213.jpg",
+    "image_path": "000000157213.jpg",
     "gt_caption": "an elephant in a field near many bushes ",
     "generate_sentence": "An elephant stands amidst greenery and yellow flowers in an open savanna landscape.",
     "generated_ids": [
@@ -43946,7 +43946,7 @@
     "target_generated_token": "Ġelephant"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000562207.jpg",
+    "image_path": "000000562207.jpg",
     "gt_caption": "A group of people are standing next to an elephant emerging from the water.",
     "generate_sentence": "A group of people stands near an elephant by a river with lush green hills in the background.",
     "generated_ids": [
@@ -44498,7 +44498,7 @@
     "target_generated_token": "Ġelephant"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000519208.jpg",
+    "image_path": "000000519208.jpg",
     "gt_caption": "a man standing next to an elephant next to his trunk",
     "generate_sentence": "A man wearing a green shirt stands close to an elephant, looking at it attentively.",
     "generated_ids": [
@@ -44983,7 +44983,7 @@
     "target_generated_token": "Ġelephant"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000243075.jpg",
+    "image_path": "000000243075.jpg",
     "gt_caption": "a polar bear near rocks made to look like ice",
     "generate_sentence": "A polar bear sits with its head tilted back, looking upwards against a snowy backdrop.",
     "generated_ids": [
@@ -45620,7 +45620,7 @@
     "target_generated_token": "Ġbear"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000519688.jpg",
+    "image_path": "000000519688.jpg",
     "gt_caption": "A woman wearing a blue coat holds a furry animal in her arms",
     "generate_sentence": "A woman holds a small black and white bear cub, both smiling warmly.",
     "generated_ids": [
@@ -46232,7 +46232,7 @@
     "target_generated_token": "Ġbear"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000132622.jpg",
+    "image_path": "000000132622.jpg",
     "gt_caption": "The large bear is looking in the direction of the camera.",
     "generate_sentence": "A wet grizzly bear stands in a grassy field, its fur glistening with moisture.",
     "generated_ids": [
@@ -46825,7 +46825,7 @@
     "target_generated_token": "Ġbear"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000521231.jpg",
+    "image_path": "000000521231.jpg",
     "gt_caption": "A polar bear standing by rocks in a grassy habitat.",
     "generate_sentence": "A polar bear stands on rocks near greenery, appearing alert and calm.",
     "generated_ids": [
@@ -47331,7 +47331,7 @@
     "target_generated_token": "Ġbear"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000291861.jpg",
+    "image_path": "000000291861.jpg",
     "gt_caption": "A Zebra standing in between a group of large rocks ",
     "generate_sentence": "A zebra stands beside a rock, its stripes contrasting sharply with the monochrome background.",
     "generated_ids": [
@@ -47839,7 +47839,7 @@
     "target_generated_token": "Ġz"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000433243.jpg",
+    "image_path": "000000433243.jpg",
     "gt_caption": "a zebra and a giraffe stand next to each other.",
     "generate_sentence": "A giraffe and zebra stand together near rocks, with the giraffe eating grass.",
     "generated_ids": [
@@ -48385,7 +48385,7 @@
     "target_generated_token": "Ġz"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000491613.jpg",
+    "image_path": "000000491613.jpg",
     "gt_caption": "A zebra standing by its reflection in a body of water.",
     "generate_sentence": "A zebra stands near a water puddle, its reflection visible on the surface.",
     "generated_ids": [
@@ -48997,7 +48997,7 @@
     "target_generated_token": "Ġz"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000317024.jpg",
+    "image_path": "000000317024.jpg",
     "gt_caption": "A zebra is next to fences standing on white ground.",
     "generate_sentence": "A zebra stands on sandy ground with a wooden fence and structure in the background.",
     "generated_ids": [
@@ -49595,7 +49595,7 @@
     "target_generated_token": "Ġz"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000485895.jpg",
+    "image_path": "000000485895.jpg",
     "gt_caption": "The giraffe is standing in the shade of the tree.",
     "generate_sentence": "A giraffe stands under a tree in a grassy, open area with a mound nearby.",
     "generated_ids": [
@@ -49998,7 +49998,7 @@
     "target_generated_token": "Ġgir"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000217614.jpg",
+    "image_path": "000000217614.jpg",
     "gt_caption": "A giraffe is walking in some tall grass",
     "generate_sentence": "A giraffe stands amidst greenery under a canopy of tall trees.",
     "generated_ids": [
@@ -50536,7 +50536,7 @@
     "target_generated_token": "Ġgir"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000471567.jpg",
+    "image_path": "000000471567.jpg",
     "gt_caption": "A giraffe stands alone outdoors at the zoo.",
     "generate_sentence": "A giraffe stands near a wooden fence with a mountain and clear sky in the background.",
     "generated_ids": [
@@ -51114,7 +51114,7 @@
     "target_generated_token": "Ġgir"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000475150.jpg",
+    "image_path": "000000475150.jpg",
     "gt_caption": "A giraffe stands near a tree in the wilderness. ",
     "generate_sentence": "A giraffe stands amidst leafless trees, its long neck and distinctive patterned coat clearly visible.",
     "generated_ids": [
@@ -51676,7 +51676,7 @@
     "target_generated_token": "Ġgir"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000024610.jpg",
+    "image_path": "000000024610.jpg",
     "gt_caption": "A disorderly living area is free from decorative elements.",
     "generate_sentence": "A small room contains a desk with a laptop, a bookshelf filled with books, and a bed with a backpack on it.",
     "generated_ids": [
@@ -52222,7 +52222,7 @@
     "target_generated_token": "Ġbackpack"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000032887.jpg",
+    "image_path": "000000032887.jpg",
     "gt_caption": "A man holding a stick standing next to a  green hillside.",
     "generate_sentence": "A man with a backpack and walking stick stands near a stream, while another person in yellow walks up steps behind him.",
     "generated_ids": [
@@ -52794,7 +52794,7 @@
     "target_generated_token": "Ġbackpack"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000423123.jpg",
+    "image_path": "000000423123.jpg",
     "gt_caption": "A woman bending over and looking inside of a mini fridge.",
     "generate_sentence": "A person with a backpack reaches into an open refrigerator while another individual stands nearby.",
     "generated_ids": [
@@ -53342,7 +53342,7 @@
     "target_generated_token": "Ġbackpack"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000030504.jpg",
+    "image_path": "000000030504.jpg",
     "gt_caption": "A person riding skis down a snow covered slope.",
     "generate_sentence": "A person wearing a white hat and red backpack is skiing on a snowy trail.",
     "generated_ids": [
@@ -53894,7 +53894,7 @@
     "target_generated_token": "Ġbackpack"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000360960.jpg",
+    "image_path": "000000360960.jpg",
     "gt_caption": "Several people walking on a sidewalk, with one man holding an umbrella.",
     "generate_sentence": "A person walks away under a colorful rainbow umbrella on a city sidewalk.",
     "generated_ids": [
@@ -54372,7 +54372,7 @@
     "target_generated_token": "Ġumbrella"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000155145.jpg",
+    "image_path": "000000155145.jpg",
     "gt_caption": "a boat with a rainbow umbrella sitting in water ",
     "generate_sentence": "A person stands on a small boat with an umbrella, near a riverbank with terraced fields.",
     "generated_ids": [
@@ -54759,7 +54759,7 @@
     "target_generated_token": "Ġumbrella"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000358923.jpg",
+    "image_path": "000000358923.jpg",
     "gt_caption": "A woman with an umbrella hat talks on her cell phone. ",
     "generate_sentence": "A woman wearing a red shirt and holding an umbrella talks on her phone while leaning against a railing.",
     "generated_ids": [
@@ -55271,7 +55271,7 @@
     "target_generated_token": "Ġumbrella"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000182805.jpg",
+    "image_path": "000000182805.jpg",
     "gt_caption": "A woman and a dog sitting on the ground.",
     "generate_sentence": "A woman in a striped dress pets two dogs while holding an umbrella near a body of water.",
     "generated_ids": [
@@ -55711,7 +55711,7 @@
     "target_generated_token": "Ġumbrella"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000450075.jpg",
+    "image_path": "000000450075.jpg",
     "gt_caption": "A person helping a woman put on a tie. ",
     "generate_sentence": "A person adjusts another's necktie in front of a colorful mural with an exit sign.",
     "generated_ids": [
@@ -56305,7 +56305,7 @@
     "target_generated_token": "tie"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000471087.jpg",
+    "image_path": "000000471087.jpg",
     "gt_caption": "a man that has a shirt and a tie",
     "generate_sentence": "A man wearing a corduroy shirt and plaid tie stands against a brick wall.",
     "generated_ids": [
@@ -56700,7 +56700,7 @@
     "target_generated_token": "Ġtie"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000562243.jpg",
+    "image_path": "000000562243.jpg",
     "gt_caption": "A man in a purple shirt and matching tie looking pensive.",
     "generate_sentence": "A man wearing glasses, a maroon shirt, and a patterned tie stands against a dark background.",
     "generated_ids": [
@@ -57372,7 +57372,7 @@
     "target_generated_token": "Ġtie"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000310862.jpg",
+    "image_path": "000000310862.jpg",
     "gt_caption": "A man is frowning while standing in an empty room.",
     "generate_sentence": "A man wearing a vest, tie, and dress shirt stands in an office setting.",
     "generated_ids": [
@@ -57985,7 +57985,7 @@
     "target_generated_token": "Ġtie"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000180296.jpg",
+    "image_path": "000000180296.jpg",
     "gt_caption": "a  doll sitting on top of an open suitcase ",
     "generate_sentence": "A doll wearing a hat sits on an open suitcase filled with various items.",
     "generated_ids": [
@@ -58599,7 +58599,7 @@
     "target_generated_token": "Ġsuitcase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000172617.jpg",
+    "image_path": "000000172617.jpg",
     "gt_caption": "A woman sitting on the ground next to luggage.",
     "generate_sentence": "A woman sits on a suitcase filled with books, wearing a patterned dress and black heels.",
     "generated_ids": [
@@ -58964,7 +58964,7 @@
     "target_generated_token": "Ġsuitcase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000312421.jpg",
+    "image_path": "000000312421.jpg",
     "gt_caption": "Several middle eastern looking stickers decorate a black briefcase.",
     "generate_sentence": "A black suitcase with stickers sits under an umbrella on a street scene.",
     "generated_ids": [
@@ -59438,7 +59438,7 @@
     "target_generated_token": "Ġsuitcase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000337055.jpg",
+    "image_path": "000000337055.jpg",
     "gt_caption": "a woman with a tattoo is sitting on the train tracks",
     "generate_sentence": "A woman with tattoos sits on train tracks beside a blue suitcase.",
     "generated_ids": [
@@ -59924,7 +59924,7 @@
     "target_generated_token": "Ġsuitcase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000269316.jpg",
+    "image_path": "000000269316.jpg",
     "gt_caption": "four men playing frisbee in a fenced park",
     "generate_sentence": "Four men play ultimate frisbee on a grassy field with trees in the background.",
     "generated_ids": [
@@ -60410,7 +60410,7 @@
     "target_generated_token": "Ġfr"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000205324.jpg",
+    "image_path": "000000205324.jpg",
     "gt_caption": "the boy has on black sneakers and his trying to grab the frisbee",
     "generate_sentence": "A person is leaping to catch a frisbee in an open field with trees and a building in the background.",
     "generated_ids": [
@@ -60904,7 +60904,7 @@
     "target_generated_token": "Ġfr"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000259097.jpg",
+    "image_path": "000000259097.jpg",
     "gt_caption": "A person trying to reach a Frisbee in a field with high brown grass.",
     "generate_sentence": "A person in a red shirt throws a frisbee in a golden field under a clear sky.",
     "generated_ids": [
@@ -61265,7 +61265,7 @@
     "target_generated_token": "Ġfr"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000082986.jpg",
+    "image_path": "000000082986.jpg",
     "gt_caption": "Two men watch another throw a Frisbee in a field. ",
     "generate_sentence": "A man throws a frisbee while standing on a grassy hill with others watching.",
     "generated_ids": [
@@ -61770,7 +61770,7 @@
     "target_generated_token": "Ġfr"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000576031.jpg",
+    "image_path": "000000576031.jpg",
     "gt_caption": "A woman on skis stands on a flat snowy surface.",
     "generate_sentence": "A person wearing a black jacket and hat skis on a snowy slope with others in the background.",
     "generated_ids": [
@@ -62306,7 +62306,7 @@
     "target_generated_token": "Ġsk"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000107094.jpg",
+    "image_path": "000000107094.jpg",
     "gt_caption": "A man riding skis on top of snow covered ground.",
     "generate_sentence": "A person wearing ski gear stands on snow with skis and poles, illuminated by a headlamp at night.",
     "generated_ids": [
@@ -62822,7 +62822,7 @@
     "target_generated_token": "Ġsk"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000374369.jpg",
+    "image_path": "000000374369.jpg",
     "gt_caption": "a person standing snow wearing a snow suit and skis",
     "generate_sentence": "A person wearing black ski gear stands on skis in a snowy area, holding ski poles.",
     "generated_ids": [
@@ -63390,7 +63390,7 @@
     "target_generated_token": "Ġsk"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000347265.jpg",
+    "image_path": "000000347265.jpg",
     "gt_caption": "A person skiing through a snowy forest with tall trees.",
     "generate_sentence": "A person wearing a pink jacket skis through a snowy forest with tall trees.",
     "generated_ids": [
@@ -63902,7 +63902,7 @@
     "target_generated_token": "Ġsk"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000343937.jpg",
+    "image_path": "000000343937.jpg",
     "gt_caption": "A woman wearing a white hat and white coat snowboarding down a slope.",
     "generate_sentence": "A person wearing a white jacket and black pants snowboards down a snowy slope.",
     "generated_ids": [
@@ -64374,7 +64374,7 @@
     "target_generated_token": "boards"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000426376.jpg",
+    "image_path": "000000426376.jpg",
     "gt_caption": "A man riding a snowboard down the side of a snow covered slope.",
     "generate_sentence": "A snowboarder rides down a snowy slope with arms raised, wearing a yellow vest and light-colored pants.",
     "generated_ids": [
@@ -64904,7 +64904,7 @@
     "target_generated_token": "Ġsnow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000411530.jpg",
+    "image_path": "000000411530.jpg",
     "gt_caption": "A crowd of people standing on snow covered ground.",
     "generate_sentence": "A ski lift operates on a snowy mountain with people preparing to ski or snowboard.",
     "generated_ids": [
@@ -65452,7 +65452,7 @@
     "target_generated_token": "Ġsnow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000117645.jpg",
+    "image_path": "000000117645.jpg",
     "gt_caption": "A man riding a snowboard down a snow covered slope.",
     "generate_sentence": "A snowboarder descends a snowy slope with tracks and trees on either side.",
     "generated_ids": [
@@ -65976,7 +65976,7 @@
     "target_generated_token": "Ġsnow"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000532481.jpg",
+    "image_path": "000000532481.jpg",
     "gt_caption": "A person kitesurfing over the waves of the ocean's shore.",
     "generate_sentence": "A kiteboarder performs a trick over waves near a coastal town.",
     "generated_ids": [
@@ -66448,7 +66448,7 @@
     "target_generated_token": "Ġkite"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000478721.jpg",
+    "image_path": "000000478721.jpg",
     "gt_caption": "Two people carrying a kite to be flown later.",
     "generate_sentence": "Two individuals carry a large kite across a paved area near parked vehicles and palm trees.",
     "generated_ids": [
@@ -67008,7 +67008,7 @@
     "target_generated_token": "Ġkite"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000124442.jpg",
+    "image_path": "000000124442.jpg",
     "gt_caption": "A man gets ready to launch a colorful kite on the beach.",
     "generate_sentence": "A man stands on a sandy beach holding a colorful kite, with wooden stairs and a house in the background.",
     "generated_ids": [
@@ -67385,7 +67385,7 @@
     "target_generated_token": "Ġkite"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000130586.jpg",
+    "image_path": "000000130586.jpg",
     "gt_caption": "a boy making a face while running to get his kite in the air",
     "generate_sentence": "A boy flies a colorful kite in an open grassy field on a clear day.",
     "generated_ids": [
@@ -67883,7 +67883,7 @@
     "target_generated_token": "Ġkite"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000279714.jpg",
+    "image_path": "000000279714.jpg",
     "gt_caption": "Closeup of a button in front of the Louisville Slugger factory in KY.",
     "generate_sentence": "A baseball bat leans against a building with a \"Have No Fear\" sticker in the foreground.",
     "generated_ids": [
@@ -68353,7 +68353,7 @@
     "target_generated_token": "Ġbaseball"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000136915.jpg",
+    "image_path": "000000136915.jpg",
     "gt_caption": "A man who is looking at a baseball bat.",
     "generate_sentence": "A man in a suit holds a baseball bat while interacting with a soldier in uniform.",
     "generated_ids": [
@@ -68847,7 +68847,7 @@
     "target_generated_token": "Ġbaseball"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000162415.jpg",
+    "image_path": "000000162415.jpg",
     "gt_caption": "A girl smiles while holding a baseball glove.",
     "generate_sentence": "A young girl wearing a purple shirt and a baseball glove smiles outdoors.",
     "generated_ids": [
@@ -69425,7 +69425,7 @@
     "target_generated_token": "Ġbaseball"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000027932.jpg",
+    "image_path": "000000027932.jpg",
     "gt_caption": "A catchers mitt sitting inside of a blue baseball hat.",
     "generate_sentence": "A baseball glove and cap with a logo rest on a dirt field near a black pole.",
     "generated_ids": [
@@ -69672,7 +69672,7 @@
     "target_generated_token": "Ġbaseball"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000451084.jpg",
+    "image_path": "000000451084.jpg",
     "gt_caption": "A child is doing a trick on a skateboard.",
     "generate_sentence": "A shirtless person performs a skateboard trick at a skatepark on a sunny day.",
     "generated_ids": [
@@ -70200,7 +70200,7 @@
     "target_generated_token": "Ġskateboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000084492.jpg",
+    "image_path": "000000084492.jpg",
     "gt_caption": "A skateboarder grinds down a railing in front of buildings.",
     "generate_sentence": "A skateboarder performs a trick on a rail in an urban setting with buildings and street elements.",
     "generated_ids": [
@@ -70714,7 +70714,7 @@
     "target_generated_token": "Ġskateboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000068628.jpg",
+    "image_path": "000000068628.jpg",
     "gt_caption": "Guy jumps off the steps doing a flip trick with his skateboard",
     "generate_sentence": "A shirtless skateboarder performs a trick mid-air over stairs.",
     "generated_ids": [
@@ -71258,7 +71258,7 @@
     "target_generated_token": "Ġskateboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000362520.jpg",
+    "image_path": "000000362520.jpg",
     "gt_caption": "Small child and protective gear jumping on a skateboard. ",
     "generate_sentence": "A skateboarder wearing a helmet and knee pads performs a trick on a graffiti-covered board.",
     "generated_ids": [
@@ -71742,7 +71742,7 @@
     "target_generated_token": "Ġskateboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000204329.jpg",
+    "image_path": "000000204329.jpg",
     "gt_caption": "A blue, yellow and green surfboard sticking out of a sandy beach.",
     "generate_sentence": "A Brazilian flag-patterned surfboard stands upright on a sandy beach with people and waves in the background.",
     "generated_ids": [
@@ -72238,7 +72238,7 @@
     "target_generated_token": "Ġsurf"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000561223.jpg",
+    "image_path": "000000561223.jpg",
     "gt_caption": "A young man riding a surfboard on a wave.",
     "generate_sentence": "A surfer rides a wave on a white surfboard, wearing a black and red outfit.",
     "generated_ids": [
@@ -72710,7 +72710,7 @@
     "target_generated_token": "Ġsurf"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000389197.jpg",
+    "image_path": "000000389197.jpg",
     "gt_caption": "A boy sliding down a waterslide at a waterpark.",
     "generate_sentence": "A child rides a wave on a blue surfboard at an indoor water park.",
     "generated_ids": [
@@ -73182,7 +73182,7 @@
     "target_generated_token": "Ġsurf"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000516173.jpg",
+    "image_path": "000000516173.jpg",
     "gt_caption": "A woman in a wet suit carrying a surfboard into the ocean.",
     "generate_sentence": "A surfer in a wetsuit walks into the ocean carrying a surfboard.",
     "generated_ids": [
@@ -73678,7 +73678,7 @@
     "target_generated_token": "Ġsurf"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000271402.jpg",
+    "image_path": "000000271402.jpg",
     "gt_caption": "two little girls in tennis uniforms standing next to a scooter",
     "generate_sentence": "Two young girls in tennis attire pose with a scooter and a tennis racket on a court.",
     "generated_ids": [
@@ -74176,7 +74176,7 @@
     "target_generated_token": "Ġtennis"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000161861.jpg",
+    "image_path": "000000161861.jpg",
     "gt_caption": "A woman standing on a tennis court holding a racquet.",
     "generate_sentence": "A person wearing white attire and a cap is holding a tennis racket on a grass court.",
     "generated_ids": [
@@ -74555,7 +74555,7 @@
     "target_generated_token": "Ġtennis"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000179285.jpg",
+    "image_path": "000000179285.jpg",
     "gt_caption": "A Penn tennis bill resting on a tennis racquet",
     "generate_sentence": "A tennis ball rests on the strings of a blue and white tennis racket against a green background.",
     "generated_ids": [
@@ -75037,7 +75037,7 @@
     "target_generated_token": "Ġtennis"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000438876.jpg",
+    "image_path": "000000438876.jpg",
     "gt_caption": "A senior tennis player prepares to backhand the ball.",
     "generate_sentence": "A man in white attire swings a tennis racket at an approaching yellow ball on a court.",
     "generated_ids": [
@@ -75398,7 +75398,7 @@
     "target_generated_token": "Ġtennis"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000460841.jpg",
+    "image_path": "000000460841.jpg",
     "gt_caption": "a kitten that is sitting down by a  door",
     "generate_sentence": "A hand holds a bottle near a cat lounging on a windowsill in a bathroom.",
     "generated_ids": [
@@ -75821,7 +75821,7 @@
     "target_generated_token": "Ġbottle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000460929.jpg",
+    "image_path": "000000460929.jpg",
     "gt_caption": "A hot dog with mustard is next to a bottle of soda.",
     "generate_sentence": "A hot dog with mustard sits on aluminum foil next to a green bottle labeled \"Bubble Up.\"",
     "generated_ids": [
@@ -76353,7 +76353,7 @@
     "target_generated_token": "Ġbottle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000092416.jpg",
+    "image_path": "000000092416.jpg",
     "gt_caption": "A young man holding a bottle of beer while wearing a suit.",
     "generate_sentence": "A man in a suit holds a beer bottle, standing on grass near a lake with a boat dock in the background.",
     "generated_ids": [
@@ -76959,7 +76959,7 @@
     "target_generated_token": "Ġbottle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000102707.jpg",
+    "image_path": "000000102707.jpg",
     "gt_caption": "a bottle a glass and utensils behind a stove",
     "generate_sentence": "A bottle with a pink stopper sits on a kitchen counter next to a glass and utensils hanging on the wall.",
     "generated_ids": [
@@ -77602,7 +77602,7 @@
     "target_generated_token": "Ġbottle"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000099039.jpg",
+    "image_path": "000000099039.jpg",
     "gt_caption": "Plates  of food and glasses of wine sitting on a table",
     "generate_sentence": "A table with pizza, wine glasses, and condiments is set for two people at an outdoor restaurant.",
     "generated_ids": [
@@ -78266,7 +78266,7 @@
     "target_generated_token": "Ġglasses"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000425361.jpg",
+    "image_path": "000000425361.jpg",
     "gt_caption": "An individual is capture in the stillness of the picture.\n",
     "generate_sentence": "A man holds a wine glass while sitting at a desk with a plate of food and a laptop nearby.",
     "generated_ids": [
@@ -78903,7 +78903,7 @@
     "target_generated_token": "Ġwine"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000311303.jpg",
+    "image_path": "000000311303.jpg",
     "gt_caption": "A cup with soda in front of a panini with a side of greens.",
     "generate_sentence": "A meal featuring a sandwich and salad sits beside a Pepsi cup on a table.",
     "generated_ids": [
@@ -79389,7 +79389,7 @@
     "target_generated_token": "Ġcup"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000305343.jpg",
+    "image_path": "000000305343.jpg",
     "gt_caption": "Two cups sitting on top of a gray counter.",
     "generate_sentence": "Two ceramic cups feature painted faces resembling cats, with expressive eyes and whiskers.",
     "generated_ids": [
@@ -79883,7 +79883,7 @@
     "target_generated_token": "Ġfeature"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000414034.jpg",
+    "image_path": "000000414034.jpg",
     "gt_caption": "A kid sitting on a bed with a remote.",
     "generate_sentence": "A child wearing a cap and striped shirt holds a remote control and a sippy cup on a bed.",
     "generated_ids": [
@@ -80455,7 +80455,7 @@
     "target_generated_token": "Ġcup"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000285047.jpg",
+    "image_path": "000000285047.jpg",
     "gt_caption": "A person sitting at table with a cup looking at a cell phone.",
     "generate_sentence": "A man wearing glasses and a hoodie sits at a table with a cup, looking at his phone.",
     "generated_ids": [
@@ -80941,7 +80941,7 @@
     "target_generated_token": "Ġcup"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000260105.jpg",
+    "image_path": "000000260105.jpg",
     "gt_caption": "A white plate topped with eggs and potatoes ",
     "generate_sentence": "A plate contains fried eggs, diced potatoes, and a side salad with a fork nearby.",
     "generated_ids": [
@@ -81477,7 +81477,7 @@
     "target_generated_token": "Ġfork"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000358427.jpg",
+    "image_path": "000000358427.jpg",
     "gt_caption": "Two pieces of broccoli being held up on a fork",
     "generate_sentence": "A fork holds a piece of broccoli and a slice of onion, with a blurred background.",
     "generated_ids": [
@@ -81971,7 +81971,7 @@
     "target_generated_token": "Ġfork"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000174123.jpg",
+    "image_path": "000000174123.jpg",
     "gt_caption": "A huge plate of yummy food with fork to eat. ",
     "generate_sentence": "A person is cutting into a pizza with a fork and knife on a checkered tablecloth.",
     "generated_ids": [
@@ -82422,7 +82422,7 @@
     "target_generated_token": "Ġfork"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000335427.jpg",
+    "image_path": "000000335427.jpg",
     "gt_caption": "A bowl filled with broccoli soup next to a spoon and fork.",
     "generate_sentence": "A bowl of broccoli curry sits on a wooden surface with a spoon and fork nearby.",
     "generated_ids": [
@@ -82925,7 +82925,7 @@
     "target_generated_token": "Ġfork"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000536073.jpg",
+    "image_path": "000000536073.jpg",
     "gt_caption": "A blender where someone is making a mixed drink.",
     "generate_sentence": "A blender, tequila bottle, lime, knife, and glass with salt rim are on a granite countertop.",
     "generated_ids": [
@@ -83451,7 +83451,7 @@
     "target_generated_token": "Ġknife"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000189451.jpg",
+    "image_path": "000000189451.jpg",
     "gt_caption": "A piece of cake left on a plate",
     "generate_sentence": "A partially eaten chocolate cake with frosting sits on a white plate next to a knife and spatula.",
     "generated_ids": [
@@ -83931,7 +83931,7 @@
     "target_generated_token": "Ġknife"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000002592.jpg",
+    "image_path": "000000002592.jpg",
     "gt_caption": "Decorated coffee cup and knife sitting on a patterned surface.",
     "generate_sentence": "A mug with a pirate-themed design sits next to a knife on a checkered surface.",
     "generated_ids": [
@@ -84397,7 +84397,7 @@
     "target_generated_token": "Ġknife"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000153632.jpg",
+    "image_path": "000000153632.jpg",
     "gt_caption": "Side of meat sitting on a white plate on a dinner table. ",
     "generate_sentence": "A plate contains cooked mushrooms with a knife and bowl of yellow beans nearby.",
     "generated_ids": [
@@ -84957,7 +84957,7 @@
     "target_generated_token": "Ġknife"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000450100.jpg",
+    "image_path": "000000450100.jpg",
     "gt_caption": "A cupcake with pink frosting topped with a candy yellow star.",
     "generate_sentence": "A cupcake with pink frosting and a yellow star decoration sits on a black napkin next to a spoon.",
     "generated_ids": [
@@ -85503,7 +85503,7 @@
     "target_generated_token": "Ġspoon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000129113.jpg",
+    "image_path": "000000129113.jpg",
     "gt_caption": "a burnt tea spoon sits on a wooden surface ",
     "generate_sentence": "A tarnished spoon rests on a bamboo mat with alternating light and dark stripes.",
     "generated_ids": [
@@ -86041,7 +86041,7 @@
     "target_generated_token": "Ġspoon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000530061.jpg",
+    "image_path": "000000530061.jpg",
     "gt_caption": "A child sitting down in front of a bowl.",
     "generate_sentence": "A child wearing an orange sweater sits at a table eating from a black bowl with a spoon.",
     "generated_ids": [
@@ -86528,7 +86528,7 @@
     "target_generated_token": "Ġspoon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000523175.jpg",
+    "image_path": "000000523175.jpg",
     "gt_caption": "A bowl that has soup and a spoon in it.",
     "generate_sentence": "A bowl of vegetable soup with a spoon holding a carrot slice is on a white plate.",
     "generated_ids": [
@@ -86977,7 +86977,7 @@
     "target_generated_token": "Ġspoon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000577539.jpg",
+    "image_path": "000000577539.jpg",
     "gt_caption": "A bowl of banana's, sprinkels, chocolate chips, and marshmellows.",
     "generate_sentence": "A blue bowl contains a dessert topped with marshmallows, chocolate chips, nuts, and colorful sprinkles.",
     "generated_ids": [
@@ -87350,7 +87350,7 @@
     "target_generated_token": "Ġbowl"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000141328.jpg",
+    "image_path": "000000141328.jpg",
     "gt_caption": "a large bowl full of pasta with many other foods",
     "generate_sentence": "A pasta salad with spiral noodles, broccoli, diced tomatoes, and ham is shown in a glass bowl.",
     "generated_ids": [
@@ -87878,7 +87878,7 @@
     "target_generated_token": "Ġbowl"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000030785.jpg",
+    "image_path": "000000030785.jpg",
     "gt_caption": "A plate filled with a bowl of vegetables and two slices of bread with a spread on them.",
     "generate_sentence": "A plate holds two crackers topped with avocado and cream cheese, alongside a bowl of broccoli.",
     "generated_ids": [
@@ -88438,7 +88438,7 @@
     "target_generated_token": "Ġbowl"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000002149.jpg",
+    "image_path": "000000002149.jpg",
     "gt_caption": "A large white bowl of many green apples. ",
     "generate_sentence": "A bowl contains several green apples, with one prominently in focus.",
     "generated_ids": [
@@ -88948,7 +88948,7 @@
     "target_generated_token": "Ġbowl"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000575500.jpg",
+    "image_path": "000000575500.jpg",
     "gt_caption": "Bananas in a bushel are displayed over some kind of tail.",
     "generate_sentence": "A banana plant displays green bananas and a developing flower bud.",
     "generated_ids": [
@@ -89454,7 +89454,7 @@
     "target_generated_token": "Ġbanana"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000002587.jpg",
+    "image_path": "000000002587.jpg",
     "gt_caption": "a close up of a banana and a doughnut in a plastic bag",
     "generate_sentence": "A chocolate-covered donut and a banana are placed together in a plastic bag.",
     "generated_ids": [
@@ -89933,7 +89933,7 @@
     "target_generated_token": "Ġbanana"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000161820.jpg",
+    "image_path": "000000161820.jpg",
     "gt_caption": "A large bunch of ripening banana type fruit.",
     "generate_sentence": "A bunch of green bananas with brown spots is hanging on a dark surface.",
     "generated_ids": [
@@ -90447,7 +90447,7 @@
     "target_generated_token": "Ġwith"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000348708.jpg",
+    "image_path": "000000348708.jpg",
     "gt_caption": "The banana is laying next to an almost empty bowl.",
     "generate_sentence": "A banana peel lies next to a bowl containing several small, round objects resembling seeds or nuts.",
     "generated_ids": [
@@ -90984,7 +90984,7 @@
     "target_generated_token": "Ġbanana"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000407825.jpg",
+    "image_path": "000000407825.jpg",
     "gt_caption": "A red apple with a clock inside of it.",
     "generate_sentence": "A red apple-shaped clock with a yellow face and black hands sits on a wooden surface.",
     "generated_ids": [
@@ -91463,7 +91463,7 @@
     "target_generated_token": "Ġapple"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000189078.jpg",
+    "image_path": "000000189078.jpg",
     "gt_caption": "Variety of fruits such as bananas, oranges, and apples on a platter.",
     "generate_sentence": "The image shows bananas, apples, oranges, and rose apples on a white surface.",
     "generated_ids": [
@@ -91868,7 +91868,7 @@
     "target_generated_token": ","
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000017182.jpg",
+    "image_path": "000000017182.jpg",
     "gt_caption": "A brown desk with a wooden chair in a classroom.",
     "generate_sentence": "A wooden desk with books, an apple, and a bell sits in front of a blackboard in a classroom setting.",
     "generated_ids": [
@@ -92372,7 +92372,7 @@
     "target_generated_token": "Ġapple"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000173091.jpg",
+    "image_path": "000000173091.jpg",
     "gt_caption": "A simple lunch includes a coffee drink, fruit and a sandwich wrap.",
     "generate_sentence": "A sandwich, a wrapped apple, and a vanilla frappuccino are placed on a wooden surface.",
     "generated_ids": [
@@ -92995,7 +92995,7 @@
     "target_generated_token": "Ġapple"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000322574.jpg",
+    "image_path": "000000322574.jpg",
     "gt_caption": "A sandwich sitting on top of a pile of fries.",
     "generate_sentence": "A sandwich and fries are served in a paper tray with a plastic cup in the background.",
     "generated_ids": [
@@ -93539,7 +93539,7 @@
     "target_generated_token": "Ġsandwich"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000528399.jpg",
+    "image_path": "000000528399.jpg",
     "gt_caption": "A wooden table topped with plates and bows filled with food",
     "generate_sentence": "A table setting includes soup, sandwiches, scones, and tea accessories.",
     "generated_ids": [
@@ -94021,7 +94021,7 @@
     "target_generated_token": ","
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000344100.jpg",
+    "image_path": "000000344100.jpg",
     "gt_caption": "A white plate on a table topped with a sandwich.",
     "generate_sentence": "A sandwich and a drink rest on a table next to camera equipment.",
     "generated_ids": [
@@ -94505,7 +94505,7 @@
     "target_generated_token": "Ġsandwich"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000422998.jpg",
+    "image_path": "000000422998.jpg",
     "gt_caption": "A person makes a sandwich on a paper plate.",
     "generate_sentence": "A person is preparing a sandwich with condiments and vegetables on a plate.",
     "generated_ids": [
@@ -95001,7 +95001,7 @@
     "target_generated_token": "Ġsandwich"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000186929.jpg",
+    "image_path": "000000186929.jpg",
     "gt_caption": "A plate topped with sliced up oranges full of juice.",
     "generate_sentence": "An orange is surrounded by its peeled segments and juiced pulp.",
     "generated_ids": [
@@ -95350,7 +95350,7 @@
     "target_generated_token": "Ġorange"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000136772.jpg",
+    "image_path": "000000136772.jpg",
     "gt_caption": "a small bowl of fruit on a table ",
     "generate_sentence": "A glass bowl contains sliced strawberries and orange segments.",
     "generated_ids": [
@@ -95755,7 +95755,7 @@
     "target_generated_token": "Ġorange"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000550471.jpg",
+    "image_path": "000000550471.jpg",
     "gt_caption": "An almost empty plate with a lemon slice on it",
     "generate_sentence": "A sliced orange rests on a plate with a fork and garnish.",
     "generated_ids": [
@@ -96243,7 +96243,7 @@
     "target_generated_token": "Ġorange"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000318114.jpg",
+    "image_path": "000000318114.jpg",
     "gt_caption": "A white plate with a slice of cake and an orange wedge.",
     "generate_sentence": "A slice of cake with an orange slice on a plate, accompanied by a glass of orange juice and a fork.",
     "generated_ids": [
@@ -96536,7 +96536,7 @@
     "target_generated_token": "Ġorange"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000019221.jpg",
+    "image_path": "000000019221.jpg",
     "gt_caption": "A raw piece of broccoli with something growing from it. ",
     "generate_sentence": "A hand holds a piece of broccoli with a snail on it, against a tiled background.",
     "generated_ids": [
@@ -97162,7 +97162,7 @@
     "target_generated_token": "Ġbroccoli"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000015278.jpg",
+    "image_path": "000000015278.jpg",
     "gt_caption": "A white plate topped with broccoli and a dumpling.",
     "generate_sentence": "A plate features cooked broccoli with visible seasoning and a piece of grilled salmon in the background.",
     "generated_ids": [
@@ -97782,7 +97782,7 @@
     "target_generated_token": "Ġbroccoli"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000410934.jpg",
+    "image_path": "000000410934.jpg",
     "gt_caption": "A broccoli plant has very large leaves. ",
     "generate_sentence": "A broccoli plant with large green leaves and a developing head grows in soil.",
     "generated_ids": [
@@ -98342,7 +98342,7 @@
     "target_generated_token": "Ġbroccoli"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000125245.jpg",
+    "image_path": "000000125245.jpg",
     "gt_caption": "closeup of an aquarium full of water and fish",
     "generate_sentence": "A broccoli head is suspended underwater, surrounded by colorful fish and coral.",
     "generated_ids": [
@@ -98777,7 +98777,7 @@
     "target_generated_token": "Ġbroccoli"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000560178.jpg",
+    "image_path": "000000560178.jpg",
     "gt_caption": "A person holding a bit vegetable in their left hand.",
     "generate_sentence": "A hand holds a small, partially eaten carrot with a red exterior and orange interior.",
     "generated_ids": [
@@ -99309,7 +99309,7 @@
     "target_generated_token": "Ġcarrot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000113235.jpg",
+    "image_path": "000000113235.jpg",
     "gt_caption": "A hand is holding a carrot for a llama to chew. ",
     "generate_sentence": "A llama is being fed a carrot by a person in an outdoor setting with a fence and trees.",
     "generated_ids": [
@@ -99829,7 +99829,7 @@
     "target_generated_token": "Ġcarrot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000276055.jpg",
+    "image_path": "000000276055.jpg",
     "gt_caption": "A woman holding up a large carrot in a backyard.",
     "generate_sentence": "A woman holds a carrot and a green drink, smiling outdoors on a sunny day.",
     "generated_ids": [
@@ -100208,7 +100208,7 @@
     "target_generated_token": "Ġcarrot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000251537.jpg",
+    "image_path": "000000251537.jpg",
     "gt_caption": "There is a carrot next to some greens on the red cutting board.",
     "generate_sentence": "A carrot, parsley, leek, and garlic cloves are arranged on a red surface with a wooden background.",
     "generated_ids": [
@@ -100884,7 +100884,7 @@
     "target_generated_token": "Ġcarrot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000319617.jpg",
+    "image_path": "000000319617.jpg",
     "gt_caption": "a hot dog on a plate next to two glasses.",
     "generate_sentence": "A hot dog with ketchup sits on a white plate next to a glass of cola and ice.",
     "generated_ids": [
@@ -101142,7 +101142,7 @@
     "target_generated_token": "Ġhot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000283268.jpg",
+    "image_path": "000000283268.jpg",
     "gt_caption": "A white plate topped with a toy hot dog in a toy bun.",
     "generate_sentence": "A hand holds a toy plate with two toy hot dogs, while a child plays nearby.",
     "generated_ids": [
@@ -101644,7 +101644,7 @@
     "target_generated_token": "Ġdogs"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000311950.jpg",
+    "image_path": "000000311950.jpg",
     "gt_caption": "A hot dog on a bun covered in ketchup and mustard.",
     "generate_sentence": "A hot dog with mustard and ketchup sits on a bed of colorful confetti against a white background.",
     "generated_ids": [
@@ -102167,7 +102167,7 @@
     "target_generated_token": "Ġhot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000464786.jpg",
+    "image_path": "000000464786.jpg",
     "gt_caption": "A hot dog and a bun with some mustard.",
     "generate_sentence": "A hot dog with mustard is held in a bun, wrapped in white paper.",
     "generated_ids": [
@@ -102641,7 +102641,7 @@
     "target_generated_token": "Ġhot"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000491008.jpg",
+    "image_path": "000000491008.jpg",
     "gt_caption": "A man and a woman holding up a pizza in a seating area.",
     "generate_sentence": "A man and woman hold a pizza in front of a mural depicting a Venetian scene.",
     "generated_ids": [
@@ -103131,7 +103131,7 @@
     "target_generated_token": "Ġpizza"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000025603.jpg",
+    "image_path": "000000025603.jpg",
     "gt_caption": "A girl with some food and drink at a table.",
     "generate_sentence": "A girl with braided hair sits at a table with pizza and a glass of water.",
     "generated_ids": [
@@ -103649,7 +103649,7 @@
     "target_generated_token": "Ġpizza"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000047112.jpg",
+    "image_path": "000000047112.jpg",
     "gt_caption": "A dining table has a large pizza and wine glasses.",
     "generate_sentence": "A pizza with artichokes and mushrooms sits on a plate next to a glass of beer and a wine glass.",
     "generated_ids": [
@@ -104209,7 +104209,7 @@
     "target_generated_token": "Ġpizza"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000306700.jpg",
+    "image_path": "000000306700.jpg",
     "gt_caption": "Woman showing off very large home made pizza.",
     "generate_sentence": "A woman holds a large pepperoni pizza on a table with a red wall behind her.",
     "generated_ids": [
@@ -104737,7 +104737,7 @@
     "target_generated_token": "Ġpizza"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000521601.jpg",
+    "image_path": "000000521601.jpg",
     "gt_caption": "A small doughnut inside a cup that's sitting on a table.",
     "generate_sentence": "A brown donut-shaped object sits at the bottom of a white and yellow container.",
     "generated_ids": [
@@ -105275,7 +105275,7 @@
     "target_generated_token": "Ġdon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000439426.jpg",
+    "image_path": "000000439426.jpg",
     "gt_caption": "A left hand holding a glazed doughnut over a tiled floor.",
     "generate_sentence": "A hand holds a glazed donut over a tiled floor with people's feet in the background.",
     "generated_ids": [
@@ -105859,7 +105859,7 @@
     "target_generated_token": "Ġdon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000466567.jpg",
+    "image_path": "000000466567.jpg",
     "gt_caption": "A tree with a donut as an ornament",
     "generate_sentence": "A donut-shaped Christmas ornament with a red ribbon hangs on a green tree branch.",
     "generated_ids": [
@@ -106409,7 +106409,7 @@
     "target_generated_token": "Ġdon"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000478136.jpg",
+    "image_path": "000000478136.jpg",
     "gt_caption": "A plate of assorted donuts, muffins, and danishes.",
     "generate_sentence": "A plate holds assorted pastries, including donuts and muffins, with a polaroid-style filter applied.",
     "generated_ids": [
@@ -107011,7 +107011,7 @@
     "target_generated_token": "uts"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000241668.jpg",
+    "image_path": "000000241668.jpg",
     "gt_caption": "There are two people enjoying a wedding reception",
     "generate_sentence": "A woman in a white dress and tiara is embracing another person holding a piece of cake.",
     "generated_ids": [
@@ -107526,7 +107526,7 @@
     "target_generated_token": "Ġcake"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000092177.jpg",
+    "image_path": "000000092177.jpg",
     "gt_caption": "Advertising photograph of a surf-themed birthday cake from a bakery",
     "generate_sentence": "A beach-themed cake with palm trees, surfboards, and a banner celebrating a 30th birthday.",
     "generated_ids": [
@@ -108189,7 +108189,7 @@
     "target_generated_token": "Ġcake"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000462371.jpg",
+    "image_path": "000000462371.jpg",
     "gt_caption": "A group of people standing around a white cake.",
     "generate_sentence": "A group of people, including a child, gather around a cake at what appears to be a celebration.",
     "generated_ids": [
@@ -108744,7 +108744,7 @@
     "target_generated_token": "Ġcake"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000391722.jpg",
+    "image_path": "000000391722.jpg",
     "gt_caption": "A man serving another man a cake with candles on it.",
     "generate_sentence": "A man in a red jacket smiles as another holds a chocolate cake with lit candles.",
     "generated_ids": [
@@ -109438,7 +109438,7 @@
     "target_generated_token": "Ġcake"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000368684.jpg",
+    "image_path": "000000368684.jpg",
     "gt_caption": "A room with a tv in the background and a laptop screen in the foreground ",
     "generate_sentence": "A living room scene with a laptop, TV, and a chair in the background.",
     "generated_ids": [
@@ -110012,7 +110012,7 @@
     "target_generated_token": "Ġchair"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000446522.jpg",
+    "image_path": "000000446522.jpg",
     "gt_caption": "A dog sitting on a chair underneath a painting.",
     "generate_sentence": "A black and tan dog rests on a floral-patterned armchair next to a refrigerator.",
     "generated_ids": [
@@ -110644,7 +110644,7 @@
     "target_generated_token": "chair"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000020553.jpg",
+    "image_path": "000000020553.jpg",
     "gt_caption": "A teddy bear laying on top of a bed next to a table with beers.\n\n",
     "generate_sentence": "A stuffed animal sits on a chair with a red cross, surrounded by bottles and flowers in a desert setting.",
     "generated_ids": [
@@ -111059,7 +111059,7 @@
     "target_generated_token": "Ġchair"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000163951.jpg",
+    "image_path": "000000163951.jpg",
     "gt_caption": "An assortment of items including a miniature boom box, chair, banana and flashlight.",
     "generate_sentence": "A stuffed giraffe, a banana peel chair, and a boombox are arranged on a white background.",
     "generated_ids": [
@@ -111555,7 +111555,7 @@
     "target_generated_token": "Ġchair"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000515077.jpg",
+    "image_path": "000000515077.jpg",
     "gt_caption": "a lady playing with a wii on a large screen",
     "generate_sentence": "A person stands in a room with graffiti, a couch, and a projection screen displaying a video game.",
     "generated_ids": [
@@ -112097,7 +112097,7 @@
     "target_generated_token": "Ġcouch"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000435208.jpg",
+    "image_path": "000000435208.jpg",
     "gt_caption": "A young woman sitting cross legged on an apartment sofa.",
     "generate_sentence": "A person sits on a couch in a room with posters, a desk, and a coffee table.",
     "generated_ids": [
@@ -112655,7 +112655,7 @@
     "target_generated_token": "Ġcouch"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000546325.jpg",
+    "image_path": "000000546325.jpg",
     "gt_caption": "A couch with pillows sitting in a living room.",
     "generate_sentence": "A living room features a gray couch with decorative pillows and a ceiling fan with lights above.",
     "generated_ids": [
@@ -113233,7 +113233,7 @@
     "target_generated_token": "Ġcouch"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000371749.jpg",
+    "image_path": "000000371749.jpg",
     "gt_caption": "A couple of women holding game controllers in their hands.",
     "generate_sentence": "Two individuals are playing a video game with Wii controllers, seated on a couch.",
     "generated_ids": [
@@ -113628,7 +113628,7 @@
     "target_generated_token": "Ġcouch"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000437514.jpg",
+    "image_path": "000000437514.jpg",
     "gt_caption": "a wood bench is next to a tree",
     "generate_sentence": "A wooden bench with black metal armrests sits next to a potted plant on a sidewalk outside a venue.",
     "generated_ids": [
@@ -114355,7 +114355,7 @@
     "target_generated_token": "Ġp"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000022892.jpg",
+    "image_path": "000000022892.jpg",
     "gt_caption": "A cats sits on the table with a dog outside.",
     "generate_sentence": "A gray cat and a dog are looking out through a window, with potted plants on a table nearby.",
     "generated_ids": [
@@ -114836,7 +114836,7 @@
     "target_generated_token": "otted"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000037740.jpg",
+    "image_path": "000000037740.jpg",
     "gt_caption": "A wooden desk with a laptop computer sitting on it.",
     "generate_sentence": "A small home office setup with a desk, chair, computer, and potted plant.",
     "generated_ids": [
@@ -115388,7 +115388,7 @@
     "target_generated_token": "Ġp"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000475572.jpg",
+    "image_path": "000000475572.jpg",
     "gt_caption": "There are is a picture of a couple, a beany baby bear, and pot of grass on a mantle.",
     "generate_sentence": "A stuffed bear wearing a party hat sits next to a framed photograph and a potted plant on a shelf.",
     "generated_ids": [
@@ -115930,7 +115930,7 @@
     "target_generated_token": "Ġp"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000273420.jpg",
+    "image_path": "000000273420.jpg",
     "gt_caption": "a man on his phone in some kind of room",
     "generate_sentence": "A man stands near a window, talking on a phone in a room with exposed brick and a bed.",
     "generated_ids": [
@@ -116359,7 +116359,7 @@
     "target_generated_token": "Ġbed"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000551439.jpg",
+    "image_path": "000000551439.jpg",
     "gt_caption": "A woman smiles from behind the book she has been reading.",
     "generate_sentence": "A woman with blonde hair is lying on a bed, holding a red book titled \"FUN.\"",
     "generated_ids": [
@@ -116849,7 +116849,7 @@
     "target_generated_token": "Ġbed"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000039956.jpg",
+    "image_path": "000000039956.jpg",
     "gt_caption": "A messy room with door and bed and chair.",
     "generate_sentence": "A bedroom with a bed, a chair, and various items scattered around, including boxes and bags.",
     "generated_ids": [
@@ -117331,7 +117331,7 @@
     "target_generated_token": "Ġbed"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000051738.jpg",
+    "image_path": "000000051738.jpg",
     "gt_caption": "A bed in a hotel is carrying sheets and pillows as it sit next to a lamp.",
     "generate_sentence": "A hotel room features a bed with white linens, two lamps, and a blue armchair near a large window.",
     "generated_ids": [
@@ -117730,7 +117730,7 @@
     "target_generated_token": "Ġbed"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000186980.jpg",
+    "image_path": "000000186980.jpg",
     "gt_caption": "A wooden table with two chairs next to a sink.",
     "generate_sentence": "A rustic kitchen with wooden furniture and a chandelier above a dining table set for two.",
     "generated_ids": [
@@ -118267,7 +118267,7 @@
     "target_generated_token": "Ġdining"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000140076.jpg",
+    "image_path": "000000140076.jpg",
     "gt_caption": "A made up dinner table with a flower vase on the table. ",
     "generate_sentence": "A dining table with red and brown tablecloth, surrounded by black chairs, features a vase of flowers at its center.",
     "generated_ids": [
@@ -118744,7 +118744,7 @@
     "target_generated_token": "Ġdining"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000029596.jpg",
+    "image_path": "000000029596.jpg",
     "gt_caption": "A room with a couch, table set with dinnerware and a television. ",
     "generate_sentence": "A cozy living room features a red sofa, a small dining table with tea service, and a large flat-screen TV.",
     "generated_ids": [
@@ -119234,7 +119234,7 @@
     "target_generated_token": "Ġdining"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000136355.jpg",
+    "image_path": "000000136355.jpg",
     "gt_caption": "A kitchen with a bright window and house plants",
     "generate_sentence": "A wooden dining table with tulips and a cutting board, near a window with hanging plants.",
     "generated_ids": [
@@ -119744,7 +119744,7 @@
     "target_generated_token": "Ġdining"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000453634.jpg",
+    "image_path": "000000453634.jpg",
     "gt_caption": "A bathroom with a toilette with it's seat down.",
     "generate_sentence": "A compact bathroom features a toilet, sink, and shower with tiled walls.",
     "generated_ids": [
@@ -120278,7 +120278,7 @@
     "target_generated_token": "Ġtoilet"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000555012.jpg",
+    "image_path": "000000555012.jpg",
     "gt_caption": "The roll of toilet paper beside the toilet is empty. ",
     "generate_sentence": "A bathroom with a white bathtub, toilet, and hexagonal tile floor.",
     "generated_ids": [
@@ -120786,7 +120786,7 @@
     "target_generated_token": "Ġtoilet"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000155154.jpg",
+    "image_path": "000000155154.jpg",
     "gt_caption": "The bathroom is small and white and gray.",
     "generate_sentence": "A compact, modern toilet with various hygiene options and a grab bar for support.",
     "generated_ids": [
@@ -121157,7 +121157,7 @@
     "target_generated_token": "Ġtoilet"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000032285.jpg",
+    "image_path": "000000032285.jpg",
     "gt_caption": "A white toilet sitting next to a toilet paper roller.",
     "generate_sentence": "A small bathroom with a toilet, bathtub, and a closet with shelves holding folded clothes.",
     "generated_ids": [
@@ -121677,7 +121677,7 @@
     "target_generated_token": "Ġtoilet"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000097337.jpg",
+    "image_path": "000000097337.jpg",
     "gt_caption": "A TV sitting in a living room on top of a TV stand.",
     "generate_sentence": "A cozy living room features a TV displaying a black-and-white image, surrounded by furniture and decor.",
     "generated_ids": [
@@ -122032,7 +122032,7 @@
     "target_generated_token": "Ġdisplaying"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000131131.jpg",
+    "image_path": "000000131131.jpg",
     "gt_caption": "A cat sitting in front of a large computer monitor.",
     "generate_sentence": "A cat sits on a table, watching another cat on a TV screen.",
     "generated_ids": [
@@ -122568,7 +122568,7 @@
     "target_generated_token": "Ġscreen"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000366141.jpg",
+    "image_path": "000000366141.jpg",
     "gt_caption": "a cat laying on top of a chair in the living room ",
     "generate_sentence": "A cozy living room with a beige sectional sofa, a TV, and two lamps on either side.",
     "generated_ids": [
@@ -123080,7 +123080,7 @@
     "target_generated_token": ","
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000077396.jpg",
+    "image_path": "000000077396.jpg",
     "gt_caption": "These two cats are playing in a room that has a large TV and a laptop computer.",
     "generate_sentence": "A cat stands on a chair in front of a TV while another cat lies on the floor nearby.",
     "generated_ids": [
@@ -123604,7 +123604,7 @@
     "target_generated_token": "Ġwhile"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000555009.jpg",
+    "image_path": "000000555009.jpg",
     "gt_caption": "A laptop computer sitting on top of a desk.",
     "generate_sentence": "A desk setup includes dual monitors, a laptop, headphones, and a mouse on a white surface.",
     "generated_ids": [
@@ -123967,7 +123967,7 @@
     "target_generated_token": "Ġlaptop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000119828.jpg",
+    "image_path": "000000119828.jpg",
     "gt_caption": "A cat sitting on top of a wooden desk.",
     "generate_sentence": "A black cat rests on a wooden desk next to an open laptop and a glass of tea.",
     "generated_ids": [
@@ -124332,7 +124332,7 @@
     "target_generated_token": "Ġlaptop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000387098.jpg",
+    "image_path": "000000387098.jpg",
     "gt_caption": "a computer desk with a laptop another monitor with a keyboard and mouse",
     "generate_sentence": "A cluttered desk setup includes a laptop, two monitors, and various office supplies.",
     "generated_ids": [
@@ -124850,7 +124850,7 @@
     "target_generated_token": "Ġlaptop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000427034.jpg",
+    "image_path": "000000427034.jpg",
     "gt_caption": "a person and their dog are browsing on the mac book",
     "generate_sentence": "A black and brown dog rests its head on a laptop keyboard under a lamp.",
     "generated_ids": [
@@ -125364,7 +125364,7 @@
     "target_generated_token": "Ġlaptop"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000346638.jpg",
+    "image_path": "000000346638.jpg",
     "gt_caption": "A bottle of beer sits next to the keyboard and mouse at the computer table.",
     "generate_sentence": "A computer setup includes a monitor, keyboard, mouse, and a bottle of beer on a desk.",
     "generated_ids": [
@@ -125906,7 +125906,7 @@
     "target_generated_token": "Ġmouse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000056344.jpg",
+    "image_path": "000000056344.jpg",
     "gt_caption": "Two computer monitors on a desk with a keyboard and mouse",
     "generate_sentence": "A dual-monitor setup with a keyboard, mouse, and tablet on a desk.",
     "generated_ids": [
@@ -126454,7 +126454,7 @@
     "target_generated_token": "Ġmouse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000409630.jpg",
+    "image_path": "000000409630.jpg",
     "gt_caption": "A computer keyboard sitting next to a mouse.",
     "generate_sentence": "A laptop, wireless keyboard, and mouse are arranged on a desk surface.",
     "generated_ids": [
@@ -126817,7 +126817,7 @@
     "target_generated_token": "Ġmouse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000248314.jpg",
+    "image_path": "000000248314.jpg",
     "gt_caption": "A plate of food placed next to a computer.",
     "generate_sentence": "A desk setup includes a laptop, mouse, calculator, and a meal in containers.",
     "generated_ids": [
@@ -127335,7 +127335,7 @@
     "target_generated_token": "Ġmouse"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000222735.jpg",
+    "image_path": "000000222735.jpg",
     "gt_caption": "A remote control on a wooden table in front of a television. ",
     "generate_sentence": "A remote control lies on a table with a television in the background displaying a blurred image.",
     "generated_ids": [
@@ -127871,7 +127871,7 @@
     "target_generated_token": "Ġremote"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000027186.jpg",
+    "image_path": "000000027186.jpg",
     "gt_caption": "A little girl playing with an interactive gaming unit.",
     "generate_sentence": "A young girl in a pink floral dress holds a white object, possibly a remote, while sitting on a couch.",
     "generated_ids": [
@@ -128375,7 +128375,7 @@
     "target_generated_token": "Ġremote"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000261706.jpg",
+    "image_path": "000000261706.jpg",
     "gt_caption": "A black and white cat laying on a couch.",
     "generate_sentence": "A black and white cat lies on its back on a couch, near a remote control.",
     "generated_ids": [
@@ -128911,7 +128911,7 @@
     "target_generated_token": "Ġremote"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000469067.jpg",
+    "image_path": "000000469067.jpg",
     "gt_caption": "this is a person sleeping on a bed with a cat",
     "generate_sentence": "A person and a cat are sleeping together on a bed with a remote control nearby.",
     "generated_ids": [
@@ -129419,7 +129419,7 @@
     "target_generated_token": "Ġremote"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000066635.jpg",
+    "image_path": "000000066635.jpg",
     "gt_caption": "A desk area with a computer monitor, keyboard and mouse.",
     "generate_sentence": "A white Apple iMac sits on a wooden desk with a keyboard and mouse nearby.",
     "generated_ids": [
@@ -129933,7 +129933,7 @@
     "target_generated_token": "Ġkeyboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000001675.jpg",
+    "image_path": "000000001675.jpg",
     "gt_caption": "A cat resting on an open laptop computer.",
     "generate_sentence": "A black and white cat rests on top of a silver laptop keyboard.",
     "generated_ids": [
@@ -130443,7 +130443,7 @@
     "target_generated_token": "Ġkeyboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000366225.jpg",
+    "image_path": "000000366225.jpg",
     "gt_caption": "Apple desktop computer with white keyboard, mouse and monitor on a desk.",
     "generate_sentence": "A white iMac desktop computer with an external keyboard and mouse on a desk.",
     "generated_ids": [
@@ -130993,7 +130993,7 @@
     "target_generated_token": "Ġkeyboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000068765.jpg",
+    "image_path": "000000068765.jpg",
     "gt_caption": "A keyboard, mouse, and wires on a desk.",
     "generate_sentence": "A silver Apple keyboard and black Logitech mouse rest on a marble desk.",
     "generated_ids": [
@@ -131497,7 +131497,7 @@
     "target_generated_token": "Ġkeyboard"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000465718.jpg",
+    "image_path": "000000465718.jpg",
     "gt_caption": "A computer desk topped with two monitors and a laptop.",
     "generate_sentence": "A desk setup includes two monitors, a laptop, a keyboard, a mouse, and a cell phone.",
     "generated_ids": [
@@ -131975,7 +131975,7 @@
     "target_generated_token": "Ġcell"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000199681.jpg",
+    "image_path": "000000199681.jpg",
     "gt_caption": "A microwave with a stuffed animal inside reads 2:46. ",
     "generate_sentence": "A dog is reflected in the microwave door, with the time displayed as 2:46.",
     "generated_ids": [
@@ -132503,7 +132503,7 @@
     "target_generated_token": "Ġmicrowave"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000426253.jpg",
+    "image_path": "000000426253.jpg",
     "gt_caption": "A plate of food being heated in a microwave.",
     "generate_sentence": "A Sharp microwave oven with a timer set to 58 minutes is shown, containing food inside.",
     "generated_ids": [
@@ -132979,7 +132979,7 @@
     "target_generated_token": "Ġmicrowave"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000522007.jpg",
+    "image_path": "000000522007.jpg",
     "gt_caption": "The view of a kitchen's microwave, oven, and cabinets.",
     "generate_sentence": "A small kitchen with a stove, microwave, and a coat closet in the background.",
     "generated_ids": [
@@ -133485,7 +133485,7 @@
     "target_generated_token": "Ġmicrowave"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000109976.jpg",
+    "image_path": "000000109976.jpg",
     "gt_caption": "An all white kitchen with an electric stovetop. ",
     "generate_sentence": "A white stove with four burners sits beneath a microwave in a kitchen with white cabinets and granite countertops.",
     "generated_ids": [
@@ -134021,7 +134021,7 @@
     "target_generated_token": "Ġmicrowave"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000485424.jpg",
+    "image_path": "000000485424.jpg",
     "gt_caption": "an image of a junky garage with trash everywhere",
     "generate_sentence": "A rustic kitchen with hay walls, a small oven, and various kitchen items scattered around.",
     "generated_ids": [
@@ -134539,7 +134539,7 @@
     "target_generated_token": "Ġoven"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000236592.jpg",
+    "image_path": "000000236592.jpg",
     "gt_caption": "A dog eyeballing something cooking in the oven.",
     "generate_sentence": "A dog looks at an oven with its door open, revealing a bright light inside.",
     "generated_ids": [
@@ -135065,7 +135065,7 @@
     "target_generated_token": "Ġoven"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000138856.jpg",
+    "image_path": "000000138856.jpg",
     "gt_caption": "A large round piece of bread on a metal pan.",
     "generate_sentence": "A freshly baked loaf of bread sits on a cooling rack atop an oven.",
     "generated_ids": [
@@ -135601,7 +135601,7 @@
     "target_generated_token": "Ġoven"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000194746.jpg",
+    "image_path": "000000194746.jpg",
     "gt_caption": "A pizza covered in cheese dripping down onto the bottom of an oven burning.",
     "generate_sentence": "A pizza is baking in an oven with melted cheese dripping onto the bottom rack.",
     "generated_ids": [
@@ -135980,7 +135980,7 @@
     "target_generated_token": "Ġoven"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000453302.jpg",
+    "image_path": "000000453302.jpg",
     "gt_caption": "A kitchen that has a tile floor, a refrigerator, a microwave, and a toaster.",
     "generate_sentence": "A small kitchen with a refrigerator, microwave, and toaster oven on a counter.",
     "generated_ids": [
@@ -136339,7 +136339,7 @@
     "target_generated_token": "Ġtoaster"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000066841.jpg",
+    "image_path": "000000066841.jpg",
     "gt_caption": " A whimsical artistic toaster has eyes, a mouth, a nose, spoon feet, spoon ears, and a mixing beater tail.",
     "generate_sentence": "A toaster with a whimsical face and utensils on top sits on a tiled kitchen counter.",
     "generated_ids": [
@@ -136708,7 +136708,7 @@
     "target_generated_token": "Ġtoaster"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000232348.jpg",
+    "image_path": "000000232348.jpg",
     "gt_caption": "Toaster and blender plugged in on a kitchen counter.",
     "generate_sentence": "A silver Oster toaster sits on a tiled kitchen counter next to a blender.",
     "generated_ids": [
@@ -137249,7 +137249,7 @@
     "target_generated_token": "Ġtoaster"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000239627.jpg",
+    "image_path": "000000239627.jpg",
     "gt_caption": "A white kitchen sink filled with dishes and eating utensils.",
     "generate_sentence": "A double sink with dishes and cleaning supplies, including a green sponge and dish soap.",
     "generated_ids": [
@@ -137801,7 +137801,7 @@
     "target_generated_token": "Ġsink"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000293390.jpg",
+    "image_path": "000000293390.jpg",
     "gt_caption": "A VERY NICE BATHROOM IN THE MIDDLE OF A REMODEL",
     "generate_sentence": "A wooden bathroom vanity with a white sink and tiled countertop.",
     "generated_ids": [
@@ -138335,7 +138335,7 @@
     "target_generated_token": "Ġsink"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000397327.jpg",
+    "image_path": "000000397327.jpg",
     "gt_caption": "A white bathroom is shown with a blue towel.",
     "generate_sentence": "A clean, modern bathroom with white fixtures and a blue towel hanging on a ring above the sink.",
     "generated_ids": [
@@ -138833,7 +138833,7 @@
     "target_generated_token": "Ġsink"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000047121.jpg",
+    "image_path": "000000047121.jpg",
     "gt_caption": "A cat standing on the edge of a sink drink water.",
     "generate_sentence": "A black cat drinks water from a running faucet in a bathroom sink.",
     "generated_ids": [
@@ -139387,7 +139387,7 @@
     "target_generated_token": "Ġsink"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000221708.jpg",
+    "image_path": "000000221708.jpg",
     "gt_caption": "Lights shine on a wooden dining room table.",
     "generate_sentence": "A cozy cabin kitchen features wooden walls, a round table with chairs, and a white refrigerator.",
     "generated_ids": [
@@ -139921,7 +139921,7 @@
     "target_generated_token": "Ġrefrigerator"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000040471.jpg",
+    "image_path": "000000040471.jpg",
     "gt_caption": "An older picture of a large kitchen with white appliances.",
     "generate_sentence": "A vintage kitchen with white cabinets, a stove, and a refrigerator.",
     "generated_ids": [
@@ -140407,7 +140407,7 @@
     "target_generated_token": "Ġrefrigerator"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000429598.jpg",
+    "image_path": "000000429598.jpg",
     "gt_caption": "An interesting kitchen renovation with brick and wood",
     "generate_sentence": "A kitchen with wooden cabinets, brick walls, and a white refrigerator.",
     "generated_ids": [
@@ -140915,7 +140915,7 @@
     "target_generated_token": "Ġrefrigerator"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000159791.jpg",
+    "image_path": "000000159791.jpg",
     "gt_caption": "A white refrigerator freezer covered in magnets and pictures.",
     "generate_sentence": "A refrigerator covered with various magnets, photos, and stickers is positioned next to a stove in a kitchen.",
     "generated_ids": [
@@ -141288,7 +141288,7 @@
     "target_generated_token": "Ġrefrigerator"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000458255.jpg",
+    "image_path": "000000458255.jpg",
     "gt_caption": "A little girl is laying in bed with a book and a cat is next to her.",
     "generate_sentence": "A child reads a book on a bed with a black cat standing nearby.",
     "generated_ids": [
@@ -141784,7 +141784,7 @@
     "target_generated_token": "Ġbook"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000542776.jpg",
+    "image_path": "000000542776.jpg",
     "gt_caption": "A small bird sitting on top of an open book.",
     "generate_sentence": "A swallow perches on an open book being held by someone's lap.",
     "generated_ids": [
@@ -142338,7 +142338,7 @@
     "target_generated_token": "Ġbook"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000400082.jpg",
+    "image_path": "000000400082.jpg",
     "gt_caption": "A hotdog, fries and a drink sit on a table beside a book.",
     "generate_sentence": "A meal consisting of a hot dog, fries, and a drink sits on a wooden table next to a book titled \"The Last Man.\"",
     "generated_ids": [
@@ -142657,7 +142657,7 @@
     "target_generated_token": "Ġbook"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000167159.jpg",
+    "image_path": "000000167159.jpg",
     "gt_caption": "a doll with a bonnet and a book on a pillow",
     "generate_sentence": "A doll wearing a bonnet and dress holds a book titled \"Goody Two Shoes\" on a bed with patterned bedding.",
     "generated_ids": [
@@ -143040,7 +143040,7 @@
     "target_generated_token": "Ġbook"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000031749.jpg",
+    "image_path": "000000031749.jpg",
     "gt_caption": "A demonic looking chucky like doll standing next to a white clock.",
     "generate_sentence": "A doll with red hair and a clock face on its head is positioned next to another doll with a clock face on its chest.",
     "generated_ids": [
@@ -143730,7 +143730,7 @@
     "target_generated_token": "Ġclock"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000164363.jpg",
+    "image_path": "000000164363.jpg",
     "gt_caption": "A large wooden block with roman numeral numbers.",
     "generate_sentence": "An antique clock with Roman numerals and a painted landscape background.",
     "generated_ids": [
@@ -144367,7 +144367,7 @@
     "target_generated_token": "Ġclock"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000376856.jpg",
+    "image_path": "000000376856.jpg",
     "gt_caption": "a tall church tower with a clock at the top",
     "generate_sentence": "A tall brick clock tower with ivy climbing its side stands against a clear blue sky.",
     "generated_ids": [
@@ -144895,7 +144895,7 @@
     "target_generated_token": "Ġclock"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000395801.jpg",
+    "image_path": "000000395801.jpg",
     "gt_caption": "A street lined with cones with people up and down the sidewalk.",
     "generate_sentence": "A street scene shows a woman sitting on a bench, a child walking with a stroller, and a clock on a building.",
     "generated_ids": [
@@ -145437,7 +145437,7 @@
     "target_generated_token": "Ġclock"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000168458.jpg",
+    "image_path": "000000168458.jpg",
     "gt_caption": "there is a small glass vase that has purple flowers in it",
     "generate_sentence": "A vase of purple irises sits next to a ceramic pitcher on a wooden table against a white wall.",
     "generated_ids": [
@@ -145931,7 +145931,7 @@
     "target_generated_token": "Ġvase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000530457.jpg",
+    "image_path": "000000530457.jpg",
     "gt_caption": "A vase filled with red and orange flowers.",
     "generate_sentence": "A vase of orange tulips sits on a tiled hearth near a fireplace.",
     "generated_ids": [
@@ -146457,7 +146457,7 @@
     "target_generated_token": "Ġvase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000550426.jpg",
+    "image_path": "000000550426.jpg",
     "gt_caption": "A vase filled with red and white flowers on top of a table.",
     "generate_sentence": "A glass vase with tulips sits on a windowsill, with a decorative pot behind it.",
     "generated_ids": [
@@ -146947,7 +146947,7 @@
     "target_generated_token": "Ġvase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000421923.jpg",
+    "image_path": "000000421923.jpg",
     "gt_caption": "a glass vase with some flowers coming out of it ",
     "generate_sentence": "A stone bust sits on a wooden shelf beside books and a vase of white flowers.",
     "generated_ids": [
@@ -147419,7 +147419,7 @@
     "target_generated_token": "Ġvase"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000546826.jpg",
+    "image_path": "000000546826.jpg",
     "gt_caption": "A pink and green marker, next to another object. ",
     "generate_sentence": "A green Sharpie marker, scissors, and lined paper are arranged on a white surface.",
     "generated_ids": [
@@ -148009,7 +148009,7 @@
     "target_generated_token": "Ġscissors"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000311180.jpg",
+    "image_path": "000000311180.jpg",
     "gt_caption": "The man's hand is bigger then the scissors he is holding. ",
     "generate_sentence": "A hand holds a pair of small scissors with green handles and silver blades.",
     "generated_ids": [
@@ -148559,7 +148559,7 @@
     "target_generated_token": "Ġscissors"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000562843.jpg",
+    "image_path": "000000562843.jpg",
     "gt_caption": "a cell phone screwdriver a pair of scissors and a black thing on a desk",
     "generate_sentence": "A Samsung phone, scissors, and a coffee mug with a cartoon design sit on a table.",
     "generated_ids": [
@@ -148986,7 +148986,7 @@
     "target_generated_token": "Ġscissors"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000154213.jpg",
+    "image_path": "000000154213.jpg",
     "gt_caption": "Scissors are next to a pie crust in a dish.",
     "generate_sentence": "A pie crust sits in a metal ring on a wooden surface, with a pair of scissors nearby.",
     "generated_ids": [
@@ -149367,7 +149367,7 @@
     "target_generated_token": "Ġscissors"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000435205.jpg",
+    "image_path": "000000435205.jpg",
     "gt_caption": "A pregnant with writing on her stomach while holding a brown teddy bear.",
     "generate_sentence": "A person is drawing Chinese characters on their bare back while holding a teddy bear.",
     "generated_ids": [
@@ -149784,7 +149784,7 @@
     "target_generated_token": "Ġted"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000044068.jpg",
+    "image_path": "000000044068.jpg",
     "gt_caption": "A brown teddy bear sitting in a red chair.",
     "generate_sentence": "A teddy bear wearing a red plaid bow tie sits on a wicker and leather chair.",
     "generated_ids": [
@@ -150360,7 +150360,7 @@
     "target_generated_token": "Ġted"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000534601.jpg",
+    "image_path": "000000534601.jpg",
     "gt_caption": "A stuffed, white bear is on the bed with a person.",
     "generate_sentence": "A white teddy bear with a red collar rests on patterned fabric.",
     "generated_ids": [
@@ -150763,7 +150763,7 @@
     "target_generated_token": "Ġted"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000567886.jpg",
+    "image_path": "000000567886.jpg",
     "gt_caption": "A white teddy bear laying on top of a blue rug.",
     "generate_sentence": "A person wearing jeans and flip-flops sits on a blue carpet with a teddy bear, tools, and another pair of flip-flops nearby.",
     "generated_ids": [
@@ -151202,7 +151202,7 @@
     "target_generated_token": "Ġted"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000324614.jpg",
+    "image_path": "000000324614.jpg",
     "gt_caption": "Young lady, wearing a black dress, brushing her teeth.",
     "generate_sentence": "A person wearing a black shirt is brushing their teeth with a blue and white toothbrush.",
     "generated_ids": [
@@ -151698,7 +151698,7 @@
     "target_generated_token": "Ġtooth"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000544519.jpg",
+    "image_path": "000000544519.jpg",
     "gt_caption": "An Asian child brushes their teeth with a blue toothbrush.",
     "generate_sentence": "A child is having their teeth brushed with a blue toothbrush.",
     "generated_ids": [
@@ -152204,7 +152204,7 @@
     "target_generated_token": "Ġtooth"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000175251.jpg",
+    "image_path": "000000175251.jpg",
     "gt_caption": "A toddler in the bathroom brushing his teeth",
     "generate_sentence": "A young child is brushing their teeth with a green toothbrush in a bathroom setting.",
     "generated_ids": [
@@ -152825,7 +152825,7 @@
     "target_generated_token": "Ġtooth"
   },
   {
-    "image_path": "/home/cry/J-20/MLLM_Attribution/datasets/coco/val2017/000000160666.jpg",
+    "image_path": "000000160666.jpg",
     "gt_caption": "A toothbrush with toothpaste next to a tube on a counter.",
     "generate_sentence": "A red toothbrush with Crest toothpaste tube on a white surface.",
     "generated_ids": [
