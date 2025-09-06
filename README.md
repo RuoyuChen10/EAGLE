@@ -13,6 +13,15 @@ For our interpretation method, the packages we use are relatively common. Please
 
 You can experience the interpretability of a single image directly in the Jupyter notebook.
 
+### [Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
+
+Please explore it from the file [tutorial/Qwen25VL-Interpretation.ipynb](./tutorial/Qwen25VL-Interpretation.ipynb). You can directly modify the Qwen-VL series models (covering versions from 2 to 2.5, with different parameter sizes such as 3B and 7B). Below is the interpretation result of the Qwen2.5-VL 3B model.
+
+|Original Image|Sentence-level Interpretation| Word-level Interpretation `cat` | Word-level Interpretation `banana` |
+|:-:|:-:|:-:|:-:|
+|![](examples/cat_on_a_tree.jpg)|![](examples/explanation_cat_on_a_tree.jpg)|![](examples/explanation_word_cat_on_a_tree.jpg)|![](examples/explanation_word_banana_cat_on_a_tree.jpg)|
+
+
 ## 🗝️ How to Run
 
 Prepare the datasets following [here](datasets/README.md).
