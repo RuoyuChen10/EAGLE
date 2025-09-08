@@ -86,7 +86,7 @@ class LLaVACAM(object):
         Wm = n_w // spatial_merge_size      # 丢弃不满 s 的列
         
         return Hm, Wm
-
+    
     def generate_cam(self, image, qu):
         """生成CAM热力图"""
         # 将模型设置为评估模式
@@ -206,6 +206,10 @@ class LLaVACAM(object):
             feats = self.feature_maps[b][vision_mask[b]]  # [N_img_b, C]
             grads = self.gradients[b][vision_mask[b]]
             
+            if self.mode == "internvl":
+                feats = feats[:256]
+                grads = grads[:256]
+                
             self.image_feature_maps.append(feats)
             self.image_gradients.append(grads)
         self.image_feature_maps = torch.stack(self.image_feature_maps)
