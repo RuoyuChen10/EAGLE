@@ -86,15 +86,15 @@ def main(args):
         insertion_auc = metrics.auc(insertion_area, insertion_score)
         deletion_auc = metrics.auc(deletion_area, deletion_score)
         
-        if sensitiveity_index.sum() >0:
-            insertion_sensitiveity_auc = metrics.auc(insertion_area, insertion_sensitiveity_auc_score)
-            deletion_sensitiveity_auc = metrics.auc(deletion_area, deletion_sensitiveity_auc_score)
-        
         insertion_aucs.append(insertion_auc)
         deletion_aucs.append(deletion_auc)
         
-        insertion_sensitiveity_aucs.append(insertion_sensitiveity_auc)
-        deletion_sensitiveity_aucs.append(deletion_sensitiveity_auc)
+        if sensitiveity_index.sum() >0:
+            insertion_sensitiveity_auc = metrics.auc(insertion_area, insertion_sensitiveity_auc_score)
+            deletion_sensitiveity_auc = metrics.auc(deletion_area, deletion_sensitiveity_auc_score)
+
+            insertion_sensitiveity_aucs.append(insertion_sensitiveity_auc)
+            deletion_sensitiveity_aucs.append(deletion_sensitiveity_auc)
         
         # highest cls
         highest_score.append(
@@ -119,7 +119,6 @@ def main(args):
     print("Average highest confidence: {:.4f}".format(average_highest_score))
 
     print("Insertion Sensitiveity AUC Score: {:.4f}\nDeletion Sensitiveity AUC Score: {:.4f}".format(insertion_sensitiveity_auc_score, deletion_sensitiveity_auc_score))
-    
     print("Sensitiveity Average highest confidence: {:.4f}".format(average_highest_score_sensitiveity))
 
     return
