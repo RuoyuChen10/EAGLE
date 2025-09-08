@@ -3,23 +3,19 @@ import os
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
 os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 
-import math
-import numpy as np
-import torchvision.transforms as T
-from decord import VideoReader, cpu
-from PIL import Image
+import cv2
+import json
 
-import torch
-from torch import nn
-import torchvision.transforms.functional as TF
 from transformers import AutoTokenizer, AutoModel, AutoProcessor, AutoConfig, AutoModelForImageTextToText
 
 import argparse
-import json
-import cv2
+import torch
+from torch import nn
+import torchvision.transforms.functional as TF
+
 import numpy as np
-from interpretation.submodular_vision import MLLMSubModularExplanationVision
 from utils import SubRegionDivision, mkdir
+from PIL import Image
 
 from tqdm import tqdm
 
@@ -32,31 +28,13 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/coco_single_target_once_internvl-4B.json',
+                        default='datasets/InternVL3_5-4B-coco-caption.json',
                         help='Datasets.')
-    parser.add_argument('--superpixel-algorithm',
-                        type=str,
-                        default="slico",
-                        choices=["slico", "seeds"],
-                        help="")
-    parser.add_argument('--lambda1', 
-                        type=float, default=1.,
-                        help='')
-    parser.add_argument('--lambda2', 
-                        type=float, default=1.,
-                        help='')
     parser.add_argument('--division-number', 
                         type=int, default=64,
                         help='')
-    parser.add_argument('--begin', 
-                        type=int, default=0,
-                        help='')
-    parser.add_argument('--end', 
-                        type=int, default=-1,
-                        help='')
-    parser.add_argument('--save-dir', 
-                        type=str, default='./interpretation_results/InternVL3_5-4B-coco-object/',
-                        help='output directory to save results')
+    parser.add_argument('--eval-dir', 
+                        type=str, default='./baseline_results/InternVL3_5-4B-coco-caption/LLaVACAM')
     args = parser.parse_args()
     return args
 
@@ -134,10 +112,28 @@ class InternVLAdaptor(torch.nn.Module):
                 
                 returned_logits = returned_logits.squeeze(-1)  # [1, N]
         return returned_logits[0]   # size [N]
+    
+def perturbed(image, mask, rate = 0.5, mode = "insertion"):
+    mask_flatten = mask.flatten()
+    number = int(len(mask_flatten) * rate)
+    
+    if mode == "insertion":
+        new_mask = np.zeros_like(mask_flatten)
+        index = np.argsort(-mask_flatten)
+        new_mask[index[:number]] = 1
+
+        
+    elif mode == "deletion":
+        new_mask = np.ones_like(mask_flatten)
+        index = np.argsort(-mask_flatten)
+        new_mask[index[:number]] = 0
+    
+    new_mask = new_mask.reshape((mask.shape[0], mask.shape[1], 1))
+    
+    perturbed_image = image * new_mask
+    return perturbed_image.astype(np.uint8)
 
 def main(args):
-    text_prompt = "Describe the image in one factual English sentence of no more than 20 words. Do not include information that is not clearly visible."
-    
     # Load InternVL
     model_name = "OpenGVLab/InternVL3_5-4B-HF"
     # default: Load the model on the available device(s)
@@ -158,39 +154,58 @@ def main(args):
         processor = processor
     )
     
-    # Submodular
-    smdl = MLLMSubModularExplanationVision(
-        InternVL,
-        lambda1=args.lambda1,
-        lambda2=args.lambda2
-    )
+    save_json_root_path = os.path.join(args.eval_dir, "json")
+    mkdir(save_json_root_path)
+    
+    npy_dir = os.path.join(args.eval_dir, "npy")
+    
     
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
+    
+    for content in tqdm(contents):
         
-    mkdir(args.save_dir)
-    save_dir = os.path.join(args.save_dir, "{}-{}-{}-division-number-{}".format(args.superpixel_algorithm, args.lambda1, args.lambda2, args.division_number))
-    
-    mkdir(save_dir)
-    
-    save_npy_root_path = os.path.join(save_dir, "npy")
-    mkdir(save_npy_root_path)
-    
-    save_json_root_path = os.path.join(save_dir, "json")
-    mkdir(save_json_root_path)
-    
-    end = args.end
-    if end == -1:
-        end = None
-    select_contents = contents[args.begin : end]
-    
-    for content in tqdm(select_contents):
-        if os.path.exists(
-            os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json"))
-        ):
-            continue
+        if "coco" in args.eval_list:
+            image_path = os.path.join(args.Datasets, content["image_path"])
+            save_json_path = os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json"))
+            text_prompt = "Describe the image in one factual English sentence of no more than 20 words. Do not include information that is not clearly visible."
+            saliency_map = np.load(
+                os.path.join(npy_dir, content["image_path"].replace(".jpg", ".npy"))
+            )   # (375, 500)
+        elif "MMVP" in args.eval_list:
+            image_path = os.path.join(args.Datasets, content["image_filename"])
+            save_json_path = os.path.join(save_json_root_path, content["image_filename"].replace(".jpg", ".json"))
+            text_prompt = content["question"]
+            saliency_map = np.load(
+                os.path.join(npy_dir, content["image_filename"].replace(".jpg", ".npy"))
+            )
+        image = cv2.imread(image_path)  # (375, 500, 3)
         
-        image_path = os.path.join(args.Datasets, content["image_path"])
+        if saliency_map.shape != image.shape[:2]:
+            H, W = image.shape[:2]
+            # 注意 cv2.resize 的输入是 (W, H)
+            saliency_map = cv2.resize(saliency_map, (W, H), interpolation=cv2.INTER_LINEAR)
+        
+        json_file = {}
+        json_file["insertion_score"] = []
+        json_file["deletion_score"] = []
+        json_file["insertion_word_score"] = []
+        json_file["deletion_word_score"] = []
+        json_file["region_area"] = []
+        
+        if "target" in args.eval_list:
+            json_file["select_category"] = content["select_category"]
+            json_file["location"] = content["location"]
+            json_file["segmentation"] = content["segmentation"]
+            
+        if "target" in args.eval_list:
+            selected_interpretation_token_id = [content["target_generated_index"]]
+            selected_interpretation_token_word_id = [content["target_generated_id"]]
+            InternVL.generated_ids = torch.tensor([content["generated_ids"]], dtype=torch.long).to(model.device).detach()
+        else:
+            selected_interpretation_token_id = content["selected_interpretation_token_id"]
+            selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
+            InternVL.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         
         messages = [
             {
@@ -207,46 +222,35 @@ def main(args):
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
         
-        selected_interpretation_token_id = [content["target_generated_index"]]
-        selected_interpretation_token_word_id = [content["target_generated_id"]]
-
-        
-        InternVL.generated_ids = torch.tensor([content["generated_ids"]], dtype=torch.long).to(model.device).detach()
         InternVL.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         InternVL.selected_interpretation_token_word_id = selected_interpretation_token_word_id
-        InternVL.text_prompt = text_prompt
-        
-        image = cv2.imread(image_path)
-        
-        # Sub-region division
-        region_size = int((image.shape[0] * image.shape[1] / args.division_number) ** 0.5)
-        V_set = SubRegionDivision(image, mode=args.superpixel_algorithm, region_size = region_size)
-        
-        S_set, saved_json_file = smdl(image, V_set)
-        saved_json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
-        saved_json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
-        saved_json_file["select_category"] = content["select_category"]
-        saved_json_file["words"] = content["target_generated_token"]
-         
-        saved_json_file["location"] = content["location"]
-        saved_json_file["segmentation"] = content["segmentation"]
-        
-        saved_json_file["output_word_id"] = content["output_word_id"]
-        saved_json_file["output_words"] = processor.batch_decode(
-            content["output_word_id"], skip_special_tokens=True, clean_up_tokenization_spaces=False
-        )
-        
-        # Save npy file
-        np.save(
-            os.path.join(save_npy_root_path, content["image_path"].replace(".jpg", ".npy")),
-            np.array(S_set)
-        )
-        
-        # Save json file
-        with open(
-            os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json")), "w") as f:
-            f.write(json.dumps(saved_json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
     
+        for i in range(1, args.division_number+1):
+            perturbed_rate = i / args.division_number
+            json_file["region_area"].append(perturbed_rate)
+            
+            # insertion
+            insertion_image = perturbed(image, saliency_map, rate = perturbed_rate, mode = "insertion")
+            insertion_image = Image.fromarray(cv2.cvtColor(insertion_image, cv2.COLOR_BGR2RGB))
+            
+            # deletion
+            deletion_image = perturbed(image, saliency_map, rate = perturbed_rate, mode = "deletion")
+            deletion_image = Image.fromarray(cv2.cvtColor(deletion_image, cv2.COLOR_BGR2RGB))
+            
+            with torch.no_grad():
+                insertion_scores = InternVL(insertion_image)
+                json_file["insertion_score"].append(insertion_scores.mean().item())
+                json_file["insertion_word_score"].append(insertion_scores.detach().to(torch.float32).cpu().numpy().tolist())
+                
+                deletion_scores = InternVL(deletion_image)
+                json_file["deletion_score"].append(deletion_scores.mean().item())
+                json_file["deletion_word_score"].append(deletion_scores.detach().to(torch.float32).cpu().numpy().tolist())
+
+        # Save json file
+        with open(save_json_path, "w") as f:
+            f.write(json.dumps(json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
+
+            
 if __name__ == "__main__":
     args = parse_args()
     

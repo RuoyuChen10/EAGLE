@@ -110,6 +110,7 @@ class InternVLAdaptor(torch.nn.Module):
         
         self.generated_ids = self.generated_ids[:max(self.target_token_position)]   #bug
         inputs['input_ids'] = self.generated_ids
+        inputs['attention_mask'] = torch.ones_like(self.generated_ids)
         inputs = inputs.to(self.model.device)    # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
         
         # Forward calculation to get all logits (including the logits of the input part)
