@@ -116,10 +116,10 @@ def main(args):
     # average_highest_cls_score_75 = np.array(highest_auc_score_75).mean()
     
     print("Insertion AUC Score: {:.4f}\nDeletion AUC Score: {:.4f}".format(insertion_auc_score, deletion_auc_score))
-    
+    print("Average highest confidence: {:.4f}".format(average_highest_score))
+
     print("Insertion Sensitiveity AUC Score: {:.4f}\nDeletion Sensitiveity AUC Score: {:.4f}".format(insertion_sensitiveity_auc_score, deletion_sensitiveity_auc_score))
     
-    print("Average highest confidence: {:.4f}".format(average_highest_score))
     print("Sensitiveity Average highest confidence: {:.4f}".format(average_highest_score_sensitiveity))
 
     return
