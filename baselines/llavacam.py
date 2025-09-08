@@ -144,6 +144,52 @@ class LLaVACAM(object):
             
             # 对目标类进行反向传播
             target_logits = torch.sum(returned_logits[0])
+        
+        elif self.mode == "internvl":
+            info = [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "image",
+                            "image": image,
+                        },
+                        {"type": "text", "text": qu},
+                    ],},
+                ]
+            # Preparation for inference
+            inputs = self.processor.apply_chat_template(info, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(self.model.device, dtype=torch.bfloat16)
+            self.generated_ids = self.generated_ids[:max(self.target_token_position)]   #bug
+            inputs['input_ids'] = self.generated_ids
+            inputs['attention_mask'] = torch.ones_like(self.generated_ids)
+            inputs = inputs.to(self.model.device)    # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
+            
+            vision_mask = (inputs["input_ids"] == self.model.config.image_token_id).to(self.model.device)
+
+            if isinstance(image, str):
+                img = cv2.imread(image.replace(" ", "_"))
+                H, W = img.shape[:2]
+            elif isinstance(image, Image.Image):
+                W, H = image.size
+
+            Hm, Wm = 16, 16
+            
+            outputs = self.model(
+                **inputs,
+                return_dict=True,
+                use_cache=False,
+            )
+            
+            all_logits = outputs.logits
+            returned_logits = all_logits[:, self.target_token_position - 1] # The reason for the minus 1 is that the generated content is in the previous position
+            self.selected_interpretation_token_word_id = torch.tensor(self.selected_interpretation_token_word_id).to(self.model.device)
+            indices = self.selected_interpretation_token_word_id.unsqueeze(0).unsqueeze(-1) # [1, N, 1]
+                
+            returned_logits = returned_logits.gather(dim=2, index=indices) # [1, N, 1]
+            returned_logits = returned_logits.squeeze(-1)  # [1, N]
+            
+            # 对目标类进行反向传播
+            target_logits = torch.sum(returned_logits[0])
 
         target_logits.retain_grad()
         target_logits.backward(retain_graph=True)
@@ -172,7 +218,7 @@ class LLaVACAM(object):
         
         # 获取平均梯度和特征图
         self.image_gradients = rearrange(self.image_gradients.detach(), 'b (h w) c -> b h w c', h=h, w=w)
-        
+
         self.image_gradients = nn.ReLU()(self.image_gradients)
         pooled_gradients = torch.mean(self.image_gradients, dim=[0, 1, 2])
         activation = self.image_feature_maps.squeeze(0)
@@ -240,11 +286,12 @@ class LLaVACAM(object):
         
         # 初始化平滑后的热力图和叠加图像
         smooth_cam = np.zeros_like(base_cam)
+
         for _ in range(self.num_samples):
             # 添加噪声到图像
             noisy_image = self.add_noise(image, self.noise_std)
             noisy_cam = self.generate_cam(noisy_image, qu)
-            
+
             # 对每次扰动的结果累加
             smooth_cam += noisy_cam
 
