@@ -207,8 +207,8 @@ class LLaVACAM(object):
             grads = self.gradients[b][vision_mask[b]]
             
             if self.mode == "internvl":
-                feats = feats[:256]
-                grads = grads[:256]
+                feats = feats[-256:]
+                grads = grads[-256:]
                 
             self.image_feature_maps.append(feats)
             self.image_gradients.append(grads)
