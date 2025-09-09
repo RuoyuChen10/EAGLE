@@ -28,13 +28,13 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/InternVL3_5-4B-coco-caption.json',
+                        default='datasets/coco_single_target_once_internvl-4B.json',
                         help='Datasets.')
     parser.add_argument('--division-number', 
                         type=int, default=64,
                         help='')
     parser.add_argument('--eval-dir', 
-                        type=str, default='./baseline_results/InternVL3_5-4B-coco-caption/LLaVACAM')
+                        type=str, default='./baseline_results/InternVL3_5-4B-coco-object/LLaVACAM')
     args = parser.parse_args()
     return args
 
