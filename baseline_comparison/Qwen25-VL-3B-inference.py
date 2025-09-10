@@ -182,6 +182,12 @@ def main(args):
             saliency_map = np.load(
                 os.path.join(npy_dir, content["image_filename"].replace(".jpg", ".npy"))
             )
+        
+        if os.path.exists(
+            save_json_path
+        ):
+            continue
+        
         image = cv2.imread(image_path)  # (375, 500, 3)
         
         if saliency_map.shape != image.shape[:2]:

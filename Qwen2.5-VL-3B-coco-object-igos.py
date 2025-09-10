@@ -32,10 +32,10 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/Qwen2.5-VL-3B-coco-caption.json',
+                        default='datasets/coco_single_target_once_qwen25vl-3B.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-3B-coco-caption/IGOS_PP',
+                        type=str, default='./baseline_results/Qwen2.5-VL-3B-coco-object/IGOS_PP',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
@@ -86,7 +86,7 @@ def main(args):
         
         image = Image.open(image_path)
         
-        heatmap, superimposed_img = explainer(model, processor, image, text_prompt, tokenizer)
+        heatmap, superimposed_img = explainer(model, processor, image, text_prompt, tokenizer, positions=[content["target_generated_index"]])
 
         # Save npy file
         np.save(
