@@ -190,6 +190,9 @@ def main(args):
         
         image = cv2.imread(image_path)  # (375, 500, 3)
         
+        if "IGOS_PP" in args.eval_dir:
+            saliency_map = 1.0 - saliency_map
+        
         if saliency_map.shape != image.shape[:2]:
             H, W = image.shape[:2]
             # 注意 cv2.resize 的输入是 (W, H)
