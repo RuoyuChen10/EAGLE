@@ -25,17 +25,17 @@ def parse_args():
     # general
     parser.add_argument('--Datasets',
                         type=str,
-                        default='datasets/coco/val2017',
+                        default='datasets/MMVP/MMVP_Images',
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/Qwen2.5-VL-7B-coco-caption.json',
+                        default='datasets/Qwen2.5-VL-7B-MMVP-VQA.json',
                         help='Datasets.')
     parser.add_argument('--division-number', 
                         type=int, default=64,
                         help='')
     parser.add_argument('--eval-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-7B-coco-caption/LLaVACAM')
+                        type=str, default='./baseline_results/Qwen2.5-VL-7B-MMVP-VQA/IGOS_PP')
     args = parser.parse_args()
     return args
 
@@ -166,7 +166,7 @@ def main(args):
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
     
-    for content in tqdm(contents):
+    for content in tqdm(contents[240:]):
         
         if "coco" in args.eval_list:
             image_path = os.path.join(args.Datasets, content["image_path"])
@@ -184,7 +184,7 @@ def main(args):
             )
         image = cv2.imread(image_path)  # (375, 500, 3)
         
-        if "IGOS_PP" in args.eval_dir:
+        if "IGOS_PP" in args.eval_dir:  # IGOS++ output is different than others
             saliency_map = 1.0 - saliency_map
         
         if saliency_map.shape != image.shape[:2]:

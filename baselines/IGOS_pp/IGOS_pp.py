@@ -247,7 +247,154 @@ def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, pos
         image = np.array(image)
         masks = cv2.resize(masks, (image.shape[1], image.shape[0]))
         
-        heatmap = np.uint8(255 * masks)  
+        heatmap = np.uint8(255 * (1-masks))  
+        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        original_image = image
+        superimposed_img = heatmap * 0.4 + original_image
+        superimposed_img = np.clip(superimposed_img, 0, 255).astype(np.uint8)
+        # cv2.imwrite("igos++.jpg", superimposed_img)
+        
+    return masks, superimposed_img
+
+def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer):
+    input_size = (image.size[1], image.size[0])
+    size=32
+    opt = 'NAG'
+    diverse_k = 1
+    init_posi = 0
+    init_val = 0.
+    L1 = 1.0
+    L2 = 0.1
+    gamma = 1.0
+    L3 = 10.0
+    momentum = 5
+    ig_iter = 10
+    iterations=5
+    lr=10
+    
+    method = iGOS_pp
+    
+    i_obj = 0
+    total_del, total_ins, total_time = 0, 0, 0
+    all_del_scores = []
+    all_ins_scores = []
+    save_list = []
+    
+    # 开始处理数据
+    image_size = [image.size]
+    kernel_size = get_kernel_size(image.size)
+    
+    # tensor
+    messages1 = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image", "image": image},
+                {"type": "text", "text": text_prompt},
+            ],
+        }
+    ]
+    
+    # Preparation for inference
+    inputs = processor.apply_chat_template(messages1, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+    # inputs_blur = processor.apply_chat_template(messages1, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+
+    image_tensor = inputs['pixel_values']
+    # blur_tensor = inputs_blur['pixel_values']
+    blur_tensor = image_tensor * 0  # blur image cant choose salient word
+    
+    input_ids = inputs['input_ids']
+    with torch.no_grad():
+        generated_ids = model.generate(
+            **inputs, 
+            do_sample=False,      # Disable sampling and use greedy search instead
+            num_beams=1,          # Set to 1 to ensure greedy search instead of beam search.
+            max_new_tokens=128)
+        generated_ids_trimmed = [   # 去掉图像和prompt的文本
+            out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+        ]
+    output_text = processor.batch_decode(
+        generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+    )
+
+    selected_token_word_id = generated_ids_trimmed[0].cpu().numpy().tolist()
+    selected_token_id = [i for i in range(len(selected_token_word_id))]
+    target_token_position = np.array(selected_token_id) + len(inputs['input_ids'][0])
+    
+    positions, keywords = find_keywords(model, inputs, generated_ids, generated_ids_trimmed, image_tensor, blur_tensor, target_token_position, selected_token_word_id, tokenizer)
+    
+    print(keywords)
+    
+    pred_data=dict()
+    pred_data['labels'] = generated_ids_trimmed
+    pred_data['keywords'] = positions
+    pred_data['boxes'] = np.array([[0, 0, input_size[0], input_size[1]]])
+    pred_data['no_res'] = False
+    pred_data['pred_text'] = output_text
+    pred_data['keywords_text'] = keywords
+    
+    
+    # new image
+    messages2 = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "image", "image": image.resize((448, 448))},
+                {"type": "text", "text": text_prompt},
+            ],
+        }
+    ]
+    inputs = processor.apply_chat_template(messages2, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+    input_ids = inputs["input_ids"]
+    
+    y = torch.stack(generated_ids_trimmed, dim=0)
+
+
+    generated_ids = torch.cat([inputs["input_ids"], y if y.dim()==2 else y.unsqueeze(0)], dim=1).to(model.device)
+    # inputs['attention_mask'] = torch.ones_like(inputs["input_ids"]).to(model.device)
+    
+    
+    target_token_position = np.array(selected_token_id) + len(inputs['input_ids'][0])
+    # calculate init area
+    pred_data = get_initial(pred_data, k=diverse_k, init_posi=init_posi, 
+                           init_val=init_val, input_size=input_size, out_size=size)
+    for l_i, label in enumerate(pred_data['labels']):
+        label = label.unsqueeze(0)
+        keyword = pred_data['keywords']
+        now = time.time()
+        masks, loss_del, loss_ins, loss_l1, loss_tv, loss_l2, loss_comb_del, loss_comb_ins = method(
+                model=model,
+                inputs = inputs, 
+                generated_ids=generated_ids,
+                init_mask=pred_data['init_masks'][0],
+                image=inputs['pixel_values'][-1].unsqueeze(0).to(model.device),
+                target_token_position=target_token_position, selected_token_word_id=selected_token_word_id,
+                baseline=inputs['pixel_values'][-1].unsqueeze(0).to(model.device)*0,
+                label=label,
+                size=size,
+                iterations=iterations,
+                ig_iter=ig_iter,
+                L1=L1,
+                L2=L2,
+                L3=L3,
+                lr=lr,
+                opt=opt,
+                prompt=input_ids,
+                image_size=image_size,
+                positions=keyword,
+                resolution=None,
+                processor=None
+            )
+        total_time += time.time() - now
+        
+        masks = masks[0,0].detach().cpu().numpy()
+        masks -= np.min(masks)
+        masks /= np.max(masks)
+        
+        image = np.array(image)
+        masks = cv2.resize(masks, (image.shape[1], image.shape[0]))
+        
+        heatmap = np.uint8(255 * (1-masks))  
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
         original_image = image
         superimposed_img = heatmap * 0.4 + original_image
@@ -274,7 +421,10 @@ def interval_score(model, inputs, generated_ids, images, target_token_position, 
     for single_img in local_images:
         # single_img = single_img.half()
         
-        single_input = processor(single_img)
+        if processor == None:
+            single_input = single_img
+        else:
+            single_input = processor(single_img)
         
         probs = pred_probs(model, inputs, generated_ids, single_input, target_token_position, selected_token_word_id, need_grad=True)
         #losses += probs[positions].mean()

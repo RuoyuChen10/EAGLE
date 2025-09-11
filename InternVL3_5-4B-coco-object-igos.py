@@ -6,8 +6,7 @@ os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 import cv2
 import json
 
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
-from qwen_vl_utils import process_vision_info
+from transformers import AutoTokenizer, AutoModel, AutoProcessor, AutoConfig, AutoModelForImageTextToText
 
 import argparse
 import torch
@@ -19,12 +18,16 @@ from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
 
+import json
+import cv2
+import numpy as np
+
 from baselines.IGOS_pp.utils import *
 from baselines.IGOS_pp.methods_helper import *
 from baselines.IGOS_pp.IGOS_pp import *
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
+    parser = argparse.ArgumentParser(description='LLaVACAM Explanation for Qwen2.5-VL-3B Model')
     # general
     parser.add_argument('--Datasets',
                         type=str,
@@ -32,32 +35,33 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/Qwen2.5-VL-3B-coco-caption.json',
+                        default='datasets/coco_single_target_once_internvl-4B.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-3B-coco-caption/IGOS_PP',
+                        type=str, default='./baseline_results/InternVL3_5-4B-coco-object/IGOS_PP',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
 
+
 def main(args):
     text_prompt = "Describe the image in one factual English sentence of no more than 20 words. Do not include information that is not clearly visible."
     
-    # Load Qwen2.5-VL
+    # Load InternVL
+    model_name = "OpenGVLab/InternVL3_5-4B-HF"
     # default: Load the model on the available device(s)
-    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-        "Qwen/Qwen2.5-VL-3B-Instruct", torch_dtype="auto", device_map="auto"
-    )
-    model.eval()
-    
-    for param in model.parameters():
-        param.requires_grad = False
-    
-    # default processor
-    processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-3B-Instruct")
-    tokenizer = processor.tokenizer
+    model = AutoModelForImageTextToText.from_pretrained(
+        model_name,
+        dtype=torch.bfloat16,
+        device_map="auto",
+        attn_implementation="sdpa",
+        trust_remote_code=True).eval()
 
-    explainer = gen_explanations_qwenvl
+    # default processor
+    processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
+
+    explainer = gen_explanations_internvl
     
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
@@ -72,8 +76,13 @@ def main(args):
     save_vis_root_path = os.path.join(save_dir, "visualization")
     mkdir(save_vis_root_path)
     
-    # visualization_root_path = os.path.join(save_dir, "vis")
-    # mkdir(visualization_root_path)
+    # save_json_root_path = os.path.join(save_dir, "json")
+    # mkdir(save_json_root_path)
+    
+    # end = args.end
+    # if end == -1:
+    #     end = None
+    # select_contents = contents[args.begin : end]
     
     for content in tqdm(contents):
         if os.path.exists(
@@ -82,12 +91,12 @@ def main(args):
             continue
         
         image_path = os.path.join(args.Datasets, content["image_path"])
-        # text_prompt = content["question"]
         
-        image = Image.open(image_path)
-        
+        image = Image.open(image_path).convert('RGB')
+    
+        # Sub-region division
         heatmap, superimposed_img = explainer(model, processor, image, text_prompt, tokenizer)
-
+        
         # Save npy file
         np.save(
             os.path.join(save_npy_root_path, content["image_path"].replace(".jpg", ".npy")),

@@ -190,7 +190,7 @@ def main(args):
         
         image = cv2.imread(image_path)  # (375, 500, 3)
         
-        if "IGOS_PP" in args.eval_dir:
+        if "IGOS_PP" in args.eval_dir:  # IGOS++ output is different than others
             saliency_map = 1.0 - saliency_map
         
         if saliency_map.shape != image.shape[:2]:
