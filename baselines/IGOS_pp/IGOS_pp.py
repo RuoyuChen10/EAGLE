@@ -256,7 +256,7 @@ def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, pos
         
     return masks, superimposed_img
 
-def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer):
+def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer, positions=None):
     input_size = (image.size[1], image.size[0])
     size=32
     opt = 'NAG'
@@ -321,7 +321,13 @@ def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer):
     selected_token_id = [i for i in range(len(selected_token_word_id))]
     target_token_position = np.array(selected_token_id) + len(inputs['input_ids'][0])
     
-    positions, keywords = find_keywords(model, inputs, generated_ids, generated_ids_trimmed, image_tensor, blur_tensor, target_token_position, selected_token_word_id, tokenizer)
+    if positions == None:
+        positions, keywords = find_keywords(model, inputs, generated_ids, generated_ids_trimmed, image_tensor, blur_tensor, target_token_position, selected_token_word_id, tokenizer)
+    else:
+        keywords = processor.batch_decode(
+            generated_ids_trimmed[0], skip_special_tokens=True, clean_up_tokenization_spaces=False
+        )[positions[0]]
+    
     
     print(keywords)
     

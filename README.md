@@ -15,12 +15,20 @@ You can experience the interpretability of a single image directly in the Jupyte
 
 ### [Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
 
-Please explore it from the file [tutorial/Qwen25VL-Interpretation.ipynb](./tutorial/Qwen25VL-Interpretation.ipynb). You can directly modify the Qwen-VL series models (covering versions from 2 to 2.5, with different parameter sizes such as 3B and 7B). Below is the interpretation result of the Qwen2.5-VL 3B model.
+Please explore it from the file [tutorial/Qwen25VL-Interpretation.ipynb](./tutorial/Qwen25VL-Interpretation.ipynb). You can directly modify the Qwen-VL series models (covering versions from 2 to 2.5, with different parameter sizes such as 3B and 7B). Below is the interpretation result of the `Qwen2.5-VL 3B` model.
 
 |Sentence-level Interpretation| Word-level Interpretation `cat` | Word-level Interpretation `banana` |
 |:-:|:-:|:-:|
 |![](examples/explanation_cat_on_a_tree.jpg)|![](examples/explanation_word_cat_on_a_tree.jpg)|![](examples/explanation_word_banana_cat_on_a_tree.jpg)|
 
+### [InternVL 3.5](https://github.com/OpenGVLab/InternVL)
+
+
+Please explore it from the file [tutorial/InternVL3_5-Interpretation.ipynb](./tutorial/InternVL3_5-Interpretation.ipynb). You can directly modify the InternVL series models (covering versions from 1 to 3.5, with different parameter sizes such as 4B and 8B). Below is the interpretation result of the `InternVL 4B` model.
+
+|Sentence-level Interpretation| Word-level Interpretation `cat` | Word-level Interpretation `banana` |
+|:-:|:-:|:-:|
+|![](examples/explanation_internvl_cat_on_a_tree.jpg)|![](examples/explanation_internvl_word_cat_on_a_tree.jpg)|![](examples/explanation_internvl_word_banana_cat_on_a_tree.jpg)|
 
 ## 🗝️ How to Run
 

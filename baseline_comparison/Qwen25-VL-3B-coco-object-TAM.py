@@ -31,10 +31,10 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/coco_single_target_once_qwen25vl-7B.json',
+                        default='datasets/coco_single_target_once_qwen25vl-3B.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-7B-coco-object/TAM',
+                        type=str, default='./baseline_results/Qwen2.5-VL-3B-coco-object/TAM',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
@@ -119,12 +119,12 @@ def main(args):
     # Load Qwen2.5-VL
     # default: Load the model on the available device(s)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-        "Qwen/Qwen2.5-VL-7B-Instruct", torch_dtype="auto", device_map="auto"
+        "Qwen/Qwen2.5-VL-3B-Instruct", torch_dtype="auto", device_map="auto"
     )
     model.eval()
     
     # default processor
-    processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-7B-Instruct")
+    processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-3B-Instruct")
     tokenizer = processor.tokenizer
     
     with open(args.eval_list, "r") as f:
