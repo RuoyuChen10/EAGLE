@@ -228,11 +228,6 @@ def main(args):
         # Select all words to explain
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
         selected_interpretation_token_word_id = content["counter_word_id"]
-        
-        saved_json_file["question"] = content["question"]
-        saved_json_file["label"] = content["label"]
-        saved_json_file["counter_word_id"] = content["counter_word_id"]
-        saved_json_file["id"] = content["id"]
 
         ## Equip the model with the generated ids and the target token position to be explained
         Qwen.generated_ids = content["generated_ids"]
@@ -246,6 +241,10 @@ def main(args):
         V_set = SubRegionDivision(image, mode=args.superpixel_algorithm, region_size = region_size)
         
         S_set, saved_json_file = smdl(image, V_set)
+        saved_json_file["question"] = content["question"]
+        saved_json_file["label"] = content["label"]
+        saved_json_file["counter_word_id"] = content["counter_word_id"]
+        saved_json_file["id"] = content["id"]
         saved_json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
         saved_json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
         saved_json_file["words"] = content["words"]
