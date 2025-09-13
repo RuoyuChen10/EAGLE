@@ -230,7 +230,7 @@ def main(args):
         selected_interpretation_token_word_id = content["counter_word_id"]
 
         ## Equip the model with the generated ids and the target token position to be explained
-        Qwen.generated_ids = content["generated_ids"]
+        Qwen.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         Qwen.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         Qwen.selected_interpretation_token_word_id = selected_interpretation_token_word_id
         
