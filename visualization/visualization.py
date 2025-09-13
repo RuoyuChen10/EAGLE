@@ -19,7 +19,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 from sklearn import metrics
 
 matplotlib.get_cachedir()
-plt.rc('font', family="Arial")
+# plt.rc('font', family="Arial")
 
 def add_value(S_set, json_file):
     single_mask = np.zeros_like(S_set[0])
