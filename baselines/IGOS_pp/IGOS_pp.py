@@ -94,7 +94,7 @@ def tensor2pack(patches: torch.Tensor) -> torch.Tensor:
 
     return flatten_patches
 
-def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, positions=None):
+def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, positions=None, select_word_id=None):
     """_summary_
 
     Args:
@@ -199,6 +199,10 @@ def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, pos
         )[positions[0]]
     
     print(keywords)
+    
+    if select_word_id != None:
+        for position, word_id in zip(positions, select_word_id):
+            generated_ids_trimmed[0][position] = word_id
     
     pred_data=dict()
     pred_data['labels'] = generated_ids_trimmed
