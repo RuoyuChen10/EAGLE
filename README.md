@@ -30,6 +30,17 @@ Please explore it from the file [tutorial/InternVL3_5-Interpretation.ipynb](./tu
 |:-:|:-:|:-:|
 |![](examples/explanation_internvl_cat_on_a_tree.jpg)|![](examples/explanation_internvl_word_cat_on_a_tree.jpg)|![](examples/explanation_internvl_word_banana_cat_on_a_tree.jpg)|
 
+### Interpreting Qwen2.5-VL Object Hallucination
+
+Please explore it from the file [tutorial/Qwen25VL-Hallucination-Interpretation.ipynb](./tutorial/Qwen25VL-Hallucination-Interpretation.ipynb). You can directly modify the Qwen-VL series models (covering versions from 2 to 2.5, with different parameter sizes such as 3B and 7B). Below is the interpretation result of the `Qwen2.5-VL 3B` model.
+
+**Question: Is there a handbag in the image?**
+
+|Hallucination Results Interpretation|Interpreting and Mitigating Hallucination|
+|--|--|
+|![](./examples/explanation_qwen25_hallucination_evidence.jpg) | ![](./examples/Hallucination-mitigation.png) |
+
+
 ## 🗝️ How to Run
 
 Prepare the datasets following [here](datasets/README.md).
