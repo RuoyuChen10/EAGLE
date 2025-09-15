@@ -260,7 +260,7 @@ def gen_explanations_qwenvl(model, processor, image, text_prompt, tokenizer, pos
         
     return masks, superimposed_img
 
-def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer, positions=None):
+def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer, positions=None, select_word_id=None):
     input_size = (image.size[1], image.size[0])
     size=32
     opt = 'NAG'
@@ -334,6 +334,10 @@ def gen_explanations_internvl(model, processor, image, text_prompt, tokenizer, p
     
     
     print(keywords)
+    
+    if select_word_id != None:
+        for position, word_id in zip(positions, select_word_id):
+            generated_ids_trimmed[0][position] = word_id
     
     pred_data=dict()
     pred_data['labels'] = generated_ids_trimmed

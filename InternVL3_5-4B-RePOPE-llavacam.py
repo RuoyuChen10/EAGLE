@@ -23,6 +23,13 @@ import json
 import cv2
 import numpy as np
 
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
     # general
@@ -42,13 +49,6 @@ def parse_args():
 
 
 def main(args):
-    prompt_template = """You are asked a visual question answering task. 
-    First, answer strictly with "Yes" or "No". 
-    Then, provide a short explanation if necessary.
-
-    Question: {}
-    Answer:"""
-    
     # Load InternVL
     model_name = "OpenGVLab/InternVL3_5-4B-HF"
     # default: Load the model on the available device(s)

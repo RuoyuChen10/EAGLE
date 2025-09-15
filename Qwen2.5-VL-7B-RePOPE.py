@@ -5,6 +5,7 @@ os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 
 import cv2
 import json
+import textwrap
 
 from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
 from qwen_vl_utils import process_vision_info
@@ -20,6 +21,13 @@ from interpretation.submodular_vision import MLLMSubModularExplanationVision
 from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
+
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
@@ -139,13 +147,6 @@ class QwenVLAdaptor(torch.nn.Module):
         return returned_logits[0]   # size [N]
     
 def main(args):
-    prompt_template = """You are asked a visual question answering task. 
-    First, answer strictly with "Yes" or "No". 
-    Then, provide a short explanation if necessary.
-
-    Question: {}
-    Answer:"""
-
     # Load Qwen2.5-VL
     # default: Load the model on the available device(s)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
@@ -224,6 +225,26 @@ def main(args):
             return_tensors="pt",
         )
         inputs = inputs.to(model.device)    # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
+        
+        # Inference: Generation of the output
+        with torch.no_grad():
+            generated_ids = model.generate(
+                **inputs, 
+                do_sample=False,      # Disable sampling and use greedy search instead
+                num_beams=1,          # Set to 1 to ensure greedy search instead of beam search.
+                max_new_tokens=128)
+            generated_ids_trimmed = [   # 去掉图像和prompt的文本
+                out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+            ]
+            
+        output_text = processor.batch_decode(
+            generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+        )
+        print(content["generate_sentence"])
+        print(output_text[0])
+        print("=======")
+        
+        continue
         
         # Select all words to explain
         selected_interpretation_token_id = content["selected_interpretation_token_id"]

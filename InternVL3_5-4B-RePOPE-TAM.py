@@ -22,6 +22,13 @@ from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
 
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
     # general
@@ -118,13 +125,6 @@ def tam_demo_for_internvl(model, processor, image_path, prompt_text, token_id, s
     return img_map
 
 def main(args):
-    prompt_template = """You are asked a visual question answering task. 
-    First, answer strictly with "Yes" or "No". 
-    Then, provide a short explanation if necessary.
-
-    Question: {}
-    Answer:"""
-    
     # Load InternVL
     model_name = "OpenGVLab/InternVL3_5-4B-HF"
     # default: Load the model on the available device(s)

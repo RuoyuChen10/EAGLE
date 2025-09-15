@@ -20,6 +20,13 @@ from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
 
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
     # general
@@ -39,13 +46,6 @@ def parse_args():
 
 
 def main(args):
-    prompt_template = """You are asked a visual question answering task. 
-    First, answer strictly with "Yes" or "No". 
-    Then, provide a short explanation if necessary.
-
-    Question: {}
-    Answer:"""
-    
     # Load Qwen2.5-VL
     # default: Load the model on the available device(s)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(

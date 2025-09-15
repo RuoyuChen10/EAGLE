@@ -23,6 +23,13 @@ from baselines.IGOS_pp.utils import *
 from baselines.IGOS_pp.methods_helper import *
 from baselines.IGOS_pp.IGOS_pp import *
 
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
     # general
@@ -32,26 +39,19 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/Qwen2.5-VL-3B-RePOPE-FP.json',
+                        default='datasets/Qwen2.5-VL-7B-RePOPE-FP.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-3B-RePOPE/IGOS_PP',
+                        type=str, default='./baseline_results/Qwen2.5-VL-7B-RePOPE/IGOS_PP',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
 
 def main(args):
-    prompt_template = """You are asked a visual question answering task. 
-    First, answer strictly with "Yes" or "No". 
-    Then, provide a short explanation if necessary.
-
-    Question: {}
-    Answer:"""
-    
     # Load Qwen2.5-VL
     # default: Load the model on the available device(s)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-        "Qwen/Qwen2.5-VL-3B-Instruct", torch_dtype="auto", device_map="auto"
+        "Qwen/Qwen2.5-VL-7B-Instruct", torch_dtype="auto", device_map="auto"
     )
     model.eval()
     
@@ -59,7 +59,7 @@ def main(args):
         param.requires_grad = False
     
     # default processor
-    processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-3B-Instruct")
+    processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-7B-Instruct")
     tokenizer = processor.tokenizer
 
     explainer = gen_explanations_qwenvl
@@ -95,11 +95,11 @@ def main(args):
 
         # Save npy file
         np.save(
-            os.path.join(save_npy_root_path, content["image_name"].replace(".jpg", ".npy")),
+            os.path.join(save_npy_root_path, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"]))),
             np.array(heatmap)
         )
         
-        cv2.imwrite(os.path.join(save_vis_root_path, content["image_name"]), superimposed_img)
+        cv2.imwrite(os.path.join(save_vis_root_path, content["image_name"].replace(".jpg", "_{}.jpg".format(content["id"]))), superimposed_img)
         
 if __name__ == "__main__":
     args = parse_args()

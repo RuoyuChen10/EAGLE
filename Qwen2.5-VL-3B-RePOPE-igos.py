@@ -99,7 +99,7 @@ def main(args):
             np.array(heatmap)
         )
         
-        cv2.imwrite(os.path.join(save_vis_root_path, content["image_name"]), superimposed_img)
+        cv2.imwrite(os.path.join(save_npy_root_path, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"]))), superimposed_img)
         
 if __name__ == "__main__":
     args = parse_args()
