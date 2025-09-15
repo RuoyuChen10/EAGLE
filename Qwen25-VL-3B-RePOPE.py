@@ -133,8 +133,6 @@ class QwenVLAdaptor(torch.nn.Module):
             all_logits = outputs.logits  # [batch_size, seq_len, vocab_size]
         
         if self.generated_ids != None:
-            print(all_logits.shape)
-            print(self.target_token_position - 1)
             returned_logits = all_logits[:, self.target_token_position - 1] # The reason for the minus 1 is that the generated content is in the previous position
             returned_logits = self.softmax(returned_logits)
             
@@ -226,6 +224,21 @@ def main(args):
             return_tensors="pt",
         )
         inputs = inputs.to(model.device)    # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
+        
+        # Inference: Generation of the output
+        with torch.no_grad():
+            generated_ids = model.generate(
+                **inputs, 
+                do_sample=False,      # Disable sampling and use greedy search instead
+                num_beams=1,          # Set to 1 to ensure greedy search instead of beam search.
+                max_new_tokens=128)
+            generated_ids_trimmed = [   # 去掉图像和prompt的文本
+                out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+            ]
+            
+        output_text = processor.batch_decode(
+            generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+        )
         
         # Select all words to explain
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
