@@ -212,27 +212,6 @@ def main(args):
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
         
-        # Inference: Generation of the output
-        with torch.no_grad():
-            generated_ids = model.generate(
-                **inputs, 
-                do_sample=False,      # Disable sampling and use greedy search instead
-                num_beams=1,          # Set to 1 to ensure greedy search instead of beam search.
-                max_new_tokens=128)
-            generated_ids_trimmed = [   # 去掉图像和prompt的文本
-                out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-            ]
-            
-        output_text = processor.batch_decode(
-            generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-        )
-        print(content["generate_sentence"])
-        print(output_text[0])
-        print("=======")
-        
-        continue
-        
-        
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
         selected_interpretation_token_word_id = content["counter_word_id"]
         

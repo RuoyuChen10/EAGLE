@@ -235,8 +235,6 @@ def main(args):
         Qwen.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         Qwen.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         
-        print(Qwen.generated_ids.shape)
-        print(Qwen.target_token_position)
         Qwen.selected_interpretation_token_word_id = selected_interpretation_token_word_id
         
         image = cv2.imread(image_path)
