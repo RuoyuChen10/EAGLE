@@ -296,16 +296,25 @@ def annotate_with_grounding_dino(image, boxes, phrases, color=(34,139,34)):
 
 
 def visualization_mllm_with_object(image_path, S_set, saved_json_file, save_path=None):
-    attribution_map, _ = add_value(S_set, saved_json_file)
+    if 'smdl_score' in saved_json_file:
+        attribution_map, _ = add_value(S_set, saved_json_file)
     
-    sensitive = max(saved_json_file["insertion_score"]) - saved_json_file["deletion_score"][-1]
-    print(sensitive)
-    scale = sensitive * 1.5
-    
-    attribution_map = norm_image(attribution_map[:,:,0])
-    
-    if scale < 1:
-        attribution_map = attribution_map * scale
+        sensitive = max(saved_json_file["insertion_score"]) - saved_json_file["deletion_score"][-1]
+        print(sensitive)
+        scale = sensitive * 1.5
+        
+        attribution_map = norm_image(attribution_map[:,:,0])
+        
+        if scale < 1:
+            attribution_map = attribution_map * scale
+    else:
+        attribution_map = S_set
+        attribution_map = attribution_map - attribution_map.min()
+        attribution_map = attribution_map / (attribution_map.max() + 0.00000001)
+        image = cv2.imread(image_path)
+        attribution_map = cv2.resize(attribution_map, (image.shape[1], image.shape[0]), interpolation=cv2.INTER_LINEAR)
+        
+        attribution_map = norm_image(attribution_map)
     
     vis_saliency_map, heatmap = gen_cam(image_path, attribution_map)
     
@@ -314,13 +323,17 @@ def visualization_mllm_with_object(image_path, S_set, saved_json_file, save_path
     
     # word_heatmap_scores = get_word_saliency(saved_json_file)
     
-    text = saved_json_file["output_words"]
-    word_mask = np.zeros(len(saved_json_file["output_words"]))
+    # text = saved_json_file["output_words"]
+    text = saved_json_file.get("output_words", None)
+    if text:
+        word_mask = np.zeros(len(saved_json_file["output_words"]))
 
-    for selected_interpretation_token_ in saved_json_file["selected_interpretation_token_id"]:
-        word_mask[selected_interpretation_token_] = 1
-    
-    visualize_explanation_with_special_word(vis_saliency_map, text, word_mask)
+        for selected_interpretation_token_ in saved_json_file["selected_interpretation_token_id"]:
+            word_mask[selected_interpretation_token_] = 1
+        
+        visualize_explanation_with_special_word(vis_saliency_map, text, word_mask)
+    else:
+         visualize_explanation_with_special_word(vis_saliency_map, None, None, bottom_vis=False)   
     
     if save_path != None:
         plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
@@ -328,7 +341,7 @@ def visualization_mllm_with_object(image_path, S_set, saved_json_file, save_path
     plt.close()
  
 
-def visualize_explanation_with_special_word(vis_saliency_map, words, word_mask, fixed_width=6):
+def visualize_explanation_with_special_word(vis_saliency_map, words, word_mask, fixed_width=6, bottom_vis=True):
     # ---- Data & aspect ratio ----
     vis_saliency_map = vis_saliency_map[:, :, ::-1]  # BGR->RGB
     h, w, _ = vis_saliency_map.shape
@@ -360,6 +373,9 @@ def visualize_explanation_with_special_word(vis_saliency_map, words, word_mask, 
         spine.set_visible(False)
     cbar.ax.tick_params(length=0, labelbottom=False, labelleft=False)
     cbar.ax.set_yticklabels([])
+    
+    if bottom_vis == False:
+        return
 
     # ---- Bottom panel (span both columns, auto line wrapping) ----
     ax1 = fig.add_subplot(gs[1, :])
