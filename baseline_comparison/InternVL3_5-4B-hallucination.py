@@ -171,14 +171,12 @@ def main(args):
         contents = json.load(f)
     
     for content in tqdm(contents):
-        
-        if "coco" in args.eval_list:
-            image_path = os.path.join(args.Datasets, content["image_name"])
-            save_json_path = os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
-            text_prompt = prompt_template.format(content["question"])
-            saliency_map = np.load(
-                os.path.join(npy_dir, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"])))
-                )   # (375, 500)
+        image_path = os.path.join(args.Datasets, content["image_name"])
+        save_json_path = os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
+        text_prompt = prompt_template.format(content["question"])
+        saliency_map = np.load(
+            os.path.join(npy_dir, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"])))
+        )   # (375, 500)
 
         if os.path.exists(
             save_json_path
@@ -258,7 +256,7 @@ def main(args):
                         "content": [
                             {
                                 "type": "image",
-                                "image": insertion_image_input,
+                                "image": insertion_image,
                             },
                             {"type": "text", "text": text_prompt},
                         ],

@@ -173,7 +173,7 @@ def main(args):
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
     
-    for content in tqdm(contents):
+    for content in tqdm(contents[82:]):
         image_path = os.path.join(args.Datasets, content["image_name"])
         save_json_path = os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
         text_prompt = prompt_template.format(content["question"])
