@@ -126,7 +126,7 @@ def get_word_saliency(json_file):
     
     return word_heatmap_scores
 
-def visualize_explanation(vis_saliency_map, words, scores, cmap='bwr', fixed_width=6):
+def visualize_explanation(vis_saliency_map, words, scores, cmap='bwr', fixed_width=6, bottom_vis=True):
     # ---- Data & aspect ratio ----
     vis_saliency_map = vis_saliency_map[:, :, ::-1]  # BGR->RGB
     h, w, _ = vis_saliency_map.shape
@@ -158,6 +158,9 @@ def visualize_explanation(vis_saliency_map, words, scores, cmap='bwr', fixed_wid
         spine.set_visible(False)
     cbar.ax.tick_params(length=0, labelbottom=False, labelleft=False)
     cbar.ax.set_yticklabels([])
+    
+    if bottom_vis == False:
+        return
 
     # ---- Bottom panel (span both columns, auto line wrapping) ----
     ax1 = fig.add_subplot(gs[1, :])
@@ -220,13 +223,27 @@ def visualize_explanation(vis_saliency_map, words, scores, cmap='bwr', fixed_wid
     # plt.close()
     
 def visualization_mllm(image_path, S_set, saved_json_file, save_path=None):
-    attribution_map, _ = add_value(S_set, saved_json_file)
-    vis_saliency_map, heatmap = gen_cam(image_path, norm_image(attribution_map[:,:,0]))
+    if 'smdl_score' in saved_json_file:
+        attribution_map, _ = add_value(S_set, saved_json_file)
+        attribution_map = norm_image(attribution_map[:,:,0])
+    else:
+        attribution_map = S_set
+        attribution_map = attribution_map - attribution_map.min()
+        attribution_map = attribution_map / (attribution_map.max() + 0.00000001)
+        image = cv2.imread(image_path)
+        attribution_map = cv2.resize(attribution_map, (image.shape[1], image.shape[0]), interpolation=cv2.INTER_LINEAR)
+        
+        attribution_map = norm_image(attribution_map)
     
-    word_heatmap_scores = get_word_saliency(saved_json_file)  
-    text = saved_json_file["words"]
-    
-    visualize_explanation(vis_saliency_map, text, word_heatmap_scores)
+    vis_saliency_map, heatmap = gen_cam(image_path, attribution_map)
+     
+    text = saved_json_file.get("words", None)
+   
+    if text:
+        word_heatmap_scores = get_word_saliency(saved_json_file)
+        visualize_explanation(vis_saliency_map, text, word_heatmap_scores)
+    else:
+        visualize_explanation(vis_saliency_map, None, None, bottom_vis=False)
     
     if save_path != None:
         plt.savefig(save_path, bbox_inches='tight', pad_inches=0)

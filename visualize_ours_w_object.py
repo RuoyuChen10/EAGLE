@@ -46,6 +46,9 @@ def main(args):
             saved_json_file = json.load(f)
         S_set = np.load(npy_file_path)
         
+        if "IGOS_PP" in npy_file_path:
+            S_set = -S_set
+        
         visualization_mllm_with_object(image_path, S_set, saved_json_file, save_path=save_full_visualization_map_path)
         
 if __name__ == "__main__":
