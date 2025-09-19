@@ -6,7 +6,7 @@ os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 import cv2
 import json
 
-from transformers import AutoTokenizer, AutoModel, AutoProcessor, AutoConfig, AutoModelForImageTextToText
+from transformers import AutoProcessor, LlavaForConditionalGeneration
 
 import argparse
 import torch
@@ -32,36 +32,31 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/InternVL3_5-4B-MMVP-VQA.json',
+                        default='datasets/LLaVA-1_5-7B-MMVP-VQA.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/InternVL3_5-4B-MMVP-VQA/LLaVACAM',
+                        type=str, default='./baseline_results/LLaVA-1_5-7B-MMVP-VQA/LLaVACAM',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
 
 
 def main(args):
-    # text_prompt = "Describe the image in one factual English sentence of no more than 20 words. Do not include information that is not clearly visible."
-    
     # Load InternVL
-    model_name = "OpenGVLab/InternVL3_5-4B-HF"
+    model_name = "llava-hf/llava-1.5-7b-hf"
     # default: Load the model on the available device(s)
-    model = AutoModelForImageTextToText.from_pretrained(
-        model_name,
-        dtype=torch.bfloat16,
+    model = LlavaForConditionalGeneration.from_pretrained(
+        model_name, 
+        dtype=torch.float16, 
         device_map="auto",
-        attn_implementation="sdpa",
-        trust_remote_code=True).eval()
+        # low_cpu_mem_usage=True,
+        trust_remote_code=True,
+    ).eval()
 
     # default processor
     processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
-    
-    # for name, module in model.named_modules():
-    #     print(name, '->', module.__class__.__name__)
 
-    explainer = LLaVACAM(model, processor, model.model.language_model.layers[32].post_attention_layernorm, mode="internvl")
+    explainer = LLaVACAM(model, processor, model.model.language_model.layers[13].post_attention_layernorm, mode="internvl")
     
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
@@ -103,7 +98,7 @@ def main(args):
         
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
-        
+
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
         selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
         
@@ -121,7 +116,6 @@ def main(args):
             os.path.join(save_npy_root_path, content["image_filename"].replace(".jpg", ".npy")),
             np.array(heatmap)
         )
-        
         
         heatmap = np.uint8(255 * heatmap)
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
