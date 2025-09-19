@@ -12,7 +12,7 @@ from PIL import Image
 import torch
 from torch import nn
 import torchvision.transforms.functional as TF
-from transformers import AutoProcessor, LlavaForConditionalGeneration, AutoTokenizer
+from transformers import AutoProcessor, LlavaForConditionalGeneration
 
 import argparse
 import json
@@ -23,16 +23,23 @@ from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
 
+prompt_template = """You are asked a visual question answering task. 
+First, answer strictly with "Yes" or "No". 
+Then, provide a short explanation if necessary.
+
+Question: {}
+Answer:"""
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
     # general
     parser.add_argument('--Datasets',
                         type=str,
-                        default='datasets/coco/val2017',
+                        default='datasets/coco2014/val2014',
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/coco_single_target_once_llava-1_5-7B.json',
+                        default='datasets/LLaVA-1_5-7B-RePOPE-FP.json',
                         help='Datasets.')
     parser.add_argument('--superpixel-algorithm',
                         type=str,
@@ -55,7 +62,7 @@ def parse_args():
                         type=int, default=-1,
                         help='')
     parser.add_argument('--save-dir', 
-                        type=str, default='./interpretation_results/LLaVA-1_5-7B-coco-object/',
+                        type=str, default='./interpretation_results/LLaVA-1_5-7B-RePOPE/',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
@@ -136,8 +143,6 @@ class LLaVAAdaptor(torch.nn.Module):
         return returned_logits[0]   # size [N]
 
 def main(args):
-    text_prompt = "Describe the image in one factual English sentence of no more than 20 words. Do not include information that is not clearly visible."
-    
     # Load InternVL
     model_name = "llava-hf/llava-1.5-7b-hf"
     # default: Load the model on the available device(s)
@@ -187,11 +192,11 @@ def main(args):
     
     for content in tqdm(select_contents):
         if os.path.exists(
-            os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json"))
+            os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
         ):
             continue
         
-        image_path = os.path.join(args.Datasets, content["image_path"])
+        image_path = os.path.join(args.Datasets, content["image_name"])
         
         messages = [
             {
@@ -201,20 +206,22 @@ def main(args):
                         "type": "image",
                         "image": image_path,
                     },
-                    {"type": "text", "text": text_prompt},
+                    {"type": "text", "text": prompt_template.format(content["question"])},
                 ],
             }
         ]
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
         
-        selected_interpretation_token_id = [content["target_generated_index"]]
-        selected_interpretation_token_word_id = [content["target_generated_id"]]
-
+        selected_interpretation_token_id = content["selected_interpretation_token_id"]
+        selected_interpretation_token_word_id = content["counter_word_id"]
         
-        LLaVA.generated_ids = torch.tensor([content["generated_ids"]], dtype=torch.long).to(model.device).detach()
+        LLaVA.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         LLaVA.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         LLaVA.selected_interpretation_token_word_id = selected_interpretation_token_word_id
+        
+        
+        text_prompt = prompt_template.format(content["question"])
         LLaVA.text_prompt = text_prompt
         
         image = cv2.imread(image_path)
@@ -224,28 +231,69 @@ def main(args):
         V_set = SubRegionDivision(image, mode=args.superpixel_algorithm, region_size = region_size)
         
         S_set, saved_json_file = smdl(image, V_set)
+        saved_json_file["question"] = content["question"]
+        saved_json_file["label"] = content["label"]
+        saved_json_file["counter_word_id"] = content["counter_word_id"]
+        saved_json_file["id"] = content["id"]
         saved_json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
         saved_json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
-        saved_json_file["select_category"] = content["select_category"]
-        saved_json_file["words"] = content["target_generated_token"]
-         
-        saved_json_file["location"] = content["location"]
-        saved_json_file["segmentation"] = content["segmentation"]
+        saved_json_file["words"] = content["words"]
         
-        saved_json_file["output_word_id"] = content["output_word_id"]
-        saved_json_file["output_words"] = processor.batch_decode(
-            content["output_word_id"], skip_special_tokens=True, clean_up_tokenization_spaces=False
-        )
+        # Revised answering under the insertion setting
+        revised_answering = []
+
+        S_set_add = S_set.copy()
+        S_set_add = np.array([S_set_add[0]-S_set_add[0]] + S_set_add)
+        image_baseline = cv2.resize(image, (S_set[0].shape[1], S_set[0].shape[0]))
+
+        insertion_image = (S_set[0] - S_set[0]) * image_baseline
+        for smdl_sub_mask in tqdm(S_set):
+            insertion_image = insertion_image + smdl_sub_mask * image_baseline
+            insertion_image_input = insertion_image.copy().astype(np.float32)
+            insertion_image_input = cv2.cvtColor(insertion_image_input, cv2.COLOR_BGR2RGB)
+            insertion_image_input = Image.fromarray(np.clip(insertion_image_input, 0, 255).astype(np.uint8))
+            
+            messages_new = [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "image",
+                            "image": insertion_image_input,
+                        },
+                        {"type": "text", "text": prompt_template.format(content["question"])},
+                    ],
+                }
+            ]
+            
+            # Preparation for inference
+            inputs = processor.apply_chat_template(messages_new, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+            with torch.no_grad():
+                generated_ids_revised = model.generate(
+                    **inputs, 
+                    do_sample=False,      # Disable sampling and use greedy search instead
+                    num_beams=1,          # Set to 1 to ensure greedy search instead of beam search.
+                    max_new_tokens=128)
+                generated_ids_trimmed_revised = [   # 去掉图像和prompt的文本
+                    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids_revised)
+                ]
+                
+            output_text = processor.batch_decode(
+                generated_ids_trimmed_revised, skip_special_tokens=True, clean_up_tokenization_spaces=False
+            )
+            revised_answering.append(output_text[0])
+            
+        saved_json_file["revised_answering"] = revised_answering
         
         # Save npy file
         np.save(
-            os.path.join(save_npy_root_path, content["image_path"].replace(".jpg", ".npy")),
+            os.path.join(save_npy_root_path, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"]))),
             np.array(S_set)
         )
         
         # Save json file
         with open(
-            os.path.join(save_json_root_path, content["image_path"].replace(".jpg", ".json")), "w") as f:
+            os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"]))), "w") as f:
             f.write(json.dumps(saved_json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
     
 if __name__ == "__main__":
