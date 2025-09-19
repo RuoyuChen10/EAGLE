@@ -191,10 +191,10 @@ def main(args):
     select_contents = contents[args.begin : end]
     
     for content in tqdm(select_contents):
-        if os.path.exists(
-            os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
-        ):
-            continue
+        # if os.path.exists(
+        #     os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
+        # ):
+        #     continue
         
         image_path = os.path.join(args.Datasets, content["image_name"])
         

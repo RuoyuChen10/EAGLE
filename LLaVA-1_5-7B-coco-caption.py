@@ -1,6 +1,8 @@
 import os
 # Set the huggingface mirror and cache path
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
+# os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
+os.environ["HF_HUB_OFFLINE"] = "1"     # 禁止一切网络访问
+os.environ.pop("HF_ENDPOINT", None)    # 避免走镜像
 os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 
 import math
