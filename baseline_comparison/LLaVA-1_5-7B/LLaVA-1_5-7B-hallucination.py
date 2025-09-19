@@ -141,7 +141,7 @@ def perturbed(image, mask, rate = 0.5, mode = "insertion"):
     return perturbed_image.astype(np.uint8)
 
 def main(args):
-    # Load InternVL
+    # Load LLaVA
     model_name = "llava-hf/llava-1.5-7b-hf"
     # default: Load the model on the available device(s)
     model = LlavaForConditionalGeneration.from_pretrained(
@@ -209,7 +209,7 @@ def main(args):
         
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
         selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
-        InternVL.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
+        LLaVA.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         
         json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
         json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
@@ -246,10 +246,10 @@ def main(args):
             deletion_image = Image.fromarray(cv2.cvtColor(deletion_image, cv2.COLOR_BGR2RGB))
             
             with torch.no_grad():
-                insertion_scores = InternVL(insertion_image)
+                insertion_scores = LLaVA(insertion_image)
                 json_file["insertion_score"].append(insertion_scores.mean().item())
                 
-                deletion_scores = InternVL(deletion_image)
+                deletion_scores = LLaVA(deletion_image)
                 json_file["deletion_score"].append(deletion_scores.mean().item())
                 
                 messages_new = [
