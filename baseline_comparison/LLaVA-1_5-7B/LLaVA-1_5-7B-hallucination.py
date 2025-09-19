@@ -3,23 +3,19 @@ import os
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
 os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 
-import math
-import numpy as np
-import torchvision.transforms as T
-from decord import VideoReader, cpu
-from PIL import Image
+import cv2
+import json
 
+from transformers import AutoProcessor, LlavaForConditionalGeneration
+
+import argparse
 import torch
 from torch import nn
 import torchvision.transforms.functional as TF
-from transformers import AutoProcessor, LlavaForConditionalGeneration, AutoTokenizer
 
-import argparse
-import json
-import cv2
 import numpy as np
-from interpretation.submodular_vision import MLLMSubModularExplanationVision
 from utils import SubRegionDivision, mkdir
+from PIL import Image
 
 from tqdm import tqdm
 
@@ -41,29 +37,11 @@ def parse_args():
                         type=str,
                         default='datasets/LLaVA-1_5-7B-RePOPE-FP.json',
                         help='Datasets.')
-    parser.add_argument('--superpixel-algorithm',
-                        type=str,
-                        default="slico",
-                        choices=["slico", "seeds"],
-                        help="")
-    parser.add_argument('--lambda1', 
-                        type=float, default=1.,
-                        help='')
-    parser.add_argument('--lambda2', 
-                        type=float, default=1.,
-                        help='')
     parser.add_argument('--division-number', 
                         type=int, default=64,
                         help='')
-    parser.add_argument('--begin', 
-                        type=int, default=0,
-                        help='')
-    parser.add_argument('--end', 
-                        type=int, default=-1,
-                        help='')
-    parser.add_argument('--save-dir', 
-                        type=str, default='./interpretation_results/LLaVA-1_5-7B-RePOPE/',
-                        help='output directory to save results')
+    parser.add_argument('--eval-dir', 
+                        type=str, default='./baseline_results/LLaVA-1_5-7B-RePOPE/LLaVACAM')
     args = parser.parse_args()
     return args
 
@@ -141,6 +119,26 @@ class LLaVAAdaptor(torch.nn.Module):
                 
                 returned_logits = returned_logits.squeeze(-1)  # [1, N]
         return returned_logits[0]   # size [N]
+    
+def perturbed(image, mask, rate = 0.5, mode = "insertion"):
+    mask_flatten = mask.flatten()
+    number = int(len(mask_flatten) * rate)
+    
+    if mode == "insertion":
+        new_mask = np.zeros_like(mask_flatten)
+        index = np.argsort(-mask_flatten)
+        new_mask[index[:number]] = 1
+
+        
+    elif mode == "deletion":
+        new_mask = np.ones_like(mask_flatten)
+        index = np.argsort(-mask_flatten)
+        new_mask[index[:number]] = 0
+    
+    new_mask = new_mask.reshape((mask.shape[0], mask.shape[1], 1))
+    
+    perturbed_image = image * new_mask
+    return perturbed_image.astype(np.uint8)
 
 def main(args):
     # Load InternVL
@@ -156,7 +154,7 @@ def main(args):
 
     # default processor
     processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
+    # tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
     
     # Encapsulation Qwen
     LLaVA = LLaVAAdaptor(
@@ -164,39 +162,57 @@ def main(args):
         processor = processor
     )
     
-    # Submodular
-    smdl = MLLMSubModularExplanationVision(
-        LLaVA,
-        lambda1=args.lambda1,
-        lambda2=args.lambda2
-    )
+    save_json_root_path = os.path.join(args.eval_dir, "json")
+    mkdir(save_json_root_path)
+    
+    npy_dir = os.path.join(args.eval_dir, "npy")
+    
     
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
-        
-    mkdir(args.save_dir)
-    save_dir = os.path.join(args.save_dir, "{}-{}-{}-division-number-{}".format(args.superpixel_algorithm, args.lambda1, args.lambda2, args.division_number))
     
-    mkdir(save_dir)
-    
-    save_npy_root_path = os.path.join(save_dir, "npy")
-    mkdir(save_npy_root_path)
-    
-    save_json_root_path = os.path.join(save_dir, "json")
-    mkdir(save_json_root_path)
-    
-    end = args.end
-    if end == -1:
-        end = None
-    select_contents = contents[args.begin : end]
-    
-    for content in tqdm(select_contents):
+    for content in tqdm(contents):
+        image_path = os.path.join(args.Datasets, content["image_name"])
+        save_json_path = os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
+        text_prompt = prompt_template.format(content["question"])
+        saliency_map = np.load(
+            os.path.join(npy_dir, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"])))
+        )   # (375, 500)
+
         if os.path.exists(
-            os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"])))
+            save_json_path
         ):
             continue
+
+        image = cv2.imread(image_path)  # (375, 500, 3)
         
-        image_path = os.path.join(args.Datasets, content["image_name"])
+        if "IGOS_PP" in args.eval_dir:  # IGOS++ output is different than others
+            saliency_map = 1.0 - saliency_map
+        if "TAM" in args.eval_dir:
+            saliency_map = 1.0 - saliency_map
+        
+        if saliency_map.shape != image.shape[:2]:
+            H, W = image.shape[:2]
+            # 注意 cv2.resize 的输入是 (W, H)
+            saliency_map = cv2.resize(saliency_map, (W, H), interpolation=cv2.INTER_LINEAR)
+        
+        json_file = {}
+        json_file["question"] = content["question"]
+        json_file["label"] = content["label"]
+        json_file["id"] = content["id"]
+        json_file["counter_word_id"] = content["counter_word_id"]
+        json_file["words"] = content["words"]
+        json_file["insertion_score"] = []
+        json_file["deletion_score"] = []
+        json_file["region_area"] = []
+        json_file["revised_answering"] = []
+        
+        selected_interpretation_token_id = content["selected_interpretation_token_id"]
+        selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
+        InternVL.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
+        
+        json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
+        json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
         
         messages = [
             {
@@ -206,69 +222,51 @@ def main(args):
                         "type": "image",
                         "image": image_path,
                     },
-                    {"type": "text", "text": prompt_template.format(content["question"])},
+                    {"type": "text", "text": text_prompt},
                 ],
             }
         ]
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
         
-        selected_interpretation_token_id = content["selected_interpretation_token_id"]
-        selected_interpretation_token_word_id = content["counter_word_id"]
-        
-        LLaVA.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         LLaVA.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         LLaVA.selected_interpretation_token_word_id = selected_interpretation_token_word_id
-        
-        
-        text_prompt = prompt_template.format(content["question"])
         LLaVA.text_prompt = text_prompt
-        
-        image = cv2.imread(image_path)
-        
-        # Sub-region division
-        region_size = int((image.shape[0] * image.shape[1] / args.division_number) ** 0.5)
-        V_set = SubRegionDivision(image, mode=args.superpixel_algorithm, region_size = region_size)
-        
-        S_set, saved_json_file = smdl(image, V_set)
-        saved_json_file["question"] = content["question"]
-        saved_json_file["label"] = content["label"]
-        saved_json_file["counter_word_id"] = content["counter_word_id"]
-        saved_json_file["id"] = content["id"]
-        saved_json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
-        saved_json_file["selected_interpretation_token_word_id"] = selected_interpretation_token_word_id
-        saved_json_file["words"] = content["words"]
-        
-        # Revised answering under the insertion setting
-        revised_answering = []
-
-        S_set_add = S_set.copy()
-        S_set_add = np.array([S_set_add[0]-S_set_add[0]] + S_set_add)
-        image_baseline = cv2.resize(image, (S_set[0].shape[1], S_set[0].shape[0]))
-
-        insertion_image = (S_set[0] - S_set[0]) * image_baseline
-        for smdl_sub_mask in tqdm(S_set):
-            insertion_image = insertion_image + smdl_sub_mask * image_baseline
-            insertion_image_input = insertion_image.copy().astype(np.float32)
-            insertion_image_input = cv2.cvtColor(insertion_image_input, cv2.COLOR_BGR2RGB)
-            insertion_image_input = Image.fromarray(np.clip(insertion_image_input, 0, 255).astype(np.uint8))
+    
+        for i in range(1, args.division_number+1):
+            perturbed_rate = i / args.division_number
+            json_file["region_area"].append(perturbed_rate)
             
-            messages_new = [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "image": insertion_image_input,
-                        },
-                        {"type": "text", "text": prompt_template.format(content["question"])},
-                    ],
-                }
-            ]
+            # insertion
+            insertion_image = perturbed(image, saliency_map, rate = perturbed_rate, mode = "insertion")
+            insertion_image = Image.fromarray(cv2.cvtColor(insertion_image, cv2.COLOR_BGR2RGB))
             
-            # Preparation for inference
-            inputs = processor.apply_chat_template(messages_new, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+            # deletion
+            deletion_image = perturbed(image, saliency_map, rate = perturbed_rate, mode = "deletion")
+            deletion_image = Image.fromarray(cv2.cvtColor(deletion_image, cv2.COLOR_BGR2RGB))
+            
             with torch.no_grad():
+                insertion_scores = InternVL(insertion_image)
+                json_file["insertion_score"].append(insertion_scores.mean().item())
+                
+                deletion_scores = InternVL(deletion_image)
+                json_file["deletion_score"].append(deletion_scores.mean().item())
+                
+                messages_new = [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image",
+                                "image": insertion_image,
+                            },
+                            {"type": "text", "text": text_prompt},
+                        ],
+                    }
+                ]
+                # Preparation for inference
+                inputs = processor.apply_chat_template(messages_new, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
+                
                 generated_ids_revised = model.generate(
                     **inputs, 
                     do_sample=False,      # Disable sampling and use greedy search instead
@@ -278,24 +276,17 @@ def main(args):
                     out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids_revised)
                 ]
                 
-            output_text = processor.batch_decode(
-                generated_ids_trimmed_revised, skip_special_tokens=True, clean_up_tokenization_spaces=False
-            )
-            revised_answering.append(output_text[0])
-            
-        saved_json_file["revised_answering"] = revised_answering
-        
-        # Save npy file
-        np.save(
-            os.path.join(save_npy_root_path, content["image_name"].replace(".jpg", "_{}.npy".format(content["id"]))),
-            np.array(S_set)
-        )
-        
+                
+                output_text = processor.batch_decode(
+                    generated_ids_trimmed_revised, skip_special_tokens=True, clean_up_tokenization_spaces=False
+                )
+                json_file["revised_answering"].append(output_text[0])
+
         # Save json file
-        with open(
-            os.path.join(save_json_root_path, content["image_name"].replace(".jpg", "_{}.json".format(content["id"]))), "w") as f:
-            f.write(json.dumps(saved_json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
-    
+        with open(save_json_path, "w") as f:
+            f.write(json.dumps(json_file, ensure_ascii=False, indent=4, separators=(',', ':')))
+
+            
 if __name__ == "__main__":
     args = parse_args()
     

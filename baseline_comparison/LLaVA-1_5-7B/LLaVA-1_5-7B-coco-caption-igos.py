@@ -6,7 +6,7 @@ os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 import cv2
 import json
 
-from transformers import AutoProcessor, LlavaForConditionalGeneration
+from transformers import AutoProcessor, LlavaForConditionalGeneration, AutoTokenizer
 
 import argparse
 import torch
@@ -14,7 +14,6 @@ from torch import nn
 import torchvision.transforms.functional as TF
 
 import numpy as np
-from baselines.llavacam import LLaVACAM
 from utils import SubRegionDivision, mkdir
 
 from tqdm import tqdm
@@ -22,6 +21,10 @@ from tqdm import tqdm
 import json
 import cv2
 import numpy as np
+
+from baselines.IGOS_pp.utils import *
+from baselines.IGOS_pp.methods_helper import *
+from baselines.IGOS_pp.IGOS_pp import *
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
@@ -35,7 +38,7 @@ def parse_args():
                         default='datasets/LLaVA-1_5-7B-coco-caption.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-caption/LLaVACAM',
+                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-caption/IGOS_PP',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
@@ -57,8 +60,9 @@ def main(args):
 
     # default processor
     processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
 
-    explainer = LLaVACAM(model, processor, model.model.language_model.layers[13].post_attention_layernorm, mode="internvl")
+    explainer = gen_explanations_internvl
     
     with open(args.eval_list, "r") as f:
         contents = json.load(f)
@@ -83,34 +87,11 @@ def main(args):
             continue
         
         image_path = os.path.join(args.Datasets, content["image_path"])
-        
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image",
-                        "image": image_path,
-                    },
-                    {"type": "text", "text": text_prompt},
-                ],
-            }
-        ]
-        
-        # Preparation for inference
-        inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
-
-        selected_interpretation_token_id = content["selected_interpretation_token_id"]
-        selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
-        
-        explainer.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
-        explainer.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
-        explainer.selected_interpretation_token_word_id = selected_interpretation_token_word_id
     
-        image = cv2.imread(image_path)
+        image = Image.open(image_path).convert('RGB')
     
         # Sub-region division
-        heatmap = explainer.generate_smooth_cam(image_path, text_prompt)
+        heatmap, superimposed_img = explainer(model, processor, image, text_prompt, tokenizer)
         
         # Save npy file
         np.save(
@@ -118,11 +99,6 @@ def main(args):
             np.array(heatmap)
         )
         
-        heatmap = np.uint8(255 * heatmap)
-        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
-        original_image = cv2.imread(image_path)
-        superimposed_img = heatmap * 0.4 + original_image
-        superimposed_img = np.clip(superimposed_img, 0, 255).astype(np.uint8)
         cv2.imwrite(os.path.join(save_vis_root_path, content["image_path"]), superimposed_img)
         
 if __name__ == "__main__":

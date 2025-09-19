@@ -34,7 +34,7 @@ def parse_args():
                         type=int, default=64,
                         help='')
     parser.add_argument('--eval-dir', 
-                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-object/TAM')
+                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-object/LLaVACAM')
     args = parser.parse_args()
     return args
 
@@ -121,7 +121,6 @@ def perturbed(image, mask, rate = 0.5, mode = "insertion"):
         new_mask = np.zeros_like(mask_flatten)
         index = np.argsort(-mask_flatten)
         new_mask[index[:number]] = 1
-
         
     elif mode == "deletion":
         new_mask = np.ones_like(mask_flatten)

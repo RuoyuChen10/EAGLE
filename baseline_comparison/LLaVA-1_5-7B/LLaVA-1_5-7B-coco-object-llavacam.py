@@ -24,7 +24,7 @@ import cv2
 import numpy as np
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Submodular Explanation for Grounding DINO Model')
+    parser = argparse.ArgumentParser(description='LLaVACAM Explanation for Qwen2.5-VL-3B Model')
     # general
     parser.add_argument('--Datasets',
                         type=str,
@@ -32,10 +32,10 @@ def parse_args():
                         help='Datasets.')
     parser.add_argument('--eval-list',
                         type=str,
-                        default='datasets/LLaVA-1_5-7B-coco-caption.json',
+                        default='datasets/coco_single_target_once_llava-1_5-7B.json',
                         help='Datasets.')
     parser.add_argument('--save-dir', 
-                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-caption/LLaVACAM',
+                        type=str, default='./baseline_results/LLaVA-1_5-7B-coco-object/LLaVACAM',
                         help='output directory to save results')
     args = parser.parse_args()
     return args
@@ -73,8 +73,13 @@ def main(args):
     save_vis_root_path = os.path.join(save_dir, "vis")
     mkdir(save_vis_root_path)
     
-    # visualization_root_path = os.path.join(save_dir, "vis")
-    # mkdir(visualization_root_path)
+    # save_json_root_path = os.path.join(save_dir, "json")
+    # mkdir(save_json_root_path)
+    
+    # end = args.end
+    # if end == -1:
+    #     end = None
+    # select_contents = contents[args.begin : end]
     
     for content in tqdm(contents):
         if os.path.exists(
@@ -100,16 +105,16 @@ def main(args):
         # Preparation for inference
         inputs = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=True, return_dict=True, return_tensors="pt").to(model.device, dtype=torch.bfloat16)
 
-        selected_interpretation_token_id = content["selected_interpretation_token_id"]
-        selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
+        selected_interpretation_token_id = [content["target_generated_index"]]
+        selected_interpretation_token_word_id = [content["target_generated_id"]]
         
-        explainer.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
+        explainer.generated_ids = torch.tensor([content["generated_ids"]], dtype=torch.long).to(model.device).detach()
         explainer.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
         explainer.selected_interpretation_token_word_id = selected_interpretation_token_word_id
     
         image = cv2.imread(image_path)
     
-        # Sub-region division
+        # Generate heatmap using LLaVACAM
         heatmap = explainer.generate_smooth_cam(image_path, text_prompt)
         
         # Save npy file
@@ -118,10 +123,11 @@ def main(args):
             np.array(heatmap)
         )
         
-        heatmap = np.uint8(255 * heatmap)
-        heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        # Generate visualization
+        heatmap_vis = np.uint8(255 * heatmap)
+        heatmap_vis = cv2.applyColorMap(heatmap_vis, cv2.COLORMAP_JET)
         original_image = cv2.imread(image_path)
-        superimposed_img = heatmap * 0.4 + original_image
+        superimposed_img = heatmap_vis * 0.4 + original_image
         superimposed_img = np.clip(superimposed_img, 0, 255).astype(np.uint8)
         cv2.imwrite(os.path.join(save_vis_root_path, content["image_path"]), superimposed_img)
         
