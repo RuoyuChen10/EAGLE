@@ -42,7 +42,7 @@ def parse_args():
                         type=int, default=64,
                         help='')
     parser.add_argument('--eval-dir', 
-                        type=str, default='./baseline_results/Qwen2.5-VL-3B-RePOPE/TAM')
+                        type=str, default='./baseline_results/InternVL3_5-4B-RePOPE/TAM')
     args = parser.parse_args()
     return args
 

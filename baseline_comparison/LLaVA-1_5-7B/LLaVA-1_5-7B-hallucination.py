@@ -208,7 +208,7 @@ def main(args):
         json_file["revised_answering"] = []
         
         selected_interpretation_token_id = content["selected_interpretation_token_id"]
-        selected_interpretation_token_word_id = content["selected_interpretation_token_word_id"]
+        selected_interpretation_token_word_id = content["counter_word_id"]
         LLaVA.generated_ids = torch.tensor(content["generated_ids"], dtype=torch.long).to(model.device).detach()
         
         json_file["selected_interpretation_token_id"] = selected_interpretation_token_id
