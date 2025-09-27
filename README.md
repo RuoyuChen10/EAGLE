@@ -1,4 +1,4 @@
-<h2 align="center"> <a href="">Interpreting Multimodal Large Lanugage Models</a></h2>
+<h2 align="center"> <a href="">Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
 ## 📰 News & Update
