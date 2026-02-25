@@ -82,16 +82,16 @@ class EfficientMLLMSubModularExplanationVision(MLLMSubModularExplanationVision):
         
         alpha_batch = V_set_tensor + self.refer_baseline.unsqueeze(0)
         alpha_batch = alpha_batch.expand(-1, -1, -1, 3)
-        
+
         if len(S_set) == 0 or self.update_count % self.update_step == 0:
             # Positive samples search
             source_tensor = self.source_tensor.unsqueeze(0).expand(alpha_batch.shape[0], -1, -1, -1)
-            
+
         else:
             alpha_batch = alpha_batch[:self.search_scope]
             # Positive samples search with scope
             source_tensor = self.source_tensor.unsqueeze(0).expand(alpha_batch.shape[0], -1, -1, -1)
-        
+
         batch_input_images = alpha_batch * source_tensor    # torch.Size([51, 1365, 2048, 3])
         batch_input_images_reverse = (1 - alpha_batch) * source_tensor
         
