@@ -246,7 +246,7 @@ def visualization_mllm(image_path, S_set, saved_json_file, save_path=None):
         visualize_explanation(vis_saliency_map, None, None, bottom_vis=False)
     
     if save_path != None:
-        plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
+        plt.savefig(save_path, bbox_inches='tight', pad_inches=0, dpi=600)
     
     plt.close()
 

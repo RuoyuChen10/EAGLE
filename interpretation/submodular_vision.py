@@ -58,7 +58,7 @@ class MLLMSubModularExplanationVision(object):
             images (Tensor): _description_
         """
         results = []
-        for image in images:
+        for image in tqdm(images):
             output_logits = self.MLLM(image)
             results.append(output_logits)
             
