@@ -1,7 +1,9 @@
-<h2 align="center"> <a href="">Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation</a></h2>
+<h2 align="center"> <a href="https://arxiv.org/abs/2509.22496">[CVPR 2026 🔥] Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
 ## 📰 News & Update
+
+- **[2026.02.21]** Our paper has been accepted by CVPR 2026.
 
 - **[2025.05.03]** We begin by investigating the possibility of attribution in multimodal large language models (MLLMs).
 
@@ -38,10 +40,11 @@ Please explore it from the file [tutorial/Qwen25VL-Hallucination-Interpretation.
 
 |Hallucination Results Interpretation|Interpreting and Mitigating Hallucination|
 |--|--|
-|![](./examples/explanation_qwen25_hallucination_evidence.jpg) | ![](./examples/Hallucination-mitigation.png) |
+| None | ![](./examples/Hallucination-mitigation.png) |
 
 
 ## 🗝️ How to Run
 
 Prepare the datasets following [here](datasets/README.md).
 
+To be continue.
