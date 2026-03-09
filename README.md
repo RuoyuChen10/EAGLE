@@ -165,7 +165,7 @@ python visualize_ours.py \
 ```bibtex
 @inproceedings{chen2025mllms,
   title={Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation},
-  author={Chen, Ruoyu and Guo, Xiaoqing and Liu, Kangwei and Liang, Siyuan and Liu, Shiming and Zhang, Qunli and Zhang, Hua and Cao, Xiaochun},
+  author={Chen, Ruoyu and Guo, Xiaoqing and Liu, Kangwei and Liang, Siyuan and Liu, Shiming and Zhang, Qunli and Wang, Laiyuan and Zhang, Hua and Cao, Xiaochun},
   booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
   year={2026}
 }
