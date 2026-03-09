@@ -240,5 +240,6 @@ class EfficientMLLMSubModularExplanationVision(MLLMSubModularExplanationVision):
         self.V_set = V_set.copy()
         
         Submodular_Subset = self.get_merge_set()
+        self.saved_json_file["smdl_score"] = (np.array(self.saved_json_file["insertion_score"]) + 1 - np.array(self.saved_json_file["deletion_score"])).tolist()
         
         return Submodular_Subset, self.saved_json_file
