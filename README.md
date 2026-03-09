@@ -1,6 +1,12 @@
 <h2 align="center"> <a href="https://arxiv.org/abs/2509.22496">[CVPR 2026 🔥] Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation</a></h2>
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 
+[![arXiv](https://img.shields.io/badge/Arxiv-2509.22496-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2509.22496)
+
+<p align = "center">
+<img src=./examples/eagle.png width=100% />
+</p>
+
 ## 📰 News & Update
 
 - **[2026.03.10]** Efficient attribution version is update to the tutorial
