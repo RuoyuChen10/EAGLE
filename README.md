@@ -40,7 +40,7 @@ Please explore it from the file [tutorial/Qwen25VL-Hallucination-Interpretation.
 
 |Hallucination Results Interpretation|Interpreting and Mitigating Hallucination|
 |--|--|
-| None | ![](./examples/Hallucination-mitigation.png) |
+| ![](./examples/explanation_qwen25_hallucination_evidence.jpg) | ![](./examples/Hallucination-mitigation.png) |
 
 
 ## 🗝️ How to Run
