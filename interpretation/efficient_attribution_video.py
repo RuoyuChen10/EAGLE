@@ -6,7 +6,7 @@ import cv2
 from concurrent.futures import ThreadPoolExecutor
 from .submodular_vision import MLLMSubModularExplanationVision
 
-class EfficientMLLMSubModularExplanationVision(MLLMSubModularExplanationVision):
+class EfficientMLLMVideoSubModularExplanationVision(MLLMSubModularExplanationVision):
     """
     Black-box explanation of multimodal large language
     model (MLLM) based on submodular subset selection.
@@ -26,7 +26,7 @@ class EfficientMLLMSubModularExplanationVision(MLLMSubModularExplanationVision):
                  update_step=5,
                  # batch_size=4,
                  ):
-        super(EfficientMLLMSubModularExplanationVision, self).__init__(
+        super(EfficientMLLMVideoSubModularExplanationVision, self).__init__(
             model=model,
             preproccessing_function=preproccessing_function,
             lambda1=lambda1,
@@ -298,5 +298,6 @@ class EfficientMLLMSubModularExplanationVision(MLLMSubModularExplanationVision):
         self.V_set = V_set.copy()
 
         Submodular_Subset = self.get_merge_set()
+        self.saved_json_file["smdl_score"] = (np.array(self.saved_json_file["insertion_score"]) + 1 - np.array(self.saved_json_file["deletion_score"])).tolist()
 
         return Submodular_Subset, self.saved_json_file

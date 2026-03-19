@@ -9,6 +9,8 @@
 
 ## 📰 News & Update
 
+- **[2026.03.20]** Video explanation and API-based explanation is update to the tutorial
+
 - **[2026.03.10]** Efficient attribution version is update to the tutorial
 
 - **[2026.02.21]** Our paper has been accepted by CVPR 2026.
@@ -49,6 +51,31 @@ Please explore it from the file [tutorial/Qwen25VL-Hallucination-Interpretation.
 |Hallucination Results Interpretation|Interpreting and Mitigating Hallucination|
 |--|--|
 | ![](./examples/explanation_qwen25_hallucination_evidence.jpg) | ![](./examples/Hallucination-mitigation.png) |
+
+
+### Interpreting Video Understanding
+
+Please explore it from the file [tutorial/Video_interpretation.ipynb](./tutorial/Video_interpretation.ipynb).
+
+![](./examples/video_explanation.png)
+
+### Interpreting ChatGPT-API
+
+Please explore it from the file [tutorial/API_interpretation.ipynb](./tutorial/API_interpretation.ipynb).
+
+<table style="width:100%; table-layout:fixed; text-align:center;">
+  <tr>
+    <th>ChatGPT-5.2</th>
+    <th>Qwen2.5-VL</th>
+    <th>InternVL-3.5</th>
+  </tr>
+  <tr>
+    <td><img src="./examples/gpt_visualization.jpg" style="width:100%; height:290px; object-fit:cover;"></td>
+    <td><img src="./examples/explanation_cat_on_a_tree.jpg" style="width:100%; height:290px; object-fit:cover;"></td>
+    <td><img src="./examples/explanation_internvl_cat_on_a_tree.jpg" style="width:100%; height:290px; object-fit:cover;"></td>
+  </tr>
+</table>
+
 
 
 ## 🗝️ Reproduce the Results of the Paper
