@@ -196,10 +196,11 @@ python visualize_ours.py \
 ## ✏️ Citation
 
 ```bibtex
-@inproceedings{chen2025mllms,
+@inproceedings{chen2026mllms,
   title={Where MLLMs Attend and What They Rely On: Explaining Autoregressive Token Generation},
   author={Chen, Ruoyu and Guo, Xiaoqing and Liu, Kangwei and Liang, Siyuan and Liu, Shiming and Zhang, Qunli and Wang, Laiyuan and Zhang, Hua and Cao, Xiaochun},
-  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={17057--17066},
   year={2026}
 }
 ```
