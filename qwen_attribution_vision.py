@@ -1,6 +1,6 @@
 import os
 # Set the huggingface mirror and cache path
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
+# os.environ["HF_ENDPOINT"] = "https://hf-mirror.com" # for Chinese
 os.environ["HF_HOME"] = "./model_checkpoint/hf_cache"
 
 import cv2
@@ -35,6 +35,7 @@ class QwenVLAdaptor(torch.nn.Module):
         # The position of the token that needs to be explained in the newly generated content (include all tokens)
         self.target_token_position = None
         self.selected_interpretation_token_word_id = None
+        self.text_prompt = None
     
     def forward(self, image):
         """_summary_
@@ -60,6 +61,9 @@ class QwenVLAdaptor(torch.nn.Module):
                 ],},
             ]
         
+        if self.text_prompt is not None:
+            info[0]["content"].append({"type": "text", "text": self.text_prompt})
+        
         # Preparation for inference
         text = self.processor.apply_chat_template(
             info, tokenize=False, add_generation_prompt=True)
@@ -71,9 +75,22 @@ class QwenVLAdaptor(torch.nn.Module):
             padding=True,
             return_tensors="pt",
         )
-        self.generated_ids = self.generated_ids[:max(self.target_token_position)]   #bug
-        inputs['input_ids'] = self.generated_ids
-        inputs['attention_mask'] = torch.ones_like(self.generated_ids)
+        generated_ids = self.generated_ids[:, :max(self.target_token_position)]
+        inputs['input_ids'] = generated_ids
+        inputs['attention_mask'] = torch.ones_like(generated_ids)
+        if "mm_token_type_ids" in inputs:
+            mm_token_type_ids = inputs["mm_token_type_ids"]
+            if mm_token_type_ids.shape[1] < generated_ids.shape[1]:
+                text_tail = torch.zeros(
+                    (mm_token_type_ids.shape[0], generated_ids.shape[1] - mm_token_type_ids.shape[1]),
+                    dtype=mm_token_type_ids.dtype,
+                )
+                mm_token_type_ids = torch.cat([mm_token_type_ids, text_tail], dim=1)
+            inputs["mm_token_type_ids"] = mm_token_type_ids[:, :generated_ids.shape[1]]
+        # These fields are tied to the processor-created prompt length. After
+        # replacing input_ids with the generated sequence, let Qwen recompute them.
+        for stale_key in ("token_type_ids", "position_ids", "cache_position"):
+            inputs.pop(stale_key, None)
         inputs = inputs.to(self.model.device)    # dict_keys(['input_ids', 'attention_mask', 'pixel_values', 'image_grid_thw'])
         
         # Forward calculation to get all logits (including the logits of the input part)
@@ -122,7 +139,7 @@ def main():
     )
 
     # Load image
-    image_path = "./demo.jpeg"
+    image_path = "./examples/cat_on_a_tree.jpg"
     text_prompt = "Describe this image."
     messages = [
         {
@@ -188,6 +205,7 @@ def main():
     Qwen.generated_ids = generated_ids
     Qwen.target_token_position = np.array(selected_interpretation_token_id) + len(inputs['input_ids'][0])
     Qwen.selected_interpretation_token_word_id = selected_interpretation_token_word_id
+    Qwen.text_prompt = text_prompt
     
     # returned_logits = Qwen(image_path)
     # print(returned_logits)
