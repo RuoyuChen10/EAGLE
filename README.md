@@ -9,6 +9,8 @@
 
 ## 📰 News & Update
 
+- **[2026.06.13]** Our method supports batch computation. Please refer to `efficient-batch-inference.py`.
+
 - **[2026.03.20]** Video explanation and API-based explanation is update to the tutorial
 
 - **[2026.03.10]** Efficient attribution version is update to the tutorial
