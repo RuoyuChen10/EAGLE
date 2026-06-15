@@ -9,6 +9,8 @@
 
 ## 📰 News & Update
 
+- **[2026.06.15]** Text attribution has been implemented. Please refer to `efficient-batch-inference-text.py`.
+
 - **[2026.06.13]** Our method supports batch computation. Please refer to `efficient-batch-inference.py`.
 
 - **[2026.03.20]** Video explanation and API-based explanation is update to the tutorial
@@ -194,6 +196,43 @@ python visualize_ours.py \
     --Datasets datasets/coco/val2017 \
     --explanation-dir ./baseline_results/Qwen2.5-VL-3B-coco-caption/LLaVACAM
 ```
+
+## Text Attribution
+
+We provide an efficient batch inference pipeline for pure text attribution in `efficient-batch-inference-text.py`. The script first renders the system and user prompts with the Qwen chat template, generates the model response, builds input-side text regions, and then runs perturbation-based attribution over those regions in batches.
+
+A basic run is:
+
+```shell
+python efficient-batch-inference-text.py \
+    --model-name Qwen/Qwen3-8B \
+    --system-prompt "You are a precise assistant. Answer with a concise explanation." \
+    --user-prompt "Explain why batch inference can make perturbation-based attribution faster." \
+    --output-dir ./text_attribution_outputs/demo
+```
+
+By default, the input prompt is attributed at sentence granularity to keep the candidate regions sparse. You can change the input region granularity with `--input-granularity`:
+
+```shell
+# Sentence-level input attribution, the default sparse setting
+python efficient-batch-inference-text.py --input-granularity sentence
+
+# Message-level input attribution, one region for the system prompt and one for the user prompt
+python efficient-batch-inference-text.py --input-granularity message
+
+# Original fine-grained behavior: word/CJK-run/punctuation readable spans
+python efficient-batch-inference-text.py --input-granularity readable
+```
+
+Useful runtime options include `--batch-size` for batched perturbation inference, `--search-scope`, `--pending-samples`, and `--update-step` for the efficient submodular search, `--mask-strategy replace|attention` for input masking, and `--target-token-limit` if you only want to explain the first generated tokens.
+
+The output directory contains:
+
+- `text_attribution_result.json`: full attribution metadata, selected input regions, generated output, and insertion/deletion curves.
+- `insertion_deletion_scores.csv`: step-wise insertion, deletion, and SMDL scores.
+- `text_attribution_visualization.html` and `text_saliency_map.svg`: input-side attribution visualizations.
+- `output_token_input_influence.*`: per-output-token input influence reports.
+- `combined_attribution_report.svg`: a compact report combining input attribution and output influence.
 
 ## ✏️ Citation
 
