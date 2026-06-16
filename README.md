@@ -80,6 +80,12 @@ Please explore it from the file [tutorial/API_interpretation.ipynb](./tutorial/A
   </tr>
 </table>
 
+### Large Language Models Explanation
+
+Result:
+
+![](./examples/combined_attribution_report.svg)
+
 
 
 ## 🗝️ Reproduce the Results of the Paper
@@ -233,6 +239,7 @@ The output directory contains:
 - `text_attribution_visualization.html` and `text_saliency_map.svg`: input-side attribution visualizations.
 - `output_token_input_influence.*`: per-output-token input influence reports.
 - `combined_attribution_report.svg`: a compact report combining input attribution and output influence.
+
 
 ## ✏️ Citation
 
