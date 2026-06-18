@@ -65,7 +65,23 @@ def _chip_label(text):
 
 
 def _chip_width(label):
-    return max(30, min(360, 18 + len(label) * 8.12))
+    return max(30, min(760, 18 + len(label) * 8.12))
+
+
+def _chip_lines(label, width):
+    max_chars = max(1, int((width - 18) / 7.8))
+    return textwrap.wrap(
+        label,
+        width=max_chars,
+        replace_whitespace=False,
+        drop_whitespace=False,
+        break_long_words=True,
+        break_on_hyphens=False,
+    ) or [" "]
+
+
+def _chip_height(lines):
+    return max(CHIP_H, 13 + len(lines) * 17)
 
 
 def _input_color(score):
@@ -97,22 +113,32 @@ def _span_scores(saved_json_file, span_count):
 
 def _chip_flow(elements, items, y, color_fn, title_prefix):
     x = CONTENT_X
+    row_h = CHIP_H
     for item in items:
         label = _chip_label(item["label"])
         w = _chip_width(label)
         if x + w > CONTENT_RIGHT:
             x = CONTENT_X
-            y += CHIP_H + CHIP_GAP_Y
+            y += row_h + CHIP_GAP_Y
+            row_h = CHIP_H
+        lines = _chip_lines(label, w)
+        h = _chip_height(lines)
         title = _esc(f"{title_prefix} {item['title']} {item['raw_score']:.4f}")
         fill = color_fn(item["norm_score"])
+        line_elements = []
+        for line_index, line in enumerate(lines):
+            line_elements.append(
+                f'<text x="{x + 9}" y="{y + 18 + line_index * 17}" font-size="14" fill="#172033" xml:space="preserve">{_esc(line)}</text>'
+            )
         elements.append(
             f'<g><title>{title}</title>'
-            f'<rect x="{x}" y="{y}" width="{w}" height="{CHIP_H}" rx="5" fill="{fill}" stroke="rgba(23,32,51,0.14)"/>'
-            f'<text x="{x + 9}" y="{y + 18}" font-size="14" fill="#172033" xml:space="preserve">{_esc(label[:42])}</text>'
-            "</g>"
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="5" fill="{fill}" stroke="rgba(23,32,51,0.14)"/>'
+            + "".join(line_elements)
+            + "</g>"
         )
         x += w + CHIP_GAP_X
-    return y + CHIP_H + 44
+        row_h = max(row_h, h)
+    return y + row_h + 44
 
 
 def _input_items(saved_json_file, role):

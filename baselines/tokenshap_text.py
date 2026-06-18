@@ -21,13 +21,8 @@ def _as_list(value):
 
 
 def _normalize_tokenshap(values):
-    values = np.asarray(values, dtype=np.float32)
-    if values.size == 0:
-        return values
-    shifted = values - values.min()
-    total = float(shifted.sum())
-    if total > 1e-8:
-        return shifted / total
+    # Min-max normalization is for visualization. Probability-style
+    # normalization makes each span nearly white when there are many spans.
     return normalize_scores(values)
 
 

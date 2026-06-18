@@ -62,25 +62,25 @@ def main(args):
         deletion_score = np.array([saved_json_file["insertion_score"][-1]] + saved_json_file["deletion_score"])
         
         # sensitiveity word
-        sensitiveity_index = (np.array(saved_json_file["insertion_word_score"][-1]) - np.array(saved_json_file["deletion_word_score"][-1])) > args.sensitiveity
-        if sensitiveity_index.sum() >0:
-            insertion_sensitiveity_auc_score = [
-                np.array(saved_json_file["deletion_word_score"][-1])[sensitiveity_index].mean()
-            ]
-            deletion_sensitiveity_auc_score = [
-                np.array(saved_json_file["insertion_word_score"][-1])[sensitiveity_index].mean()
-            ]
-        
-            for insertion_word_score in saved_json_file["insertion_word_score"]:
-                insertion_sensitiveity_auc_score.append(
-                    np.array(insertion_word_score)[sensitiveity_index].mean()
-                )
-            insertion_sensitiveity_auc_score = np.array(insertion_sensitiveity_auc_score)
-            for deletion_word_score in saved_json_file["deletion_word_score"]:
-                deletion_sensitiveity_auc_score.append(
-                    np.array(deletion_word_score)[sensitiveity_index].mean()
-                )
-            deletion_sensitiveity_auc_score = np.array(deletion_sensitiveity_auc_score)
+        # sensitiveity_index = (np.array(saved_json_file["insertion_word_score"][-1]) - np.array(saved_json_file["deletion_word_score"][-1])) > args.sensitiveity
+        # if sensitiveity_index.sum() >0:
+        insertion_sensitiveity_auc_score = [
+            np.array(saved_json_file["deletion_word_score"][-1])[:10].mean()
+        ]
+        deletion_sensitiveity_auc_score = [
+            np.array(saved_json_file["insertion_word_score"][-1])[:10].mean()
+        ]
+    
+        for insertion_word_score in saved_json_file["insertion_word_score"]:
+            insertion_sensitiveity_auc_score.append(
+                np.array(insertion_word_score)[:10].mean()
+            )
+        insertion_sensitiveity_auc_score = np.array(insertion_sensitiveity_auc_score)
+        for deletion_word_score in saved_json_file["deletion_word_score"]:
+            deletion_sensitiveity_auc_score.append(
+                np.array(deletion_word_score)[:10].mean()
+            )
+        deletion_sensitiveity_auc_score = np.array(deletion_sensitiveity_auc_score)
         
         # Computing AUC
         insertion_auc = metrics.auc(insertion_area, insertion_score)
@@ -89,21 +89,21 @@ def main(args):
         insertion_aucs.append(insertion_auc)
         deletion_aucs.append(deletion_auc)
         
-        if sensitiveity_index.sum() >0:
-            insertion_sensitiveity_auc = metrics.auc(insertion_area, insertion_sensitiveity_auc_score)
-            deletion_sensitiveity_auc = metrics.auc(deletion_area, deletion_sensitiveity_auc_score)
+        # if sensitiveity_index.sum() >0:
+        insertion_sensitiveity_auc = metrics.auc(insertion_area, insertion_sensitiveity_auc_score)
+        deletion_sensitiveity_auc = metrics.auc(deletion_area, deletion_sensitiveity_auc_score)
 
-            insertion_sensitiveity_aucs.append(insertion_sensitiveity_auc)
-            deletion_sensitiveity_aucs.append(deletion_sensitiveity_auc)
+        insertion_sensitiveity_aucs.append(insertion_sensitiveity_auc)
+        deletion_sensitiveity_aucs.append(deletion_sensitiveity_auc)
         
         # highest cls
         highest_score.append(
             insertion_score.max()
         )
-        if sensitiveity_index.sum() >0:
-            highest_score_sensitiveity.append(
-                insertion_sensitiveity_auc_score.max()
-            )
+        # if sensitiveity_index.sum() >0:
+        highest_score_sensitiveity.append(
+            insertion_sensitiveity_auc_score.max()
+        )
     
     insertion_auc_score = np.array(insertion_aucs).mean()
     deletion_auc_score = np.array(deletion_aucs).mean()

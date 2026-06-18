@@ -6,9 +6,9 @@ python efficient-batch-inference-text.py \
   --user-prompt $'# Current Task\n\nAlice needs to buy milk before going home.\n\nThe supermarket closes at 8 PM.\n\nIt is now 7:30 PM.\n\nWalking to the supermarket takes 20 minutes, and walking from the supermarket to home takes 15 minutes.\n\nCan Alice buy milk before the supermarket closes?' \
   --max-new-tokens 512 \
   --target-token-limit 512 \
-  --input-granularity readable \
-  --search-scope 8 \
-  --pending-samples 4 \
-  --update-step 50 \
+  --input-granularity sentence \
+  --search-scope 30 \
+  --pending-samples 10 \
+  --update-step 40 \
   --batch-size 200 \
-  --output-dir ./text_attribution_outputs/text_attribution_outputs_refined
+  --output-dir ./text_attribution_outputs/text_attribution_outputs_refined_sentences
