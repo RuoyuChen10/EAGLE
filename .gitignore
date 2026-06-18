@@ -19,6 +19,14 @@ hf_cache/
 # Generated attribution outputs
 text_attribution_outputs/
 text_attribution_outputs_*/
+gradient_text_attribution_outputs/
+gradient_text_attribution_outputs_*/
+input_gradient_text_attribution_outputs/
+input_gradient_text_attribution_outputs_*/
+atman_text_attribution_outputs/
+atman_text_attribution_outputs_*/
+tokenshap_text_attribution_outputs/
+tokenshap_text_attribution_outputs_*/
 
 # Logs and temporary files
 *.log
