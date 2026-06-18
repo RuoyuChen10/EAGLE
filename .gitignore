@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Model and dataset caches
+model_checkpoint/
+hf_cache/
+
+# Generated attribution outputs
+text_attribution_outputs/
+text_attribution_outputs_*/
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
