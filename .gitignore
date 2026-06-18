@@ -32,3 +32,6 @@ tokenshap_text_attribution_outputs_*/
 *.log
 *.tmp
 .DS_Store
+
+# Local scratch evaluation scripts
+/eval_AUC_faithfulness.py
