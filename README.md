@@ -84,7 +84,7 @@ Please explore it from the file [tutorial/API_interpretation.ipynb](./tutorial/A
 
 Result:
 
-![](./examples/combined_attribution_report.svg)
+![](./examples/text_attribution.svg)
 
 
 
